@@ -1,0 +1,29 @@
+/* Reset och grundinställningar */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; line-height: 1.6; color: #222; }
+
+/* Header och navigation */
+.header { border-bottom: 1px solid #eee; background: white; }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
+.nav ul { list-style: none; display: flex; gap: 1rem; }
+.nav a { text-decoration: none; color: #222; font-weight: 500; }
+.logo img { height: 36px; width: auto; }
+
+/* Hero-sektion */
+.hero { padding: 3rem 1rem; text-align: center; background: #f6f7f8; }
+.hero h1 { font-size: 2rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.1rem; color: #555; }
+
+/* Sektioner */
+.section { padding: 2rem 1rem; max-width: 900px; margin: auto; }
+.section h2 { margin-bottom: 1rem; color: #222; }
+.section p { color: #555; line-height: 1.5; }
+
+/* Footer */
+.footer { text-align: center; padding: 1.5rem; font-size: 0.9rem; color: #666; }
+
+/* Responsivitet */
+@media (min-width: 768px) { 
+  .hero { padding: 5rem 2rem; }
+  .logo img { height: 44px; }
+}
