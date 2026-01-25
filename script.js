@@ -1,33 +1,44 @@
-// Minimal JavaScript for mobile menu and copyright
+// Topklass JavaScript - minimal och funktionell
 document.addEventListener('DOMContentLoaded', function() {
-    // Update copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Mobile menu toggle
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    // Mobile menu
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
     
-    if (menuBtn && navLinks) {
+    if (menuBtn && mainNav) {
         menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            mainNav.classList.toggle('active');
+            menuBtn.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
         });
         
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
+        // Close menu on link click
+        mainNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                mainNav.classList.remove('active');
                 menuBtn.textContent = '☰';
             });
         });
     }
     
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (navLinks && navLinks.classList.contains('active') && 
-            !e.target.closest('.navbar')) {
-            navLinks.classList.remove('active');
-            menuBtn.textContent = '☰';
-        }
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const offset = 80;
+                const targetPosition = targetElement.offsetTop - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
