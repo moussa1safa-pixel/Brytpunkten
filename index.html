@@ -1,227 +1,122 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brytpunkten | Ideell förening för brottsförebyggande arbete</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .animation-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        
+        /* Boll som faller */
+        .ball {
+            width: 120px;
+            height: 120px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            left: 90px;
+            animation: fall 2s forwards;
+        }
+        
+        @keyframes fall {
+            0% { top: -150px; transform: scale(1); }
+            70% { top: 90px; transform: scale(1); }
+            100% { top: 90px; transform: scale(1); }
+        }
+        
+        /* Sprickor */
+        .crack {
+            position: absolute;
+            width: 5px;
+            height: 40px;
+            background: white;
+            left: 147px;
+            top: 110px;
+            opacity: 0;
+            animation: appear 0.5s 2s forwards;
+        }
+        
+        .crack-2 {
+            transform: rotate(90deg);
+            top: 130px;
+            left: 137px;
+            animation-delay: 2.1s;
+        }
+        
+        @keyframes appear {
+            to { opacity: 1; }
+        }
+        
+        /* Bollens delar som flyger isär */
+        .piece {
+            width: 60px;
+            height: 120px;
+            background: black;
+            border-radius: 60px 0 0 60px;
+            position: absolute;
+            top: 90px;
+            opacity: 0;
+            animation: breakApart 1s 2.5s forwards;
+        }
+        
+        .piece-right {
+            right: 90px;
+            border-radius: 0 60px 60px 0;
+            animation-name: breakApartRight;
+        }
+        
+        @keyframes breakApart {
+            to { 
+                opacity: 1;
+                left: 60px;
+                transform: rotate(-15deg);
+            }
+        }
+        
+        @keyframes breakApartRight {
+            to { 
+                opacity: 1;
+                right: 60px;
+                transform: rotate(15deg);
+            }
+        }
+        
+        /* Loggan som kommer fram */
+        .logo-emerge {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: #D35400;
+            border-radius: 50%;
+            top: 110px;
+            left: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            opacity: 0;
+            animation: emerge 1s 3s forwards;
+        }
+        
+        @keyframes emerge {
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <!-- HEADER - Exakt som FN-förbundet -->
-    <header class="site-header">
-        <div class="container header-container">
-            <div class="logo-container">
-                <a href="/" class="site-logo">
-                    <img src="logo.png" alt="Brytpunkten" class="logo-img">
-                    <div class="logo-text">
-                        <span class="logo-title">Brytpunkten</span>
-                        <span class="logo-subtitle">När vi bryter mönster</span>
-                    </div>
-                </a>
-            </div>
-            
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="#verksamhet">Vår verksamhet</a></li>
-                    <li><a href="#metod">Vår metod</a></li>
-                    <li><a href="#resultat">Resultat</a></li>
-                    <li><a href="#samverkan">Samverkan</a></li>
-                    <li><a href="#kontakt" class="nav-button">Kontakt</a></li>
-                </ul>
-            </nav>
-            
-            <button class="mobile-menu-btn" aria-label="Meny">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- HERO - Ren och seriös som FN -->
-    <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Brytning av sociala och kriminella mönster</h1>
-                <p class="hero-lead">Brytpunkten är en ideell förening som arbetar med brottsförebyggande insatser och stöd till vuxna med kriminell bakgrund för att skapa ett tryggare samhälle.</p>
-                <div class="hero-actions">
-                    <a href="#stod" class="btn btn-primary">Stöd vårt arbete</a>
-                    <a href="#läs-mer" class="btn btn-secondary">Läs mer om oss</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="visual-placeholder">
-                    <!-- Plats för bild eller grafisk element -->
-                    <div class="placeholder-content">
-                        <span>Brytpunkten</span>
-                        <em>Ideell förening</em>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VÅR VERKSAMHET - 3 kort -->
-    <section class="section section-cards" id="verksamhet">
-        <div class="container">
-            <h2 class="section-title">Vår verksamhet</h2>
-            <p class="section-intro">Vi arbetar på två fronter för att bryta negativa mönster i samhället.</p>
-            
-            <div class="cards-container">
-                <article class="card">
-                    <div class="card-icon">🛡️</div>
-                    <h3 class="card-title">Förebyggande arbete</h3>
-                    <p class="card-text">Skolbesök, workshops och informationsinsatser riktade till unga i riskmiljöer för att förebygga kriminalitet innan den börjar.</p>
-                </article>
-                
-                <article class="card">
-                    <div class="card-icon">🤝</div>
-                    <h3 class="card-title">Stöd och coachning</h3>
-                    <p class="card-text">Individuellt stöd och motivation till vuxna med kriminell bakgrund för att lämna kriminalitet och etablera sig i samhället.</p>
-                </article>
-                
-                <article class="card">
-                    <div class="card-icon">🏛️</div>
-                    <h3 class="card-title">Samverkan</h3>
-                    <p class="card-text">Täta samarbeten med myndigheter, frivården, socialtjänsten och lokala organisationer för störst möjliga påverkan.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- VÅR METOD - två kolumner -->
-    <section class="section section-alt" id="metod">
-        <div class="container">
-            <h2 class="section-title">Vår metod</h2>
-            
-            <div class="method-grid">
-                <div class="method-item">
-                    <h3>Struktur och dokumentation</h3>
-                    <p>Alla insatser dokumenteras och följs upp systematisk för att säkerställa kvalitet och måluppfyllelse. Vi arbetar enligt beprövade metoder.</p>
-                </div>
-                
-                <div class="method-item">
-                    <h3>Individanpassat stöd</h3>
-                    <p>Varje persons situation är unik. Vi skapar individuella planer med fokus på motivation, praktisk hjälp och långsiktig förändring.</p>
-                </div>
-                
-                <div class="method-item">
-                    <h3>Preventivt fokus</h3>
-                    <p>Genom tidiga insatser riktade till unga kan vi förebygga problem innan de uppstår, vilket är både effektivt och samhällsekonomiskt.</p>
-                </div>
-                
-                <div class="method-item">
-                    <h3>Kunskapsbyggande</h3>
-                    <p>Vi sprider kunskap om brottsförebyggande arbete och delar erfarenheter med andra aktörer i samhället.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SAMVERKAN - som FN-förbundets partners -->
-    <section class="section" id="samverkan">
-        <div class="container">
-            <h2 class="section-title">Samverkan</h2>
-            <p class="section-intro">Vi samarbetar med ett brett nätverk av myndigheter och organisationer.</p>
-            
-            <div class="partners-grid">
-                <div class="partner-item">
-                    <div class="partner-icon">⚖️</div>
-                    <h4>Myndigheter</h4>
-                    <p>Kriminalvården, Socialtjänsten, Arbetsförmedlingen</p>
-                </div>
-                
-                <div class="partner-item">
-                    <div class="partner-icon">🏢</div>
-                    <h4>Kommuner</h4>
-                    <p>Lokala samarbeten i flera regioner</p>
-                </div>
-                
-                <div class="partner-item">
-                    <div class="partner-icon">🤲</div>
-                    <h4>Ideella organisationer</h4>
-                    <p>Nätverk för brottsförebyggande arbete</p>
-                </div>
-                
-                <div class="partner-item">
-                    <div class="partner-icon">💼</div>
-                    <h4>Företag</h4>
-                    <p>Praktikplatser och arbetsmöjligheter</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KONTAKT/STÖD - tydlig call-to-action -->
-    <section class="section section-cta" id="kontakt">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Stöd vårt arbete</h2>
-                <p class="cta-text">Brytpunkten finansieras genom bidrag och samverkansavtal. Kontakta oss för att diskutera hur du eller din organisation kan stödja vårt arbete.</p>
-                
-                <div class="cta-contacts">
-                    <div class="contact-item">
-                        <strong>För samverkansfrågor:</strong>
-                        <a href="mailto:samverkan@brytpunkten.org">samverkan@brytpunkten.org</a>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <strong>Allmänna frågor:</strong>
-                        <a href="mailto:kontakt@brytpunkten.org">kontakt@brytpunkten.org</a>
-                    </div>
-                </div>
-                
-                <a href="mailto:samverkan@brytpunkten.org" class="btn btn-large">Kontakta oss för samverkan</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER - exakt som FN-förbundet -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-about">
-                    <div class="footer-logo">
-                        <img src="logo.png" alt="Brytpunkten" height="40">
-                        <div class="footer-logo-text">
-                            <span>Brytpunkten</span>
-                            <small>Ideell förening</small>
-                        </div>
-                    </div>
-                    <p class="footer-description">En ideell förening med socialt och brottsförebyggande syfte. Partipolitiskt och religiöst obunden.</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Kontakt</h3>
-                    <address class="footer-contact">
-                        <p><strong>E-post:</strong> <a href="mailto:kontakt@brytpunkten.org">kontakt@brytpunkten.org</a></p>
-                        <p><strong>Telefon:</strong> <a href="tel:+46701234567">070-123 45 67</a></p>
-                        <p><strong>Organisationsnummer:</strong> 802012-3456</p>
-                    </address>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Länkar</h3>
-                    <ul class="footer-links">
-                        <li><a href="#verksamhet">Vår verksamhet</a></li>
-                        <li><a href="#metod">Vår metod</a></li>
-                        <li><a href="#resultat">Resultat</a></li>
-                        <li><a href="#samverkan">Samverkan</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="footer-copyright">&copy; <span id="current-year">2024</span> Brytpunkten. Alla rättigheter förbehållna.</p>
-                <div class="footer-legal">
-                    <a href="#integritet">Integritetspolicy</a>
-                    <a href="#cookies">Cookiepolicy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <h3>Testanimation: Boll som bryts</h3>
+    <div class="animation-container">
+        <div class="ball"></div>
+        <div class="crack"></div>
+        <div class="crack crack-2"></div>
+        <div class="piece"></div>
+        <div class="piece piece-right"></div>
+        <div class="logo-emerge">BP</div>
+    </div>
+    
+    <p style="margin-top: 20px;">Ser du animationen? Bollen faller → spricker → bryts → loggan kommer.</p>
 </body>
 </html>
