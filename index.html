@@ -7,81 +7,136 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation - Ren och professionell -->
+    <!-- NAV - Ren som Klarna -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <!-- BYT UT SRC TILL DIN LOGGA-FIL -->
-                <img src="logga.png" alt="Brytpunkten" height="30" class="footer-logo">
+                <img src="logo.png" alt="Brytpunkten" height="40">
             </a>
             <div class="nav-links">
-                <a href="#verksamhet">Verksamhet</a>
-                <a href="#resultat">Resultat</a>
-                <a href="#samverkan">Samverkan</a>
-                <a href="#kontakt" class="btn-nav-contact">Kontakt</a>
+                <a href="#om">Om oss</a>
+                <a href="#varfor">Varför</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="#stod" class="btn-nav">Stöd oss</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION med partiklar -->
+    <!-- HERO - Vit med svarta partiklar -->
     <section class="hero">
-        <div class="particles-container" id="particles-js">
-            <!-- Partiklarna ritas här av script.js -->
-        </div>
+        <div class="particles-container" id="particles-js"></div>
         <div class="container hero-content">
-            <h1 class="hero-title">
-                <span class="hero-title-line">När vi bryter</span>
-                <span class="hero-title-line accent">mönster</span>
-            </h1>
+            <h1 class="hero-title">När vi bryter mönster</h1>
             <p class="hero-subtitle">
-                Brytpunkten är en ideell förening med ett socialt och brottsförebyggande syfte. 
-                Vi skapar mätbara resultat genom strukturerat stöd och preventivt arbete.
+                En ideell förening som stöttar vuxna ur kriminalitet och 
+                förebygger brott bland unga genom strukturerat stöd och preventivt arbete.
             </p>
-            <div class="hero-cta">
-                <a href="#stod" class="btn btn-primary btn-hero">
-                    Stöd vårt arbete <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#verksamhet" class="btn btn-secondary">
-                    Läs om vår metod
-                </a>
-            </div>
+            <a href="#stod" class="btn btn-hero">Stöd vårt arbete</a>
         </div>
-        <a href="#verksamhet" class="hero-scroll-hint">
-            <i class="fas fa-chevron-down"></i>
-        </a>
+        <div class="hero-scroll">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </div>
     </section>
 
-    <!-- Ytterligare sektioner kommer här... -->
+    <!-- INFO-SEKTION - 3 kort med bild + fråga/svar -->
+    <section class="info-section" id="om">
+        <div class="container">
+            <div class="section-header">
+                <h2>Vår verksamhet i korthet</h2>
+                <p>Vi arbetar på två fronter för att bryta negativa mönster</p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Kort 1 -->
+                <div class="info-card">
+                    <div class="card-icon">👥</div>
+                    <h3>För vuxna</h3>
+                    <p>Individuellt stöd, motivation, praktisk hjälp med boende, arbete och kontakt med myndigheter för att lämna kriminaliteten.</p>
+                </div>
+                
+                <!-- Kort 2 -->
+                <div class="info-card">
+                    <div class="card-icon">🧒</div>
+                    <h3>För unga</h3>
+                    <p>Förebyggande insatser, skolbesök, workshops och information om konsekvenser för att stoppa innan det börjar.</p>
+                </div>
+                
+                <!-- Kort 3 -->
+                <div class="info-card">
+                    <div class="card-icon">🤝</div>
+                    <h3>I samverkan</h3>
+                    <p>Täta samarbeten med myndigheter, frivården, socialtjänst och lokala organisationer för störst möjliga påverkan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- FOOTER med fiktiv info -->
+    <!-- VARFÖR-SEKTION - Q&A format -->
+    <section class="qa-section" id="varfor">
+        <div class="container">
+            <div class="section-header">
+                <h2>Varför Brytpunkten?</h2>
+                <p>Svar på vanliga frågor från samarbetspartners och bidragsgivare</p>
+            </div>
+            
+            <div class="qa-grid">
+                <div class="qa-item">
+                    <h3>Vad gör er unika?</h3>
+                    <p>Vi kombinerar direkt stöd till vuxna med förebyggande arbete bland unga – en helhetslösning som bryter mönster i båda ändar.</p>
+                </div>
+                
+                <div class="qa-item">
+                    <h3>Hur mäter ni resultat?</h3>
+                    <p>All insats dokumenteras och följs upp. Vi mäter återfall, etablering i arbete/utbildning, och deltagarnas egna upplevelser av förändring.</p>
+                </div>
+                
+                <div class="qa-item">
+                    <h3>Vem kan samarbeta med er?</h3>
+                    <p>Kommuner, myndigheter, företag och andra organisationer som vill investera i brottsförebyggande och socialt inkluderande arbete.</p>
+                </div>
+                
+                <div class="qa-item">
+                    <h3>Vad behöver ni för stöd?</h3>
+                    <p>Finansiellt stöd för att nå fler, lokaler för träffar, praktikplatser för deltagare, och volontärer med relevant erfarenhet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - Ren och informativ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="assets/logos/brytpunkten-logo.svg" alt="Brytpunkten" height="30" class="footer-logo">
-                    <p><strong>Brytpunkten Ideell Förening</strong><br>
-                    Stödet för förändring. Partipolitiskt & religiöst obunden.</p>
+                    <img src="logo.png" alt="Brytpunkten" height="35" class="footer-logo">
+                    <p class="footer-tagline">Brytpunkten Ideell Förening<br>När vi bryter mönster</p>
                 </div>
+                
                 <div class="footer-col">
                     <h4>Kontakt</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Exempelgatan 123, 123 45 Storstad</p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+46701234567">070-123 45 67</a> (Vardagar 10-16)</p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:kontakt@brytpunkten.org">kontakt@brytpunkten.org</a></p>
-                    <p><i class="fas fa-user-tie"></i> För samverkansfrågor: <a href="mailto:samverkan@brytpunkten.org">samverkan@brytpunkten.org</a></p>
+                    <p><strong>E-post:</strong> kontakt@brytpunkten.org</p>
+                    <p><strong>För samverkan:</strong> samverkan@brytpunkten.org</p>
+                    <p><strong>Telefon:</strong> 070-123 45 67 (vardagar 10-16)</p>
                 </div>
+                
                 <div class="footer-col">
-                    <h4>Länkar</h4>
-                    <a href="#">Integritetspolicy</a>
+                    <h4>Organisation</h4>
                     <a href="#">Styrelse & årsredovisning</a>
+                    <a href="#">Verksamhetsberättelse</a>
+                    <a href="#">Integritetspolicy</a>
                     <a href="#">För press</a>
                 </div>
             </div>
-            <hr class="footer-divider">
-            <p class="footer-copyright">&copy; <span id="current-year">2024</span> Brytpunkten. Alla rättigheter förbehållna.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2024</span> Brytpunkten. Alla rättigheter förbehållna.</p>
+                <p>Org.nr: 123456-7890 | Bankgiro: 123-4567</p>
+            </div>
         </div>
     </footer>
 
