@@ -1,49 +1,49 @@
-// Enkelt JavaScript för mobilmeny och copyright
+// Enkel JavaScript för sidan
 document.addEventListener('DOMContentLoaded', function() {
     // Uppdatera copyright-året
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Mobilmeny
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const mainNav = document.querySelector('.main-nav');
+    // Animation för bollen som bryts (enklare version - startar direkt)
+    const animationElements = {
+        ball: document.querySelector('.ball'),
+        cracks: document.querySelectorAll('.crack'),
+        pieces: document.querySelectorAll('.piece'),
+        logo: document.querySelector('.logo-emerge')
+    };
     
-    if (mobileBtn && mainNav) {
-        mobileBtn.addEventListener('click', function() {
-            mainNav.style.display = mainNav.style.display === 'block' ? 'none' : 'block';
-            
-            // Animera hamburger-ikon
-            const spans = this.querySelectorAll('span');
-            if (mainNav.style.display === 'block') {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-        
-        // Stäng meny när man klickar på länk
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    mainNav.style.display = 'none';
-                    const spans = mobileBtn.querySelectorAll('span');
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
+    // Starta animationen när sidan laddat
+    setTimeout(() => {
+        if (animationElements.ball) {
+            // Visa sprickor
+            animationElements.cracks.forEach(crack => {
+                crack.style.opacity = '1';
             });
-        });
-    }
+            
+            // Flytta bitarna isär
+            setTimeout(() => {
+                if (animationElements.pieces[0]) {
+                    animationElements.pieces[0].style.transform = 'translateX(-30px) rotate(-15deg)';
+                    animationElements.pieces[1].style.transform = 'translateX(30px) rotate(15deg)';
+                }
+                
+                // Visa loggan
+                setTimeout(() => {
+                    if (animationElements.logo) {
+                        animationElements.logo.style.opacity = '1';
+                        animationElements.logo.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            animationElements.logo.style.transform = 'scale(1)';
+                        }, 300);
+                    }
+                }, 500);
+            }, 500);
+        }
+    }, 1000);
     
-    // Lägg till smooth scroll för alla länkar med hash
+    // Smooth scroll för länkar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
