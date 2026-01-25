@@ -1,75 +1,130 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brytpunkten - Kopia</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brytpunkten - Brottsförebyggande & Socialt Stöd</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="logo">Brytpunkten</div>
-    <nav>
-      <ul>
-        <li><a href="#home">Hem</a></li>
-        <li><a href="#about">Om oss</a></li>
-        <li><a href="#services">Tjänster</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-link">
+                <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
+                <span class="logo-text">Brytpunkten</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero">Hem</a></li>
+                <li><a href="#services">Vårt arbete</a></li>
+                <li><a href="#about">Om oss</a></li>
+                <li><a href="#contact" class="nav-cta-button">Kontakta oss</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
-  </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
-    <div class="hero-overlay">
-      <h1>Välkommen till Brytpunkten</h1>
-      <p>Din guide till stöd och hjälp i utsatta situationer</p>
-      <a href="#contact" class="btn">Kontakta oss</a>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <img src="hero-image.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
+        <div class="hero-content">
+            <h1>En brytpunkt för ett liv utanför kriminaliteten</h1>
+            <p class="hero-subtitle">Brytpunkten är en ideell förening med socialt och brottsförebyggande syfte. Vi stöttar vuxna med kriminell bakgrund och arbetar förebyggande med unga i riskmiljöer.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="button button-primary">Våra insatser</a>
+                <a href="#contact" class="button button-secondary">Bli en partner</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section">
-    <h2>Om oss</h2>
-    <p>Här kan du skriva om verksamheten, teamet eller syftet med Brytpunkten. Denna text är en placeholder som du kan byta ut.</p>
-  </section>
+    <!-- Services / Vad vi gör -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Vårt arbete för ett säkrare samhälle</h2>
+            <p class="section-subtitle">Vi arbetar på två fronter: med att bryta kriminella banor och med att förebygga att unga ens börjar.</p>
 
-  <!-- SERVICES SECTION -->
-  <section id="services" class="section">
-    <h2>Våra tjänster</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Tjänst 1</h3>
-        <p>Beskrivning av tjänst 1</p>
-      </div>
-      <div class="card">
-        <h3>Tjänst 2</h3>
-        <p>Beskrivning av tjänst 2</p>
-      </div>
-      <div class="card">
-        <h3>Tjänst 3</h3>
-        <p>Beskrivning av tjänst 3</p>
-      </div>
-    </div>
-  </section>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Individuellt stöd till vuxna</h3>
+                    <p>Strukturerade samtal med fokus på motivation, ansvarstagande och livsval. Praktisk hjälp med boende, ekonomi och myndighetskontakter. Kris- och återfallsprevention.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Arbete & samhällsetablering</h3>
+                    <p>Stöd med CV, jobbsökning, praktik och utbildning. Mentorer med erfarenhet av liknande utmaningar ger kontinuerligt stöd och motivation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Förebyggande insatser för unga</h3>
+                    <p>Skolbesök, workshops och gruppsamtal i riskmiljöer. Informerar om konsekvenser och motiverar till positiva val, utbildning och meningsfull fritid.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Samverkan & nätverk</h3>
+                    <p>Aktivt samarbete med myndigheter, frivård, socialtjänst och lokala organisationer. Ett rådgivande nätverk med expertis inom socialt arbete, juridik och psykologi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="section">
-    <h2>Kontakt</h2>
-    <form>
-      <input type="text" placeholder="Namn" required>
-      <input type="email" placeholder="E-post" required>
-      <textarea placeholder="Meddelande" required></textarea>
-      <button type="submit">Skicka</button>
-    </form>
-  </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="section-title">Vår vision och metod</h2>
+                    <p>Brytpunkten är en <strong>partipolitiskt och religiöst obunden</strong> ideell förening. Vår verksamhet bygger på erfarenhet, evidens och ett starkt nätverk.</p>
+                    <p>Vi bedriver <strong>inte vård, behandling eller myndighetsutövning</strong>. Vår roll är att vara en stödjande och motiverande resurs som arbetar i tät samverkan med de ansvariga aktörerna i samhället.</p>
+                    <p>All vår verksamhet dokumenteras och följs upp systematisk för att säkerställa kvalitet och måluppfyllelse. Vår ambition är att på sikt kunna skala upp våra beprövade insatser i fler samhällen.</p>
+                    <blockquote class="about-quote">
+                        "Kort sagt stöttar Brytpunkten individer praktiskt och socialt, minskar risken för återfall i kriminalitet och sprider kunskap och motivation till unga som riskerar att hamna i samma mönster."
+                    </blockquote>
+                </div>
+                <div class="about-image">
+                    <!-- En platshållare eller en framtida bild. Kan ersättas med en CSS-bakgrundsfärg eller bild. -->
+                    <div class="image-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Brytpunkten</p>
-  </footer>
+    <!-- CTA / Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2 class="section-title">Vill du veta mer eller samarbeta?</h2>
+                <p class="contact-text">Brytpunkten söker alltid konstruktiva partnerskap med kommuner, myndigheter, företag och andra organisationer som vill bidra till ett brottsförebyggande arbete.</p>
+                <p class="contact-text"><strong>Vi är här för att göra skillnad.</strong> Tillsammans kan vi skapa fler brytpunkter.</p>
+                <a href="mailto:kontakt@brytpunkten.example.org" class="button button-primary button-large">Kontakta oss via e-post</a>
+                <p class="contact-note">(Ersätt med er riktiga e-postadress)</p>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
+                    <span class="logo-text">Brytpunkten</span>
+                </div>
+                <p class="footer-mission">En ideell förening med socialt och brottsförebyggande syfte. Partipolitiskt och religiöst obunden.</p>
+                <p class="footer-copyright">&copy; <span id="currentYear"></span> Brytpunkten. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
