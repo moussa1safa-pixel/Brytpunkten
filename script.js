@@ -1,83 +1,59 @@
-// Partikelkonfiguration - SVARTA partiklar på VIT bakgrund
+// Enkelt JavaScript för mobilmeny och copyright
 document.addEventListener('DOMContentLoaded', function() {
-    // Initiera partiklar
-    if (document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 40,  // Färre partiklar, större effekt
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: "#1a1a1a"  // SVARTA partiklar
-                },
-                shape: {
-                    type: "circle"
-                },
-                opacity: {
-                    value: 0.3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 0.5,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 6,  // STÖRRE (var 2 innan)
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 3,
-                        size_min: 1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: false
-                },
-                move: {
-                    enable: true,
-                    speed: 1,  // Långsammare rörelse
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "repulse"
-                    },
-                    resize: true
-                }
-            },
-            retina_detect: true
-        });
-    }
-    
     // Uppdatera copyright-året
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Ladda om partiklar vid fönsterstorleksändring
-    window.addEventListener('resize', function() {
-        if (typeof pJSDom !== 'undefined' && pJSDom.length > 0) {
-            pJSDom[0].pJS.fn.vendors.destroypJS();
-            pJSDom.splice(0, 1);
-            if (document.getElementById('particles-js')) {
-                particlesJS('particles-js', pJSDom[0].pJS.config);
+    // Mobilmeny
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (mobileBtn && mainNav) {
+        mobileBtn.addEventListener('click', function() {
+            mainNav.style.display = mainNav.style.display === 'block' ? 'none' : 'block';
+            
+            // Animera hamburger-ikon
+            const spans = this.querySelectorAll('span');
+            if (mainNav.style.display === 'block') {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
             }
-        }
+        });
+        
+        // Stäng meny när man klickar på länk
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    mainNav.style.display = 'none';
+                    const spans = mobileBtn.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    }
+    
+    // Lägg till smooth scroll för alla länkar med hash
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
