@@ -16,15 +16,7 @@ document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click'
 // Uppdatera copyright-året automatiskt
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// Enkel hover-effekt för servicekort (kan utökas)
-const serviceCards = document.querySelectorAll('.service-card');
-serviceCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = 'all 0.3s ease';
-    });
-});
-
-// Smooth scroll för anchor-länkar (förstärker HTML:s scroll-behavior)
+// Smooth scroll för anchor-länkar
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
