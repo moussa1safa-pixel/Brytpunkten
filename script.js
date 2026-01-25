@@ -1,4 +1,5 @@
+// Enkel form submit
 document.querySelector('form').addEventListener('submit', function(e) {
   e.preventDefault();
-  alert('Tack för ditt meddelande!');
+  alert('Tack! Vi har mottagit ditt meddelande.');
 });
