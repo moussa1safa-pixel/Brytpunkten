@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brytpunkten | När vi bryter mönster</title>
+    <meta name="description" content="Ideell förening som stöttar vuxna ur kriminalitet och förebygger brott bland unga.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - Minimal -->
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">
-                <img src="logo.png" alt="Brytpunkten" height="40">
+                <img src="logo.png" alt="Brytpunkten" width="120" height="40" loading="lazy">
             </a>
+            <button class="menu-btn" aria-label="Öppna meny">☰</button>
             <div class="nav-links">
                 <a href="#om-oss">Om oss</a>
                 <a href="#kontakt">Kontakt</a>
@@ -23,21 +25,24 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Animation -->
+    <!-- Hero with your image -->
     <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">När vi bryter mönster</h1>
+        <div class="container">
+            <div class="hero-text">
+                <h1>När vi bryter mönster</h1>
                 <p class="hero-subtitle">Du behöver inte göra det ensam.</p>
                 
-                <!-- Animation: Boll som bryts -->
-                <div class="animation-container">
-                    <div class="ball"></div>
-                    <div class="crack"></div>
-                    <div class="crack crack-2"></div>
-                    <div class="piece piece-left"></div>
-                    <div class="piece piece-right"></div>
-                    <div class="logo-emerge">BP</div>
+                <!-- Your image with logo overlay -->
+                <div class="hero-image-container">
+                    <img src="hero-image.jpg" 
+                         alt="Två händer som sträcker sig efter varandra" 
+                         class="hero-image"
+                         width="800" 
+                         height="500"
+                         loading="eager">
+                    <div class="logo-overlay">
+                        <img src="logo.png" alt="Brytpunkten" width="80" height="27" loading="lazy">
+                    </div>
                 </div>
                 
                 <p class="hero-description">
@@ -45,83 +50,63 @@
                     genom strukturerat stöd och preventivt arbete.
                 </p>
                 
-                <a href="#kontakt" class="btn btn-primary">Stöd vårt arbete</a>
+                <a href="#kontakt" class="btn">Stöd vårt arbete</a>
             </div>
         </div>
     </section>
 
-    <!-- Intro Text -->
-    <section class="intro">
-        <div class="container">
+    <!-- Content sections -->
+    <main class="container">
+        <section class="section" id="om-oss">
             <h2>Vi finns här för er</h2>
-            <p class="intro-text">
-                Brytpunkten är en ideell förening som stöttar vuxna med kriminell bakgrund 
-                och förebygger riskbeteenden hos unga. Vi erbjuder strukturerat stöd, 
-                motivation och praktisk hjälp.
-            </p>
-        </div>
-    </section>
+            <p>Brytpunkten är en ideell förening som stöttar vuxna med kriminell bakgrund och förebygger riskbeteenden hos unga. Vi erbjuder strukturerat stöd, motivation och praktisk hjälp.</p>
+        </section>
 
-    <!-- 3 Questions -->
-    <section class="questions" id="om-oss">
-        <div class="container">
-            <h2 class="section-title">Vanliga frågor</h2>
-            
-            <div class="question-item">
-                <h3>Vad är Brytpunkten?</h3>
-                <p>En ideell förening som bryter sociala och kriminella mönster genom stöd och förebyggande arbete.</p>
+        <section class="section">
+            <h2>Vanliga frågor</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <h3>Vad är Brytpunkten?</h3>
+                    <p>En ideell förening som bryter sociala och kriminella mönster genom stöd och förebyggande arbete.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Vem kan få stöd?</h3>
+                    <p>Vuxna som vill lämna kriminalitet, och unga som riskerar att hamna i den. Anhöriga och organisationer är också välkomna.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Hur arbetar ni?</h3>
+                    <p>Med individuellt stöd, praktisk hjälp och förebyggande insatser. Alltid i samverkan med myndigheter och samhället.</p>
+                </div>
             </div>
-            
-            <div class="question-item">
-                <h3>Vem kan få stöd?</h3>
-                <p>Vuxna som vill lämna kriminalitet, och unga som riskerar att hamna i den. Anhöriga och organisationer är också välkomna.</p>
-            </div>
-            
-            <div class="question-item">
-                <h3>Hur arbetar ni?</h3>
-                <p>Med individuellt stöd, praktisk hjälp och förebyggande insatser. Alltid i samverkan med myndigheter och samhället.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Vårt Mål -->
-    <section class="goal">
-        <div class="container">
+        <section class="section">
             <h2>Vårt mål</h2>
-            <p class="goal-text">Minska återfall i brott, skapa ansvarstagande, och inspirera till positiva val.</p>
-        </div>
-    </section>
+            <p class="highlight">Minska återfall i brott, skapa ansvarstagande, och inspirera till positiva val.</p>
+        </section>
 
-    <!-- Samverkan -->
-    <section class="collaboration">
-        <div class="container">
+        <section class="section">
             <h2>Samverkan är nyckeln</h2>
-            <p class="collab-text">
-                Vi arbetar med myndigheter, frivården, socialtjänsten och lokala organisationer 
-                för störst möjliga påverkan.
-            </p>
-        </div>
-    </section>
+            <p>Vi arbetar med myndigheter, frivården, socialtjänsten och lokala organisationer för störst möjliga påverkan.</p>
+        </section>
+    </main>
 
-    <!-- Kontakt -->
+    <!-- Footer -->
     <footer class="footer" id="kontakt">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-grid">
+                <div>
                     <h3>Kontakt</h3>
                     <p><strong>E-post:</strong> kontakt@brytpunkten.org</p>
                     <p><strong>För samverkan:</strong> samverkan@brytpunkten.org</p>
                 </div>
-                
-                <div class="footer-section">
+                <div>
                     <h3>Brytpunkten</h3>
-                    <p>Ideell förening<br>
-                    När vi bryter mönster</p>
+                    <p>Ideell förening<br>När vi bryter mönster</p>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2024</span> Brytpunkten. Alla rättigheter förbehållna.</p>
+                <p>&copy; <span id="year">2024</span> Brytpunkten. Alla rättigheter förbehållna.</p>
             </div>
         </div>
     </footer>
