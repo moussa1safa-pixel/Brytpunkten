@@ -286,13 +286,13 @@ p {
 /* ===== SERVICES SECTION ===== */
 .services {
     padding: 5rem 0;
-    background-color: var(--light-gray);
+    background-color: #ffffff; /* Ändrat från beige till vit */
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr); /* FIX: Alltid 4 på rad på desktop */
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
@@ -362,7 +362,7 @@ p {
 /* ===== ABOUT SECTION ===== */
 .about {
     padding: 5rem 0;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Ändrat från beige till vit */
 }
 
 .about-grid {
@@ -427,7 +427,7 @@ p {
 /* ===== CONTACT SECTION ===== */
 .contact {
     padding: 5rem 0;
-    background: var(--light-gray);
+    background: var(--light-gray); /* Behåller ljusgrå här för kontrast */
     color: #333;
     text-align: center;
 }
@@ -485,20 +485,16 @@ p {
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    font-size: 1.5rem;
+    justify-content: center;
 }
 
 .footer-logo-img {
-    height: 40px;
+    height: 50px;
     width: auto;
     filter: brightness(0) invert(1);
 }
 
-.logo-text {
-    color: white;
-}
+/* Tog bort .logo-text helt - nu visas bara logotypen */
 
 .footer-mission {
     max-width: 500px;
@@ -514,6 +510,13 @@ p {
 }
 
 /* ===== RESPONSIVITET ===== */
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 på rad på tablet */
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 992px) {
     h1 {
         font-size: 2.8rem;
@@ -530,6 +533,9 @@ p {
     }
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .contact-box {
+        padding: 2.5rem 2rem;
     }
 }
 
@@ -578,7 +584,7 @@ p {
         padding: 0 10px;
     }
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 på rad på mobil */
         gap: 1.5rem;
     }
     .service-card {
@@ -638,8 +644,7 @@ p {
     .about-stats {
         grid-template-columns: 1fr;
     }
-    .footer-logo {
-        flex-direction: column;
-        gap: 10px;
+    .footer-logo-img {
+        height: 40px;
     }
 }
