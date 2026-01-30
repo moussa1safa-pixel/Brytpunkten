@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
@@ -30,14 +31,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section - ÄNDRING 1 & 2: Bildjustering & Text Borttagen -->
+    <!-- Hero Section - Utan overlay, justerad beskärning -->
     <section class="hero" id="hero">
-        <div class="hero-overlay"></div>
+        <!-- INGET OVERLAY - bara ren bild -->
         <img src="hero-image.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
-        <!-- HERO-TEXTEN ÄR NU BARA I CANVA-BILDEN -->
     </section>
 
-    <!-- Services Section - ÄNDRING 3: Moderna tjänsterutor utan siffror -->
+    <!-- Services Section - Utan punktlistor, kortare text -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Vårt arbete för ett säkrare samhälle</h2>
@@ -47,44 +47,25 @@
                 <div class="service-card">
                     <h3>Individuellt stöd till vuxna</h3>
                     <p>Strukturerade samtal med fokus på motivation, ansvarstagande och livsval. Praktisk hjälp med boende, ekonomi och myndighetskontakter.</p>
-                    <ul class="service-features">
-                        <li>Personcentrerad uppföljning</li>
-                        <li>Långsiktigt stöd</li>
-                        <li>Praktisk hjälpverksamhet</li>
-                    </ul>
+                    <!-- Punktlistor borttagna -->
                 </div>
                 <div class="service-card">
                     <h3>Arbete & samhällsetablering</h3>
                     <p>Stöd med CV, jobbsökning, praktik och utbildning. Mentorer med erfarenhet av liknande utmaningar ger kontinuerligt stöd.</p>
-                    <ul class="service-features">
-                        <li>Jobb- och praktikförmedling</li>
-                        <li>Mentorsprogram</li>
-                        <li>Kompetensutveckling</li>
-                    </ul>
                 </div>
                 <div class="service-card">
                     <h3>Förebyggande insatser för unga</h3>
                     <p>Skolbesök, workshops och gruppsamtal i riskmiljöer. Informerar om konsekvenser och motiverar till positiva val och meningsfull fritid.</p>
-                    <ul class="service-features">
-                        <li>Skol- och ungdomsinsatser</li>
-                        <li>Workshops och föreläsningar</li>
-                        <li>Gruppstöd</li>
-                    </ul>
                 </div>
                 <div class="service-card">
                     <h3>Samverkan & nätverk</h3>
                     <p>Aktivt samarbete med myndigheter, frivård, socialtjänst och lokala organisationer. Ett rådgivande nätverk med expertis.</p>
-                    <ul class="service-features">
-                        <li>Myndighetssamverkan</li>
-                        <li>Expertrådgivning</li>
-                        <li>Nätverksbyggande</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section - ÄNDRING 4: Nytt "Principer"-block -->
+    <!-- About Section - Med diagram istället för principer -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
@@ -96,25 +77,13 @@
                     <div class="about-quote">
                         <p>"Kort sagt stöttar Brytpunkten individer praktiskt och socialt, minskar risken för återfall i kriminalitet och sprider kunskap och motivation till unga som riskerar att hamna i samma mönster."</p>
                     </div>
-                    <!-- NYTT PRINCIPER-BLOCK med myndighetskänsla -->
-                    <div class="principles-block">
-                        <h4>Våra principer och fokus</h4>
-                        <div class="principles-grid">
-                            <div class="principle-item">Ideell förening</div>
-                            <div class="principle-item">Partipolitiskt obunden</div>
-                            <div class="principle-item">Evidensbaserat arbete</div>
-                            <div class="principle-item">Samverkan i fokus</div>
-                            <div class="principle-item">Praktiskt stöd</div>
-                            <div class="principle-item">Långsiktighet</div>
-                            <div class="principle-item">Människan i centrum</div>
-                            <div class="principle-item">Resultatorienterat</div>
-                        </div>
-                    </div>
                 </div>
                 <div class="about-image">
-                    <!-- Denna sida är nu tom - vi kan lägga till en relevant bild här senare -->
-                    <div class="image-placeholder">
-                        <p>Plats för bild eller visuellt element</p>
+                    <!-- Diagram-sektion -->
+                    <div class="chart-container">
+                        <h3>Vår inverkan</h3>
+                        <canvas id="impactChart"></canvas>
+                        <p class="chart-note">* Baserat på uppföljning av våra deltagare</p>
                     </div>
                 </div>
             </div>
@@ -147,6 +116,77 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript för diagrammet -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Diagramkonfiguration
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            const impactChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Minskad återfallsrisk', 'Unga nådda', 'Samarbeten', 'Klientnöjdhet'],
+                    datasets: [{
+                        label: 'Resultat (%)',
+                        data: [75, 82, 91, 88],
+                        backgroundColor: [
+                            'rgba(0, 86, 255, 0.7)',
+                            'rgba(0, 86, 255, 0.8)',
+                            'rgba(0, 86, 255, 0.6)',
+                            'rgba(0, 86, 255, 0.9)'
+                        ],
+                        borderColor: [
+                            'rgba(0, 86, 255, 1)',
+                            'rgba(0, 86, 255, 1)',
+                            'rgba(0, 86, 255, 1)',
+                            'rgba(0, 86, 255, 1)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 6,
+                        barPercentage: 0.6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Exportera diagram för eventuell framtida användning
+            window.impactChart = impactChart;
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
