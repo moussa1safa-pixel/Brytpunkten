@@ -61,14 +61,5 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Lazy loading för bilder (om du lägger till fler bilder)
-document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    
-    if ('loading' in HTMLImageElement.prototype) {
-        // Webbläsaren stöder inbyggd lazy loading
-        images.forEach(img => {
-            img.loading = 'lazy';
-        });
-    }
-});
+// Visa console-log när sidan laddas (kan tas bort senare)
+console.log('Brytpunkten - Sidan är redo!');
