@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo-link">
@@ -31,10 +31,19 @@
         </div>
     </nav>
 
+    <!-- Hero Section - Bara bild, ingen text/knappar -->
     <section class="hero" id="hero">
-        <img src="hero-image.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
+        <picture>
+            <!-- Mobil: hög bild -->
+            <source media="(max-width: 768px)" srcset="hero-mobile.jpg">
+            <!-- Dator: bred bild -->
+            <source media="(min-width: 769px)" srcset="hero-desktop.jpg">
+            <!-- Fallback -->
+            <img src="hero-desktop.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
+        </picture>
     </section>
 
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Vårt arbete för ett säkrare samhälle</h2>
@@ -61,6 +70,7 @@
         </div>
     </section>
 
+    <!-- About Section - Bild istället för diagram -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
@@ -74,16 +84,16 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="chart-container">
-                        <h3>Vår inverkan</h3>
-                        <canvas id="impactChart"></canvas>
-                        <p class="chart-note">* Baserat på uppföljning av våra deltagare</p>
+                    <div class="image-container">
+                        <img src="about-image.jpg" alt="Brytpunkten i arbete" class="about-img">
+                        <p class="image-note">Bild på vårt arbete i samhället</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-box">
@@ -99,6 +109,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -111,6 +122,7 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
