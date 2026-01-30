@@ -25,9 +25,9 @@ body {
     padding: 0 20px;
 }
 
+/* FIX: Ta bort height: auto från generell img-regel */
 img {
     max-width: 100%;
-    height: auto;
     display: block;
 }
 
@@ -184,7 +184,7 @@ p {
     }
 }
 
-/* DATOR: 85vh med contain för att se HELA bilden */
+/* DATOR: 85vh med contain för att se HELA bilden - FIXAD MED !important */
 @media (min-width: 769px) {
     .hero {
         height: 85vh;
@@ -196,10 +196,10 @@ p {
     }
     
     .hero-bg-image {
-        width: auto;
-        height: 100%;
-        max-width: 100%;
-        object-fit: contain;
+        width: auto !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
     }
 }
 
@@ -535,4 +535,11 @@ p {
     .image-container {
         padding: 1.5rem;
     }
+}
+
+/* FIX: Lägg tillbaka height: auto för andra bilder */
+.about-img,
+.footer-logo-img,
+.logo {
+    height: auto;
 }
