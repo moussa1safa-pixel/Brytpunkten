@@ -513,3 +513,21 @@ p {
         padding: 1.5rem;
     }
 }
+@media (min-width: 769px) {
+    .hero {
+        height: 85vh;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000; /* Svart bakgrund för tomma kanter */
+        overflow: hidden;
+    }
+    
+    .hero-bg-image {
+        width: auto; /* Behåll bildens proportioner */
+        height: 100%; /* Fyll containerns höjd (85vh) */
+        max-width: 100%; /* Gå inte över skärmens bredd */
+        object-fit: contain; /* Viktigt: Visa HELA bilden */
+    }
+}
