@@ -1,46 +1,52 @@
-// Mobilmeny toggle
+// ===== MOBILMENY =====
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    // Stäng mobilmeny vid klick utanför
-    document.addEventListener('click', closeMenuOnClickOutside);
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 
-// Stäng menyn när man klickar på en länk
-document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-    document.removeEventListener('click', closeMenuOnClickOutside);
-}));
-
-// Funktion för att stänga meny vid klick utanför
-function closeMenuOnClickOutside(event) {
-    if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+    // Stäng menyn när man klickar på en länk
+    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
-        document.removeEventListener('click', closeMenuOnClickOutside);
-    }
+    }));
 }
 
-// Uppdatera copyright-året automatiskt
+// ===== GENOMSKINLIG HEADER SCROLL-EFFEKT =====
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        // Lägg till 'scrolled' klass när man scrollar ner
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.classList.remove('scrolled');
+            navbar.style.boxShadow = 'none';
+        }
+    }
+});
+
+// ===== UPPDATERA COPYRIGHT-ÅR =====
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// Smooth scroll för anchor-länkar med offset för fast navbar
+// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
+        if (targetId === '#') return;
+        
         const targetElement = document.querySelector(targetId);
-        if(targetElement) {
+        if (targetElement) {
             // Stäng mobilmeny om den är öppen
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (hamburger) hamburger.classList.remove('active');
+            if (navMenu) navMenu.classList.remove('active');
             
-            // Beräkna offset baserat på skärmstorlek
+            // Beräkna offset
             const offset = window.innerWidth <= 768 ? 70 : 80;
             
             window.scrollTo({
@@ -51,15 +57,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Lägg till skugga på navbar vid scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 10) {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-    }
+// ===== LADDA SIDAN =====
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Brytpunkten - Sidan är redo!');
 });
-
-// Visa console-log när sidan laddas (kan tas bort senare)
-console.log('Brytpunkten - Sidan är redo!');
