@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="logo.png">
+    <!-- Förhindra caching av CSS -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 <body>
     <!-- Navigation -->
@@ -18,7 +22,7 @@
                 <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
             </a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#hero">Hem</a></li>
+                <li><a href="#home">Hem</a></li>
                 <li><a href="#services">Vårt arbete</a></li>
                 <li><a href="#about">Om oss</a></li>
                 <li><a href="#contact" class="nav-cta-button">Kontakta oss</a></li>
@@ -31,16 +35,11 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Bara bild, ingen text/knappar -->
-    <section class="hero" id="hero">
-        <picture>
-            <!-- Mobil: hög bild -->
-            <source media="(max-width: 768px)" srcset="hero-mobile.jpg">
-            <!-- Dator: bred bild -->
-            <source media="(min-width: 769px)" srcset="hero-desktop.jpg">
-            <!-- Fallback -->
-            <img src="hero-desktop.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
-        </picture>
+    <!-- Hero Section - Uppdaterad med JavaScript-fallback -->
+    <section class="hero" id="home">
+        <div class="hero-container" id="heroContainer">
+            <!-- Bilden laddas via JavaScript -->
+        </div>
     </section>
 
     <!-- Services Section -->
