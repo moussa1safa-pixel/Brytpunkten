@@ -66,7 +66,7 @@ p {
 :root {
     --primary-blue: #0056ff;
     --primary-blue-dark: #0047d6;
-    --primary-blue-light: #e8f0ff;  /* Uppdaterad: renare ljusblå */
+    --primary-blue-light: #e8f0ff;
     --text-dark: #1a1a1a;
     --text-gray: #555;
     --text-light: #777;
@@ -165,17 +165,42 @@ p {
 /* ===== HERO SECTION ===== */
 .hero {
     position: relative;
-    height: 85vh;
-    min-height: 500px;
-    overflow: hidden;
     margin-top: 80px;
+    overflow: hidden;
 }
 
-.hero-bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* INGET object-position - bilderna är redan perfekta för sina skärmar */
+/* MOBIL: 85vh med cover */
+@media (max-width: 768px) {
+    .hero {
+        height: 85vh;
+        min-height: 500px;
+    }
+    
+    .hero-bg-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 25%;
+    }
+}
+
+/* DATOR: 85vh med contain för att se HELA bilden */
+@media (min-width: 769px) {
+    .hero {
+        height: 85vh;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+    }
+    
+    .hero-bg-image {
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
 }
 
 /* ===== KNAPPAR ===== */
@@ -328,7 +353,7 @@ p {
 /* ===== CONTACT SECTION ===== */
 .contact {
     padding: 5rem 0;
-    background: #ffffff;  /* Uppdaterad: Rent vitt istället för beige-grå */
+    background: #ffffff; /* Vit istället för beige */
     color: #333;
     text-align: center;
 }
@@ -456,78 +481,4 @@ p {
         display: flex;
     }
     
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-    
-    .hero {
-        height: 75vh;
-        min-height: 450px;
-        margin-top: 70px;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .service-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .contact-box {
-        padding: 2rem 1.5rem;
-    }
-    
-    .contact-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .contact-buttons .button {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.3rem; }
-    .hero {
-        height: 65vh;
-        min-height: 400px;
-    }
-    .about-quote {
-        padding: 1.5rem;
-    }
-    .image-container {
-        padding: 1.5rem;
-    }
-}
-@media (min-width: 769px) {
-    .hero {
-        height: 85vh;
-        min-height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #000000; /* Svart bakgrund för tomma kanter */
-        overflow: hidden;
-    }
-    
-    .hero-bg-image {
-        width: auto; /* Behåll bildens proportioner */
-        height: 100%; /* Fyll containerns höjd (85vh) */
-        max-width: 100%; /* Gå inte över skärmens bredd */
-        object-fit: contain; /* Viktigt: Visa HELA bilden */
-    }
-}
+    .
