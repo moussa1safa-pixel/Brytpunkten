@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo-link">
@@ -31,13 +31,19 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Utan overlay, justerad beskärning -->
+    <!-- Hero Section - Bara bild, ingen text/knappar -->
     <section class="hero" id="hero">
-        <!-- INGET OVERLAY - bara ren bild -->
-        <img src="hero-image.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
+        <picture>
+            <!-- Mobil: hög bild -->
+            <source media="(max-width: 768px)" srcset="hero-mobile.jpg">
+            <!-- Dator: bred bild -->
+            <source media="(min-width: 769px)" srcset="hero-desktop.jpg">
+            <!-- Fallback -->
+            <img src="hero-desktop.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
+        </picture>
     </section>
 
-    <!-- Services Section - Utan punktlistor, kortare text -->
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Vårt arbete för ett säkrare samhälle</h2>
@@ -47,7 +53,6 @@
                 <div class="service-card">
                     <h3>Individuellt stöd till vuxna</h3>
                     <p>Strukturerade samtal med fokus på motivation, ansvarstagande och livsval. Praktisk hjälp med boende, ekonomi och myndighetskontakter.</p>
-                    <!-- Punktlistor borttagna -->
                 </div>
                 <div class="service-card">
                     <h3>Arbete & samhällsetablering</h3>
@@ -65,7 +70,7 @@
         </div>
     </section>
 
-    <!-- About Section - Med diagram istället för principer -->
+    <!-- About Section - Bild istället för diagram -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
@@ -79,17 +84,16 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <!-- Diagram-sektion -->
-                    <div class="chart-container">
-                        <h3>Vår inverkan</h3>
-                        <canvas id="impactChart"></canvas>
-                        <p class="chart-note">* Baserat på uppföljning av våra deltagare</p>
+                    <div class="image-container">
+                        <img src="about-image.jpg" alt="Brytpunkten i arbete" class="about-img">
+                        <p class="image-note">Bild på vårt arbete i samhället</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-box">
@@ -105,6 +109,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -117,77 +122,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript för diagrammet -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Diagramkonfiguration
-            const ctx = document.getElementById('impactChart').getContext('2d');
-            const impactChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Minskad återfallsrisk', 'Unga nådda', 'Samarbeten', 'Klientnöjdhet'],
-                    datasets: [{
-                        label: 'Resultat (%)',
-                        data: [75, 82, 91, 88],
-                        backgroundColor: [
-                            'rgba(0, 86, 255, 0.7)',
-                            'rgba(0, 86, 255, 0.8)',
-                            'rgba(0, 86, 255, 0.6)',
-                            'rgba(0, 86, 255, 0.9)'
-                        ],
-                        borderColor: [
-                            'rgba(0, 86, 255, 1)',
-                            'rgba(0, 86, 255, 1)',
-                            'rgba(0, 86, 255, 1)',
-                            'rgba(0, 86, 255, 1)'
-                        ],
-                        borderWidth: 1,
-                        borderRadius: 6,
-                        barPercentage: 0.6,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                callback: function(value) {
-                                    return value + '%';
-                                }
-                            },
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0.05)'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return context.dataset.label + ': ' + context.parsed.y + '%';
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Exportera diagram för eventuell framtida användning
-            window.impactChart = impactChart;
-        });
-    </script>
-
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
