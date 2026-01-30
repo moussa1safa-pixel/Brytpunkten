@@ -39,14 +39,15 @@ h1, h2, h3, h4 {
     margin-bottom: 1rem;
 }
 
-h1 {
-    font-size: 3.5rem;
-}
-h2 {
-    font-size: 2.5rem;
-}
-h3 {
-    font-size: 1.5rem;
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; }
+h4 { 
+    font-size: 1.1rem; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
 }
 
 p {
@@ -167,7 +168,7 @@ p {
     transition: 0.3s;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION - ÄNDRING 1 & 2 ===== */
 .hero {
     position: relative;
     height: 90vh;
@@ -186,8 +187,10 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* ÄNDRING 1: Justerad beskärning för att visa mer av toppen */
+    object-position: center top;
     z-index: -2;
-    filter: brightness(0.85);
+    filter: brightness(0.7);
 }
 
 .hero-overlay {
@@ -196,39 +199,11 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
     z-index: -1;
 }
 
-.hero-content {
-    text-align: center;
-    color: white;
-    max-width: 900px;
-    padding: 0 20px;
-    z-index: 1;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    color: white;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.95);
-    max-width: 700px;
-    margin: 0 auto 3rem;
-    line-height: 1.6;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+/* HERO-CONTENT KLASSEN FINNS KVAR FÖR FRAMTIDA ANVÄNDNING */
 
 /* ===== KNAPPAR ===== */
 .button {
@@ -255,18 +230,6 @@ p {
     box-shadow: var(--shadow-hover);
 }
 
-.button-secondary {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: white;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.button-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
-}
-
 .button-outline {
     background-color: transparent;
     color: var(--primary-blue);
@@ -283,15 +246,15 @@ p {
     font-size: 1.1rem;
 }
 
-/* ===== SERVICES SECTION ===== */
+/* ===== SERVICES SECTION - ÄNDRING 3 ===== */
 .services {
     padding: 5rem 0;
-    background-color: #ffffff; /* Ändrat från beige till vit */
+    background-color: #ffffff;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* FIX: Alltid 4 på rad på desktop */
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -313,19 +276,14 @@ p {
     box-shadow: var(--shadow-hover);
 }
 
-.service-number {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--primary-blue);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    opacity: 0.8;
-}
+/* SERVICE-NUMBER KLASSEN ÄR BORTA - SIFFRORNA ÄR BORTA */
 
 .service-card h3 {
     margin-bottom: 1rem;
     color: var(--text-dark);
     font-size: 1.4rem;
+    border-bottom: 2px solid var(--primary-blue-light);
+    padding-bottom: 0.75rem;
 }
 
 .service-card p {
@@ -359,17 +317,17 @@ p {
     font-weight: bold;
 }
 
-/* ===== ABOUT SECTION ===== */
+/* ===== ABOUT SECTION - ÄNDRING 4 ===== */
 .about {
     padding: 5rem 0;
-    background-color: #ffffff; /* Ändrat från beige till vit */
+    background-color: #ffffff;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
 }
 
 .about-content {
@@ -377,8 +335,8 @@ p {
 }
 
 .about-quote {
-    margin: 2rem 0;
-    padding: 2rem;
+    margin: 2.5rem 0;
+    padding: 2.5rem;
     border-left: 4px solid var(--primary-blue);
     background-color: var(--primary-blue-light);
     color: var(--text-gray);
@@ -392,42 +350,67 @@ p {
     font-style: italic;
 }
 
-.about-stats {
+/* NYTT: PRINCIPER-BLOCK med myndighetskänsla */
+.principles-block {
+    margin: 3rem 0 0 0;
+    padding: 2.5rem;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    border-top: 4px solid var(--primary-blue);
+}
+
+.principles-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.stat-item {
-    background: var(--light-gray);
-    padding: 2rem 1.5rem;
-    border-radius: 8px;
-    text-align: center;
+.principle-item {
+    padding: 0.9rem 1rem;
+    background-color: white;
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-blue);
-}
-
-.stat-number {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-blue);
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    color: var(--text-gray);
+    border-radius: 6px;
     font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-gray);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.principle-item:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Placeholder för bildsektion */
+.about-image {
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--border-color);
+}
+
+.image-placeholder {
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem;
+}
+
+.image-placeholder p {
+    margin: 0;
 }
 
 /* ===== CONTACT SECTION ===== */
 .contact {
     padding: 5rem 0;
-    background: var(--light-gray); /* Behåller ljusgrå här för kontrast */
+    background: var(--light-gray);
     color: #333;
     text-align: center;
 }
@@ -482,19 +465,11 @@ p {
     gap: 1.5rem;
 }
 
-.footer-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .footer-logo-img {
     height: 50px;
     width: auto;
     filter: brightness(0) invert(1);
 }
-
-/* Tog bort .logo-text helt - nu visas bara logotypen */
 
 .footer-mission {
     max-width: 500px;
@@ -512,18 +487,17 @@ p {
 /* ===== RESPONSIVITET ===== */
 @media (max-width: 1200px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 på rad på tablet */
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+    }
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 992px) {
-    h1 {
-        font-size: 2.8rem;
-    }
-    h2 {
-        font-size: 2.2rem;
-    }
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
     .about-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -531,11 +505,11 @@ p {
     .about-content {
         padding-right: 0;
     }
-    .about-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
     .contact-box {
         padding: 2.5rem 2rem;
+    }
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -576,15 +550,8 @@ p {
         min-height: 500px;
         margin-top: 70px;
     }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .hero-subtitle {
-        font-size: 1.1rem;
-        padding: 0 10px;
-    }
     .services-grid {
-        grid-template-columns: 1fr; /* 1 på rad på mobil */
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     .service-card {
@@ -601,50 +568,25 @@ p {
         width: 100%;
         max-width: 300px;
     }
-    .about-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
     }
-    .stat-item {
-        padding: 1.5rem 1rem;
+    .principle-item {
+        padding: 0.75rem;
     }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        font-size: 1.8rem;
-    }
-    h3 {
-        font-size: 1.3rem;
-    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
     .hero {
         height: 70vh;
         min-height: 400px;
     }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    .hero-buttons .button {
-        width: 100%;
-        max-width: 250px;
-    }
-    .service-number {
-        font-size: 2.2rem;
-    }
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
-    .footer-logo-img {
-        height: 40px;
+    .about-quote,
+    .principles-block {
+        padding: 1.5rem;
     }
 }
