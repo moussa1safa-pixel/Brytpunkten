@@ -69,6 +69,7 @@ p {
     --yellow-600: #FFBD00;
     --yellow-500: #FFC107;
     --yellow-400: #FFCA2C;
+    --yellow-100: #FFECB3; /* För "Kort sagt"-rutan */
     
     /* Grått för huvuddesign */
     --gray-50: #fafafa;
@@ -281,7 +282,7 @@ p {
     flex-grow: 1;
 }
 
-/* ===== ABOUT SECTION - UPPDATERAD ===== */
+/* ===== ABOUT SECTION - "KORT SAGT"-RUTAN GUL ===== */
 .about {
     padding: 4rem 0;
     background-color: #ffffff;
@@ -298,11 +299,12 @@ p {
     padding-right: 1rem;
 }
 
+/* "KORT SAGT"-RUTAN - GUL (för att sticka ut) */
 .about-quote {
     margin: 2.5rem 0;
     padding: 2.5rem;
     border-left: 4px solid var(--yellow-600);
-    background-color: var(--gray-100);
+    background-color: var(--yellow-100); /* GUL BAKGRUND */
     color: var(--text-gray);
     border-radius: 0 8px 8px 0;
     font-size: 1.1rem;
@@ -337,7 +339,7 @@ p {
     display: none;
 }
 
-/* ===== CONTACT SECTION ===== */
+/* ===== CONTACT SECTION - SUBTIL LINJERUTA ===== */
 .contact {
     padding: 4rem 0;
     background: #ffffff;
@@ -348,11 +350,11 @@ p {
 .contact-box {
     max-width: 700px;
     margin: 0 auto;
-    padding: 2.5rem;
-    border-radius: 16px;
+    padding: 3rem;
+    border-radius: 8px;           /* Mindre rundat */
     background-color: #ffffff;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-300); /* Subtil grå ram */
+    box-shadow: none;             /* Ingen skugga */
 }
 
 .contact .section-title {
@@ -374,11 +376,7 @@ p {
     flex-wrap: wrap;
 }
 
-.contact-note {
-    display: none;
-}
-
-/* ===== FOOTER ===== */
+/* ===== FOOTER - MED E-POST ===== */
 .footer {
     padding: 3rem 0;
     background-color: #1a1a1a;
@@ -406,13 +404,23 @@ p {
     line-height: 1.6;
 }
 
+.footer-contact {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+}
+
+.footer-email {
+    color: rgba(255, 255, 255, 0.85); /* Normal färg */
+}
+
 .footer-copyright {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
     margin-top: 1rem;
 }
 
-/* ===== RESPONSIVITET - AVSTÅND ===== */
+/* ===== RESPONSIVITET - AVSTÅND & MOBILJUSTERINGAR ===== */
 @media (max-width: 1200px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -445,13 +453,22 @@ p {
 }
 
 @media (max-width: 768px) {
-    /* MOBIL AVSTÅND */
+    /* MOBIL AVSTÅND - ALLMÄNT */
     .services, .about, .contact {
         padding: 2.5rem 0;
     }
     
     .contact {
         padding: 3rem 0;
+    }
+    
+    /* MOBILJUSTERING - "KORT SAGT" OCH BILD AVSTÅND */
+    .about-quote {
+        margin-bottom: 1rem; /* 40px → 16px under "Kort sagt" */
+    }
+    
+    .about {
+        padding-bottom: 1.5rem; /* 40px → 24px under about-sektionen */
     }
     
     /* Mobilmeny */
