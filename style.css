@@ -62,14 +62,14 @@ p {
     line-height: 1.6;
 }
 
-/* ===== FÄRGER - GRÅTT MED DISKRET GUL ACCENT ===== */
+/* ===== FÄRGER - GRÅTT MED MYCKET DISKRET GUL ===== */
 :root {
-    /* NY GUL: #D9A300 - diskret, balanserad */
-    --yellow-700: #B38600;
-    --yellow-600: #CC9200;
-    --yellow-500: #D9A300;  /* HUVUDGUL - ÄNDRAD */
-    --yellow-400: #E6B300;
-    --yellow-100: #F5E6B3;  /* LJUSGUL för "Kort sagt" */
+    /* NY GUL: #C4B000 - väldigt diskret */
+    --yellow-700: #A39300;
+    --yellow-600: #B6A300;
+    --yellow-500: #C4B000;  /* HUVUDGUL - ÄNDRAD */
+    --yellow-400: #D2BE00;
+    --yellow-100: #F0E8B3;  /* LJUSGUL för "Kort sagt" */
     
     /* Grått för huvuddesign */
     --gray-50: #fafafa;
@@ -85,8 +85,8 @@ p {
     /* Neutrala */
     --light-gray: #f8f9fa;
     --border-color: #EDE7D9;
-    --shadow: 0 5px 15px rgba(217, 163, 0, 0.05);
-    --shadow-hover: 0 10px 30px rgba(217, 163, 0, 0.1);
+    --shadow: 0 5px 15px rgba(196, 176, 0, 0.03);
+    --shadow-hover: 0 10px 30px rgba(196, 176, 0, 0.05);
 }
 
 /* ===== NAVBAR - UPPDATERAD ===== */
@@ -190,7 +190,7 @@ p {
     object-fit: cover;
 }
 
-/* ===== KNAPPAR - VIT TEXT PÅ GUL BAKGRUND ===== */
+/* ===== KNAPPAR ===== */
 .button {
     display: inline-block;
     padding: 1rem 2rem;
@@ -232,7 +232,7 @@ p {
     font-size: 1.1rem;
 }
 
-/* ===== SERVICES SECTION - GRÅ BAKGRUND + GUL LINJE ===== */
+/* ===== SERVICES SECTION ===== */
 .services {
     padding: 4rem 0;
     background-color: #ffffff;
@@ -282,7 +282,7 @@ p {
     flex-grow: 1;
 }
 
-/* ===== ABOUT SECTION - "KORT SAGT"-RUTAN GUL ===== */
+/* ===== ABOUT SECTION ===== */
 .about {
     padding: 4rem 0;
     background-color: #ffffff;
@@ -299,7 +299,6 @@ p {
     padding-right: 1rem;
 }
 
-/* "KORT SAGT"-RUTAN - GUL */
 .about-quote {
     margin: 2.5rem 0;
     padding: 2.5rem;
@@ -316,7 +315,6 @@ p {
     font-style: italic;
 }
 
-/* About Image Container - PLATT */
 .image-container {
     background: transparent;
     padding: 0;
@@ -339,7 +337,7 @@ p {
     display: none;
 }
 
-/* ===== CONTACT SECTION - SUBTIL LINJERUTA MED LÄTT SKUGGA ===== */
+/* ===== CONTACT SECTION - GUL ACCENTLINJE ===== */
 .contact {
     padding: 4rem 0;
     background: #ffffff;
@@ -351,10 +349,11 @@ p {
     max-width: 700px;
     margin: 0 auto;
     padding: 3rem;
-    border-radius: 10px;           /* ÄNDRAD: 8px → 10px */
+    border-radius: 8px;
     background-color: #ffffff;
-    border: 1px solid var(--gray-300);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04); /* ÄNDRAD: ingen → lätt skugga */
+    border: none;                    /* Ingen ram runt hela */
+    border-left: 3px solid var(--yellow-500); /* Gul accentlinje vänster - NYTT */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
 }
 
 .contact .section-title {
@@ -376,7 +375,7 @@ p {
     flex-wrap: wrap;
 }
 
-/* ===== FOOTER - MED E-POST ===== */
+/* ===== FOOTER ===== */
 .footer {
     padding: 3rem 0;
     background-color: #1a1a1a;
@@ -420,14 +419,13 @@ p {
     margin-top: 1rem;
 }
 
-/* ===== RESPONSIVITET - AVSTÅND & MOBILJUSTERINGAR ===== */
+/* ===== RESPONSIVITET ===== */
 @media (max-width: 1200px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
     
-    /* PADDA AVSTÅND */
     .services, .about, .contact {
         padding: 3.25rem 0;
     }
@@ -453,21 +451,17 @@ p {
 }
 
 @media (max-width: 768px) {
-    /* MOBIL AVSTÅND - SPECIFIKA ÄNDRINGAR */
-    .about-quote {
-        margin-bottom: 1rem; /* ÄNDRAD: mindre luft under "Kort sagt" */
+    /* MOBIL: MINIMALT AVSTÅND MELLAN BILD OCH KONTAKT */
+    .about {
+        padding-bottom: 0;       /* Noll luft under bilden - NYTT */
     }
     
-    .about {
-        padding-bottom: 0.5rem; /* ÄNDRAD: mindre luft under bilden */
+    .contact {
+        padding-top: 0.5rem;     /* Minimalt, bara 8px - NYTT */
     }
     
     .services, .about, .contact {
         padding: 2.5rem 0;
-    }
-    
-    .contact {
-        padding: 3rem 0;
     }
     
     /* Mobilmeny */
@@ -567,7 +561,7 @@ p {
     }
     
     .nav-cta-button {
-        background-color: rgba(217, 163, 0, 0.9);
+        background-color: rgba(196, 176, 0, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.5);
         color: white !important;
     }
