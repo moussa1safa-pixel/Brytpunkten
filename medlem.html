@@ -16,116 +16,414 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
     
-    <!-- EXTRA STYLING FÖR DENNA SIDA -->
+    <!-- EXTRA STYLING FÖR MEDLEMSSIDAN -->
     <style>
+        /* Använder samma färger som huvudsidans style.css */
         :root {
-            /* GRÖNT FÄRGSCHEMA istället för gult */
-            --green-700: #2E7D32;
-            --green-600: #388E3C;
-            --green-500: #4CAF50;    /* HUVUDSGRÖNT */
-            --green-400: #66BB6A;
-            --green-100: #C8E6C9;
-            --green-50: #E8F5E9;
+            /* Gult färgschema */
+            --yellow-700: #A39300;
+            --yellow-600: #B6A300;
+            --yellow-500: #C4B000;
+            --yellow-400: #D2BE00;
+            --yellow-100: #F0E8B3;
+            
+            /* Grått färgschema */
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #eeeeee;
+            --gray-300: #e0e0e0;
+            --gray-700: #424242;
+            
+            /* Textfärger */
+            --text-dark: #1a1a1a;
+            --text-gray: #555;
+            --text-light: #777;
         }
         
-        .member-header {
-            margin-top: 100px;
+        /* HERO SECTION FÖR MEDLEMSSIDA */
+        .member-hero {
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 0 1rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .member-content {
+        .member-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 80%, rgba(196, 176, 0, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(196, 176, 0, 0.03) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .member-hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin: 0 auto 3rem;
-            text-align: left;
         }
         
-        .info-box {
-            background: var(--green-50);
-            padding: 2rem;
+        .member-hero .section-title {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 3.2rem;
+            line-height: 1.1;
+        }
+        
+        .member-hero .section-subtitle {
+            color: var(--text-gray);
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* MEDLEMSKAP SECTION */
+        .membership-section {
+            padding: 4rem 1rem;
+            background: white;
+        }
+        
+        .membership-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .membership-card {
+            background: var(--gray-50);
+            padding: 2.5rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--green-500);
+            border-left: 4px solid var(--yellow-500);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .membership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(196, 176, 0, 0.08);
+        }
+        
+        .membership-card h3 {
+            color: var(--yellow-600);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--gray-300);
+            padding-bottom: 0.75rem;
+        }
+        
+        .membership-card ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .membership-card li {
+            margin-bottom: 0.75rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+        
+        .membership-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* FORMULÄR SECTION */
+        .form-section-container {
+            padding: 4rem 1rem;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
         }
         
         .form-box {
-            max-width: 700px;
-            margin: 4rem auto;
+            max-width: 800px;
+            margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 3.5rem;
             border-radius: 8px;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
         }
         
-        .form-section {
+        .form-box .section-title {
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+        }
+        
+        .form-group {
             margin-bottom: 2.5rem;
         }
         
         .form-label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-dark);
+            font-size: 1.05rem;
         }
         
         .form-input {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
+            background-color: white;
+            transition: all 0.2s ease;
         }
         
+        .form-input:focus {
+            outline: none;
+            border-color: var(--yellow-500);
+            box-shadow: 0 0 0 3px rgba(196, 176, 0, 0.1);
+        }
+        
+        /* CHECKBOX GRUPP */
         .checkbox-group {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 0.75rem;
+            gap: 1rem;
         }
         
         .checkbox-item {
             display: flex;
-            align-items: start;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: #f9f9f9;
-            border-radius: 6px;
-            border: 1px solid #eee;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
         
+        .checkbox-item:hover {
+            background: var(--gray-100);
+            border-color: var(--yellow-400);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--yellow-500);
+        }
+        
+        .checkbox-item-content h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .checkbox-item-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        /* RADIO BUTTONS FÖR KÖN */
+        .radio-group {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .radio-item input[type="radio"] {
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--yellow-500);
+        }
+        
+        /* SAMTYCKE BOX */
         .consent-box {
-            padding: 1.5rem;
-            background: #f5f5f5;
-            border-radius: 6px;
-            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--gray-200);
         }
         
-        .green-button {
-            background-color: var(--green-500);
+        .consent-box h4 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .consent-box label {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+        
+        .consent-box input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--yellow-500);
+        }
+        
+        /* SKICKA-KNAPP */
+        .submit-section {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+        
+        .submit-button {
+            background-color: var(--yellow-500);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.1rem 2.5rem;
             border: none;
             border-radius: 8px;
             font-weight: 600;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            min-width: 200px;
+            transition: all 0.3s ease;
+            min-width: 220px;
+            border: 2px solid var(--yellow-700);
         }
         
-        .green-button:hover {
-            background-color: var(--green-600);
+        .submit-button:hover {
+            background-color: var(--yellow-700);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 176, 0, 0.15);
         }
         
-        .green-accent {
-            color: var(--green-600);
-            font-weight: 600;
+        .submit-button:disabled {
+            background-color: var(--gray-300);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            border-color: var(--gray-400);
+        }
+        
+        /* FORM MEDDELANDEN */
+        .form-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .form-message.success {
+            background-color: #E8F5E9;
+            color: #2E7D32;
+            border: 1px solid #C8E6C9;
+        }
+        
+        .form-message.error {
+            background-color: #FFEBEE;
+            color: #C62828;
+            border: 1px solid #FFCDD2;
+        }
+        
+        .form-message.loading {
+            background-color: #FFF8E1;
+            color: #FF8F00;
+            border: 1px solid #FFECB3;
+        }
+        
+        /* RESPONSIV DESIGN */
+        @media (max-width: 768px) {
+            .member-hero {
+                height: 70vh;
+                min-height: 500px;
+            }
+            
+            .member-hero .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .member-hero .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .membership-section,
+            .form-section-container {
+                padding: 2.5rem 1rem;
+            }
+            
+            .form-box {
+                padding: 1.5rem;
+            }
+            
+            .membership-card {
+                padding: 1.5rem;
+            }
+            
+            .form-group > div {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            
+            .radio-group {
+                gap: 1.5rem;
+            }
+            
+            .submit-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .member-hero {
+                padding-top: 80px; /* För osynlig header */
+            }
+        }
+        
+        /* GRID LAYOUTS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- NAVBAR MED HEADER -->
+    <!-- NAVBAR MED HEADER (Samma som huvudsidan) -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
@@ -147,188 +445,207 @@
     </nav>
 
     <main>
-        <!-- RUBRIK -->
-        <div class="member-header">
-            <h1 class="section-title">Bli medlem i Brytpunkten</h1>
-        </div>
-        
-        <!-- INFO-TEXT -->
-        <div class="container member-content">
-            <div class="info-box">
-                <h3 class="green-accent">Om Brytpunkten</h3>
-                <p>
-                    <strong>Brytpunkten är en ideell förening med socialt och brottsförebyggande syfte.</strong> 
-                    Vi är partipolitiskt och religiöst obunden och arbetar med:
+        <!-- HERO SECTION -->
+        <section class="member-hero">
+            <div class="member-hero-content">
+                <h1 class="section-title">Bli medlem i Brytpunkten</h1>
+                <p class="section-subtitle">
+                    Gemenskap, stöd och en väg framåt. Tillsammans skapar vi förändring.
                 </p>
-                
-                <ul>
-                    <li><strong>Vuxna med kriminell bakgrund</strong> – Socialt stöd och motivation för att lämna kriminalitet</li>
-                    <li><strong>Unga i riskmiljöer</strong> – Förebyggande insatser för positiva livsval</li>
-                    <li><strong>Praktiskt stöd</strong> – Hjälp med vardagsstruktur, arbete och myndighetskontakter</li>
-                </ul>
-                
-                <p>
-                    Vi samarbetar med myndigheter, frivården, socialtjänst och lokala organisationer. 
-                    <strong>Brytpunkten bedriver inte vård eller myndighetsutövning</strong> utan arbetar 
-                    stödjande och motiverande.
+                <p style="color: var(--yellow-600); font-weight: 600; font-size: 1.1rem;">
+                    Inga kostnader – vi ser bara fram emot ditt stöd och engagemang.
                 </p>
             </div>
-            
-            <div class="info-box">
-                <h3 class="green-accent">Våra medlemskapstyper</h3>
-                
-                <p><strong>• Medlem - behöver hjälp</strong> – För dig som vill få stöd och hjälp med förändring.</p>
-                
-                <p><strong>• Anhörigmedlemskap</strong> – För dig som är anhörig eller närstående till någon med erfarenhet av missbruk eller kriminalitet.</p>
-                
-                <p><strong>• Rådgivande råd</strong> – För dig med kunskap/erfarenhet inom socialt arbete, juridik, vård etc som vill bidra som rådgivare.</p>
-                
-                <p style="margin-top: 1.5rem; padding: 1rem; background: #E8F5E9; border-radius: 4px;">
-                    <strong>Inga kostnader</strong> – vi ser bara fram emot ditt stöd och engagemang.
-                </p>
-            </div>
-        </div>
+        </section>
 
-        <!-- FORMULÄR -->
-        <div class="container">
+        <!-- MEDLEMSKAP-TYPER -->
+        <section class="membership-section">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Våra medlemskapstyper</h2>
+                
+                <div class="membership-cards">
+                    <!-- MEDLEM - BEHÖVER HJÄLP -->
+                    <div class="membership-card">
+                        <h3>Medlem – behöver hjälp</h3>
+                        <p>För dig som vill få stöd och hjälp med förändring.</p>
+                        <ul>
+                            <li>Socialt stöd och motivation</li>
+                            <li>Praktisk hjälp med vardagsfrågor</li>
+                            <li>Stöd i arbetsliv och utbildning</li>
+                            <li>Individuella samtal och coachning</li>
+                        </ul>
+                        <p><strong>Inga krav på ålder eller bakgrund</strong> – alla som vill förändra sitt liv är välkomna.</p>
+                    </div>
+                    
+                    <!-- ANHÖRIGMEDLEMSKAP -->
+                    <div class="membership-card">
+                        <h3>Anhörigmedlemskap</h3>
+                        <p>För dig som är anhörig eller närstående till någon med erfarenhet av missbruk eller kriminalitet.</p>
+                        <ul>
+                            <li>Stöd och råd i utmanande situationer</li>
+                            <li>Möten med andra i liknande situation</li>
+                            <li>Information och vägledning</li>
+                            <li>Ett nätverk att luta sig mot</li>
+                        </ul>
+                        <p><em>Ibland behöver även de som stöttar andra, stöttas själva.</em></p>
+                    </div>
+                    
+                    <!-- RÅDGIVANDE RÅD -->
+                    <div class="membership-card">
+                        <h3>Rådgivande råd</h3>
+                        <p>För dig med kunskap eller erfarenhet som vill bidra.</p>
+                        <ul>
+                            <li>Bidra med din kompetens</li>
+                            <li>Dela din erfarenhet</li>
+                            <li>Stötta verksamheten strategiskt</li>
+                            <li>Vara en del av vårt nätverk</li>
+                        </ul>
+                        <p>Söker personer med bakgrund inom <strong>socialt arbete, juridik, psykologi, vård eller arbetsliv</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÄR SECTION -->
+        <section class="form-section-container">
             <div class="form-box">
                 <h2 class="section-title">Ansök om medlemskap</h2>
                 
-                <form action="https://formspree.io/f/mrekwaqd" method="POST">
+                <form action="https://formspree.io/f/mrekwaqd" method="POST" id="medlemsansokan">
+                    <!-- Ämne för e-postmeddelandet -->
                     <input type="hidden" name="_subject" value="Ny medlemsansökan - Brytpunkten">
-                    <input type="hidden" name="_replyto" value="%email%">
+                    
+                    <!-- ALLA e-postar skickas till info@brytpunkten.se -->
+                    <input type="hidden" name="_replyto" value="info@brytpunkten.se">
+                    
+                    <!-- Spam-skydd -->
+                    <input type="hidden" name="_gotcha" style="display:none">
                     
                     <!-- 1. MEDLEMSKAPSTYP -->
-                    <div class="form-section">
+                    <div class="form-group">
                         <label class="form-label">Välj medlemskapstyp (du kan välja flera): *</label>
                         <div class="checkbox-group">
                             <label class="checkbox-item">
                                 <input type="checkbox" name="Medlemskapstyp[]" value="Medlem - behöver hjälp" required> 
-                                <div>
-                                    <strong>Medlem - behöver hjälp</strong>
-                                    <p style="margin: 0.25rem 0 0 0; color: #666; font-size: 0.9rem;">
-                                        Vill få stöd och hjälp med förändring.
-                                    </p>
+                                <div class="checkbox-item-content">
+                                    <h4>Medlem – behöver hjälp</h4>
+                                    <p>Vill få stöd och hjälp med förändring i mitt liv.</p>
                                 </div>
                             </label>
                             
                             <label class="checkbox-item">
                                 <input type="checkbox" name="Medlemskapstyp[]" value="Anhörig - stöd till närstående"> 
-                                <div>
-                                    <strong>Anhörig - stöd till närstående</strong>
-                                    <p style="margin: 0.25rem 0 0 0; color: #666; font-size: 0.9rem;">
-                                        Är anhörig/närstående till någon med erfarenhet.
-                                    </p>
+                                <div class="checkbox-item-content">
+                                    <h4>Anhörig – stöd till närstående</h4>
+                                    <p>Är anhörig eller närstående till någon med erfarenhet.</p>
                                 </div>
                             </label>
                             
                             <label class="checkbox-item">
                                 <input type="checkbox" name="Medlemskapstyp[]" value="Rådgivande råd - vill bidra med kunskap"> 
-                                <div>
-                                    <strong>Rådgivande råd - vill bidra med kunskap</strong>
-                                    <p style="margin: 0.25rem 0 0 0; color: #666; font-size: 0.9rem;">
-                                        Har kunskap/erfarenhet som kan bidra.
-                                    </p>
+                                <div class="checkbox-item-content">
+                                    <h4>Rådgivande råd – vill bidra med kunskap</h4>
+                                    <p>Har kunskap eller erfarenhet som kan bidra till verksamheten.</p>
                                 </div>
                             </label>
                         </div>
                     </div>
 
                     <!-- 2. PERSONUPPGIFTER -->
-                    <div class="form-section">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <div class="grid-2">
                             <div>
                                 <label class="form-label">Fullständigt namn: *</label>
-                                <input type="text" name="Namn" required class="form-input">
+                                <input type="text" name="Namn" required class="form-input" placeholder="För- och efternamn">
                             </div>
                             
                             <div>
                                 <label class="form-label">Födelsedatum (ÅÅMMDD): *</label>
                                 <input type="text" name="Födelsedatum" required pattern="\d{6}" 
-                                       placeholder="ÅÅMMDD" class="form-input">
+                                       placeholder="ÅÅMMDD" class="form-input" title="Ange 6 siffror: ÅÅMMDD">
                             </div>
                         </div>
                     </div>
 
                     <!-- 3. KÖN -->
-                    <div class="form-section">
+                    <div class="form-group">
                         <label class="form-label">Kön:</label>
-                        <div style="display: flex; gap: 2rem;">
-                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="radio-group">
+                            <label class="radio-item">
                                 <input type="radio" name="Kön" value="Kvinna"> Kvinna
                             </label>
-                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <label class="radio-item">
                                 <input type="radio" name="Kön" value="Man"> Man
                             </label>
-                            <label style="display: flex; align-items: center; gap: 0.5rem;">
-                                <input type="radio" name="Kön" value="Vill ej uppge"> Vill ej uppge
+                            <label class="radio-item">
+                                <input type="radio" name="Kön" value="Vill ej uppge" checked> Vill ej uppge
                             </label>
                         </div>
                     </div>
 
                     <!-- 4. KONTAKTUPPGIFTER -->
-                    <div class="form-section">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <div class="grid-2">
                             <div>
                                 <label class="form-label">E-post: *</label>
-                                <input type="email" name="email" required class="form-input">
+                                <input type="email" name="email" required class="form-input" placeholder="namn@example.com">
                             </div>
                             
                             <div>
                                 <label class="form-label">Telefonnummer:</label>
-                                <input type="tel" name="Telefonnummer" class="form-input">
+                                <input type="tel" name="Telefonnummer" class="form-input" placeholder="070-123 45 67">
                             </div>
                         </div>
                     </div>
 
                     <!-- 5. ADRESS -->
-                    <div class="form-section">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <div class="grid-3">
                             <div>
                                 <label class="form-label">Adress:</label>
-                                <input type="text" name="Adress" class="form-input">
+                                <input type="text" name="Adress" class="form-input" placeholder="Gatunamn 123">
                             </div>
                             
                             <div>
                                 <label class="form-label">Postnummer:</label>
-                                <input type="text" name="Postnummer" class="form-input">
+                                <input type="text" name="Postnummer" class="form-input" placeholder="123 45">
                             </div>
                             
                             <div>
                                 <label class="form-label">Ort:</label>
-                                <input type="text" name="Ort" class="form-input">
+                                <input type="text" name="Ort" class="form-input" placeholder="Stad">
                             </div>
                         </div>
                     </div>
 
                     <!-- 6. SAMTYCKE -->
                     <div class="consent-box">
-                        <h4 style="color: #1a1a1a; margin-bottom: 1rem;">Samtycke *</h4>
+                        <h4>Samtycke *</h4>
                         
-                        <label style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 1rem;">
-                            <input type="checkbox" name="Samtycke_integritet" required style="margin-top: 0.25rem;">
-                            <span style="color: #555;">
-                                Jag har läst och godkänner integritetspolicyn.
-                            </span>
+                        <label>
+                            <input type="checkbox" name="Samtycke_integritet" required>
+                            <span>Jag har läst och godkänner att Brytpunkten behandlar mina uppgifter enligt integritetspolicyn.</span>
                         </label>
                         
-                        <label style="display: flex; align-items: start; gap: 0.75rem;">
-                            <input type="checkbox" name="Samtycke_spara_uppgifter" required style="margin-top: 0.25rem;">
-                            <span style="color: #555;">
-                                Jag samtycker till att Brytpunkten sparar mina uppgifter.
-                            </span>
+                        <label>
+                            <input type="checkbox" name="Samtycke_spara_uppgifter" required>
+                            <span>Jag samtycker till att Brytpunkten sparar mina uppgifter för medlemskap och verksamhetsutövning.</span>
                         </label>
                     </div>
 
-                    <!-- SKICKA-KNAPP -->
-                    <div style="text-align: center;">
-                        <button type="submit" class="green-button">
+                    <!-- SKICKA-KNAPP OCH MEDDELANDE -->
+                    <div class="submit-section">
+                        <button type="submit" class="submit-button" id="submitBtn">
                             Skicka ansökan
                         </button>
+                        <div id="formMessage" class="form-message"></div>
+                        <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                            Vi kommer att kontakta dig inom några arbetsdagar.
+                        </p>
                     </div>
                 </form>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- FOOTER -->
@@ -347,7 +664,58 @@
 
     <script src="script.js"></script>
     <script>
+        // Sätter aktuellt år i footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // FORMULÄRSKICKNING
+        document.getElementById('medlemsansokan').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Validera födelsedatum
+            const birthInput = this.querySelector('input[name="Födelsedatum"]');
+            if (birthInput && birthInput.value) {
+                const birthValue = birthInput.value.trim();
+                if (birthValue.length !== 6 || !/^\d{6}$/.test(birthValue)) {
+                    e.preventDefault();
+                    formMessage.textContent = 'Ange födelsedatum som 6 siffror: ÅÅMMDD';
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
+                    birthInput.focus();
+                    return false;
+                }
+            }
+            
+            // Visa loading-state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Skickar... <span style="font-size:0.9em">⏳</span>';
+            formMessage.textContent = 'Skickar din ansökan, vänligen vänta...';
+            formMessage.className = 'form-message loading';
+            formMessage.style.display = 'block';
+            
+            // Formspree kommer att hantera resten
+            return true;
+        });
+        
+        // AUTO-FORMATTERA TELEFONNUMMER
+        const phoneInput = document.querySelector('input[name="Telefonnummer"]');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = this.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value.length <= 2) {
+                        value = value;
+                    } else if (value.length <= 6) {
+                        value = value.substring(0, 3) + '-' + value.substring(3);
+                    } else if (value.length <= 9) {
+                        value = value.substring(0, 3) + '-' + value.substring(3, 6) + ' ' + value.substring(6);
+                    } else {
+                        value = value.substring(0, 3) + '-' + value.substring(3, 6) + ' ' + value.substring(6, 9);
+                    }
+                }
+                this.value = value;
+            });
+        }
     </script>
 </body>
 </html>
