@@ -5,136 +5,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bli medlem - Brytpunkten</title>
     <link rel="stylesheet" href="style.css">
-    <!-- ... resten av head ... -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FAVICONER -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    
+    <!-- EXTRA STYLING FÖR DENNA SIDA -->
+    <style>
+        :root {
+            /* GRÖNT FÄRGSCHEMA istället för gult */
+            --green-700: #2E7D32;
+            --green-600: #388E3C;
+            --green-500: #4CAF50;    /* HUVUDSGRÖNT */
+            --green-400: #66BB6A;
+            --green-100: #C8E6C9;
+            --green-50: #E8F5E9;
+        }
+        
+        .member-header {
+            margin-top: 100px;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .member-content {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: left;
+        }
+        
+        .info-box {
+            background: var(--green-50);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--green-500);
+        }
+        
+        .form-box {
+            max-width: 700px;
+            margin: 4rem auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+        
+        .consent-box {
+            padding: 1.5rem;
+            background: #f5f5f5;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+        
+        .green-button {
+            background-color: var(--green-500);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            min-width: 200px;
+        }
+        
+        .green-button:hover {
+            background-color: var(--green-600);
+        }
+        
+        .green-accent {
+            color: var(--green-600);
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-    <!-- ... navbar ... -->
+    <!-- NAVBAR MED HEADER -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="index.html#services">Vårt arbete</a></li>
+                <li><a href="index.html#about">Om oss</a></li>
+                <li><a href="medlem.html" class="nav-cta-button">Bli medlem</a></li>
+                <li><a href="index.html#contact" class="nav-cta-button">Kontakta oss</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Meny">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-    <main class="container" style="margin-top: 100px; padding: 2rem 1rem;">
-        <h1 class="section-title">Bli medlem i Brytpunkten</h1>
+    <main>
+        <!-- RUBRIK -->
+        <div class="member-header">
+            <h1 class="section-title">Bli medlem i Brytpunkten</h1>
+        </div>
         
-        <!-- INFO-TEXT - DIN VERKSAMHETSBESKRIVNING -->
-        <div class="member-info" style="max-width: 800px; margin: 0 auto 3rem; text-align: left;">
-            <div style="background: var(--gray-50); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-                <h3 style="color: var(--text-dark); margin-bottom: 1rem; border-bottom: 2px solid var(--yellow-500); padding-bottom: 0.5rem;">
-                    Om Brytpunkten
-                </h3>
-                <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-gray); margin-bottom: 1.5rem;">
+        <!-- INFO-TEXT -->
+        <div class="container member-content">
+            <div class="info-box">
+                <h3 class="green-accent">Om Brytpunkten</h3>
+                <p>
                     <strong>Brytpunkten är en ideell förening med socialt och brottsförebyggande syfte.</strong> 
-                    Vi är partipolitiskt och religiöst obunden och arbetar främst med:
+                    Vi är partipolitiskt och religiöst obunden och arbetar med:
                 </p>
                 
-                <ul style="color: var(--text-gray); margin-bottom: 1.5rem; padding-left: 1.5rem;">
-                    <li style="margin-bottom: 0.75rem;"><strong>Vuxna med kriminell bakgrund</strong> – Socialt stöd och motivation genom individuella samtal och coachning för att lämna kriminalitet</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Unga i riskmiljöer</strong> – Förebyggande insatser genom information, motivation och stöd till positiva livsval</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Praktiskt stöd</strong> – Hjälp med vardagsstruktur, arbete, utbildning och kontakt med myndigheter</li>
+                <ul>
+                    <li><strong>Vuxna med kriminell bakgrund</strong> – Socialt stöd och motivation för att lämna kriminalitet</li>
+                    <li><strong>Unga i riskmiljöer</strong> – Förebyggande insatser för positiva livsval</li>
+                    <li><strong>Praktiskt stöd</strong> – Hjälp med vardagsstruktur, arbete och myndighetskontakter</li>
                 </ul>
                 
-                <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-gray); margin-bottom: 1.5rem;">
-                    Vi samarbetar aktivt med myndigheter, frivården, socialtjänst och lokala organisationer. 
-                    <strong>Brytpunkten bedriver inte vård, behandling eller myndighetsutövning</strong> utan arbetar 
-                    stödjande och motiverande i samverkan med ansvariga aktörer.
+                <p>
+                    Vi samarbetar med myndigheter, frivården, socialtjänst och lokala organisationer. 
+                    <strong>Brytpunkten bedriver inte vård eller myndighetsutövning</strong> utan arbetar 
+                    stödjande och motiverande.
                 </p>
             </div>
             
-            <div style="background: var(--gray-50); padding: 2rem; border-radius: 8px;">
-                <h3 style="color: var(--text-dark); margin-bottom: 1rem; border-bottom: 2px solid var(--yellow-500); padding-bottom: 0.5rem;">
-                    Våra medlemskapstyper
-                </h3>
+            <div class="info-box">
+                <h3 class="green-accent">Våra medlemskapstyper</h3>
                 
-                <p style="margin-bottom: 1rem; color: var(--text-gray);">
-                    <strong>• Ordinarie medlemskap (13–29 år)</strong> – För dig med bakgrund av missbruk eller kriminalitet som behöver stöd för förändring. Medlemmen förbinder sig att verka för föreningens syfte och avhålla sig från kriminalitet och missbruk.
-                </p>
+                <p><strong>• Medlem - behöver hjälp</strong> – För dig som vill få stöd och hjälp med förändring.</p>
                 
-                <p style="margin-bottom: 1rem; color: var(--text-gray);">
-                    <strong>• Seniort medlemskap (över 29 år)</strong> – Samma villkor som ordinarie medlemskap för personer över 29 år.
-                </p>
+                <p><strong>• Anhörigmedlemskap</strong> – För dig som är anhörig eller närstående till någon med erfarenhet av missbruk eller kriminalitet.</p>
                 
-                <p style="margin-bottom: 1rem; color: var(--text-gray);">
-                    <strong>• Anhörigmedlemskap</strong> – För dig som är anhörig eller närstående till någon med erfarenhet av missbruk, kriminalitet eller utanförskap.
-                </p>
+                <p><strong>• Rådgivande råd</strong> – För dig med kunskap/erfarenhet inom socialt arbete, juridik, vård etc som vill bidra som rådgivare.</p>
                 
-                <p style="margin-bottom: 1rem; color: var(--text-gray);">
-                    <strong>• Stödmedlemskap</strong> – För dig som vill stödja föreningens syften och arbete.
-                </p>
-                
-                <p style="margin-top: 1.5rem; padding: 1rem; background: #f0f8f0; border-left: 4px solid #4CAF50; border-radius: 4px; color: var(--text-gray);">
-                    <strong>Inga kostnader</strong> – vi ser bara fram emot ditt stöd och engagemang för att skapa konkreta förändringar i människors liv.
+                <p style="margin-top: 1.5rem; padding: 1rem; background: #E8F5E9; border-radius: 4px;">
+                    <strong>Inga kostnader</strong> – vi ser bara fram emot ditt stöd och engagemang.
                 </p>
             </div>
         </div>
 
-        <!-- FORMULÄRET -->
-        <div class="member-form-container" style="max-width: 700px; margin: 4rem auto;">
-            <div class="contact-box">
+        <!-- FORMULÄR -->
+        <div class="container">
+            <div class="form-box">
                 <h2 class="section-title">Ansök om medlemskap</h2>
                 
-                <form action="https://formspree.io/f/mrekwaqd" method="POST" style="text-align: left;">
-                    <!-- Dolda fält för Formspree -->
+                <form action="https://formspree.io/f/mrekwaqd" method="POST">
                     <input type="hidden" name="_subject" value="Ny medlemsansökan - Brytpunkten">
                     <input type="hidden" name="_replyto" value="%email%">
                     
-                    <!-- ===== 1. MEDLEMSKAPSTYP ===== -->
-                    <div style="margin-bottom: 2.5rem;">
-                        <label style="display: block; margin-bottom: 0.75rem; font-weight: 600; color: var(--text-dark);">
-                            Välj medlemskapstyp (du kan välja flera): *
-                        </label>
-                        <div style="display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
-                            <label style="display: flex; align-items: start; gap: 0.75rem; padding: 1rem; background: var(--gray-50); border-radius: 6px;">
-                                <input type="checkbox" name="Medlemskapstyp[]" value="Ordinarie - behöver hjälp" required style="margin-top: 0.25rem;"> 
+                    <!-- 1. MEDLEMSKAPSTYP -->
+                    <div class="form-section">
+                        <label class="form-label">Välj medlemskapstyp (du kan välja flera): *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="Medlemskapstyp[]" value="Medlem - behöver hjälp" required> 
                                 <div>
-                                    <strong>Ordinarie - behöver hjälp</strong>
-                                    <p style="margin: 0.25rem 0 0 0; color: var(--text-gray); font-size: 0.9rem;">
-                                        13–29 år. Erfarenhet av missbruk/kriminalitet. Behöver stöd för förändring.
+                                    <strong>Medlem - behöver hjälp</strong>
+                                    <p style="margin: 0.25rem 0 0 0; color: #666; font-size: 0.9rem;">
+                                        Vill få stöd och hjälp med förändring.
                                     </p>
                                 </div>
                             </label>
                             
-                            <label style="display: flex; align-items: start; gap: 0.75rem; padding: 1rem; background: var(--gray-50); border-radius: 6px;">
-                                <input type="checkbox" name="Medlemskapstyp[]" value="Anhörig - stöd till närstående" style="margin-top: 0.25rem;"> 
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="Medlemskapstyp[]" value="Anhörig - stöd till närstående"> 
                                 <div>
                                     <strong>Anhörig - stöd till närstående</strong>
-                                    <p style="margin: 0.25rem 0 0 0; color: var(--text-gray); font-size: 0.9rem;">
-                                        Är anhörig/närstående till någon med erfarenhet av missbruk/kriminalitet.
+                                    <p style="margin: 0.25rem 0 0 0; color: #666; font-size: 0.9rem;">
+                                        Är anhörig/närstående till någon med erfarenhet.
                                     </p>
                                 </div>
                             </label>
                             
-                            <label style="display: flex; align-items: start; gap: 0.75rem; padding: 1rem; background: var(--gray-50); border-radius: 6px;">
-                                <input type="checkbox" name="Medlemskapstyp[]" value="Rådgivande råd - vill bidra med kunskap" style="margin-top: 0.25rem;"> 
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="Medlemskapstyp[]" value="Rådgivande råd - vill bidra med kunskap"> 
                                 <div>
                                     <strong>Rådgivande råd - vill bidra med kunskap</strong>
-                                    <p style="margin: 0.25rem 0 0 0; color: var(--text-gray); font-size: 0.9rem;">
-                                        Har kunskap/erfarenhet inom socialt arbete, juridik, vård etc.
+                                    <p style="margin: 0.25rem 0 0 0; color: #666; font-size: 0.9rem;">
+                                        Har kunskap/erfarenhet som kan bidra.
                                     </p>
                                 </div>
                             </label>
                         </div>
                     </div>
 
-                    <!-- ===== 2. PERSONUPPGIFTER ===== -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                                Fullständigt namn: *
-                            </label>
-                            <input type="text" name="Namn" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
-                        </div>
-                        
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                                Personnummer (ÅÅMMDD-XXXX): *
-                            </label>
-                            <input type="text" name="Personnummer" required pattern="\d{6}-\d{4}" 
-                                   placeholder="ÅÅMMDD-XXXX" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                    <!-- 2. PERSONUPPGIFTER -->
+                    <div class="form-section">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <label class="form-label">Fullständigt namn: *</label>
+                                <input type="text" name="Namn" required class="form-input">
+                            </div>
+                            
+                            <div>
+                                <label class="form-label">Födelsedatum (ÅÅMMDD): *</label>
+                                <input type="text" name="Födelsedatum" required pattern="\d{6}" 
+                                       placeholder="ÅÅMMDD" class="form-input">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- ===== 3. KÖN ===== -->
-                    <div style="margin-bottom: 2rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                            Kön:
-                        </label>
+                    <!-- 3. KÖN -->
+                    <div class="form-section">
+                        <label class="form-label">Kön:</label>
                         <div style="display: flex; gap: 2rem;">
                             <label style="display: flex; align-items: center; gap: 0.5rem;">
                                 <input type="radio" name="Kön" value="Kvinna"> Kvinna
@@ -148,69 +266,63 @@
                         </div>
                     </div>
 
-                    <!-- ===== 4. KONTAKTUPPGIFTER ===== -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                                E-post: *
-                            </label>
-                            <input type="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
-                        </div>
-                        
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                                Telefonnummer:
-                            </label>
-                            <input type="tel" name="Telefonnummer" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                    <!-- 4. KONTAKTUPPGIFTER -->
+                    <div class="form-section">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <label class="form-label">E-post: *</label>
+                                <input type="email" name="email" required class="form-input">
+                            </div>
+                            
+                            <div>
+                                <label class="form-label">Telefonnummer:</label>
+                                <input type="tel" name="Telefonnummer" class="form-input">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- ===== 5. ADRESS ===== -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                                Adress:
-                            </label>
-                            <input type="text" name="Adress" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
-                        </div>
-                        
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                                Postnummer:
-                            </label>
-                            <input type="text" name="Postnummer" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
-                        </div>
-                        
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
-                                Ort:
-                            </label>
-                            <input type="text" name="Ort" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                    <!-- 5. ADRESS -->
+                    <div class="form-section">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <label class="form-label">Adress:</label>
+                                <input type="text" name="Adress" class="form-input">
+                            </div>
+                            
+                            <div>
+                                <label class="form-label">Postnummer:</label>
+                                <input type="text" name="Postnummer" class="form-input">
+                            </div>
+                            
+                            <div>
+                                <label class="form-label">Ort:</label>
+                                <input type="text" name="Ort" class="form-input">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- ===== 6. SAMTYCKE ===== -->
-                    <div style="margin-bottom: 3rem; padding: 1.5rem; background: var(--gray-50); border-radius: 6px;">
-                        <h4 style="color: var(--text-dark); margin-bottom: 1rem;">Samtycke *</h4>
+                    <!-- 6. SAMTYCKE -->
+                    <div class="consent-box">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem;">Samtycke *</h4>
                         
                         <label style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 1rem;">
                             <input type="checkbox" name="Samtycke_integritet" required style="margin-top: 0.25rem;">
-                            <span style="color: var(--text-gray);">
-                                Jag har läst och godkänner <a href="#" style="color: var(--yellow-600); text-decoration: underline;">integritetspolicyn</a> för hur Brytpunkten hanterar personuppgifter.
+                            <span style="color: #555;">
+                                Jag har läst och godkänner integritetspolicyn.
                             </span>
                         </label>
                         
                         <label style="display: flex; align-items: start; gap: 0.75rem;">
                             <input type="checkbox" name="Samtycke_spara_uppgifter" required style="margin-top: 0.25rem;">
-                            <span style="color: var(--text-gray);">
-                                Jag samtycker till att Brytpunkten sparar mina uppgifter för medlemshantering och kontakt.
+                            <span style="color: #555;">
+                                Jag samtycker till att Brytpunkten sparar mina uppgifter.
                             </span>
                         </label>
                     </div>
 
-                    <!-- ===== SUBMIT-KNAPP ===== -->
+                    <!-- SKICKA-KNAPP -->
                     <div style="text-align: center;">
-                        <button type="submit" class="button button-primary button-large" style="min-width: 200px;">
+                        <button type="submit" class="green-button">
                             Skicka ansökan
                         </button>
                     </div>
@@ -219,7 +331,23 @@
         </div>
     </main>
 
-    <!-- ... footer ... -->
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Brytpunkten logotyp" class="footer-logo-img">
+                </div>
+                <p class="footer-mission">En ideell förening med socialt och brottsförebyggande syfte. Partipolitiskt och religiöst obunden.</p>
+                <p class="footer-contact">Kontakta oss: <span class="footer-email">info@brytpunkten.se</span></p>
+                <p class="footer-copyright">&copy; <span id="currentYear"></span> Brytpunkten. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
