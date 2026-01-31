@@ -67,13 +67,14 @@ p {
     /* NY GUL: #C4B000 - väldigt diskret */
     --yellow-700: #A39300;
     --yellow-600: #B6A300;
-    --yellow-500: #C4B000;  /* HUVUDGUL - ÄNDRAD */
+    --yellow-500: #C4B000;  /* HUVUDGUL */
     --yellow-400: #D2BE00;
     --yellow-100: #F0E8B3;  /* LJUSGUL för "Kort sagt" */
     
     /* Grått för huvuddesign */
     --gray-50: #fafafa;
     --gray-100: #f5f5f5;
+    --gray-200: #eeeeee;
     --gray-300: #e0e0e0;
     --gray-700: #424242;
     
@@ -89,7 +90,7 @@ p {
     --shadow-hover: 0 10px 30px rgba(196, 176, 0, 0.05);
 }
 
-/* ===== NAVBAR - UPPDATERAD ===== */
+/* ===== NAVBAR ===== */
 .navbar {
     position: fixed;
     top: 0;
@@ -337,7 +338,7 @@ p {
     display: none;
 }
 
-/* ===== CONTACT SECTION - GUL ACCENTLINJE ===== */
+/* ===== CONTACT SECTION - LJUSGRÅ BOX ===== */
 .contact {
     padding: 4rem 0;
     background: #ffffff;
@@ -349,11 +350,10 @@ p {
     max-width: 700px;
     margin: 0 auto;
     padding: 3rem;
-    border-radius: 8px;
-    background-color: #ffffff;
-    border: none;                    /* Ingen ram runt hela */
-    border-left: 3px solid var(--yellow-500); /* Gul accentlinje vänster - NYTT */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    background-color: var(--gray-50);      /* Ljusgrå bakgrund */
+    border: 1px solid var(--gray-200);     /* Väldigt ljus grå ram */
+    border-radius: 6px;                    /* Litet rundade hörn */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); /* Mycket lätt skugga */
 }
 
 .contact .section-title {
@@ -453,15 +453,19 @@ p {
 @media (max-width: 768px) {
     /* MOBIL: MINIMALT AVSTÅND MELLAN BILD OCH KONTAKT */
     .about {
-        padding-bottom: 0;       /* Noll luft under bilden - NYTT */
+        padding-bottom: 0 !important;       /* Noll luft under bilden */
     }
     
     .contact {
-        padding-top: 0.5rem;     /* Minimalt, bara 8px - NYTT */
+        padding-top: 0.5rem !important;     /* Minimalt, bara 8px */
     }
     
     .services, .about, .contact {
         padding: 2.5rem 0;
+    }
+    
+    .contact-box {
+        padding: 2rem 1.5rem;
     }
     
     /* Mobilmeny */
@@ -519,10 +523,6 @@ p {
     }
     
     .service-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .contact-box {
         padding: 2rem 1.5rem;
     }
     
