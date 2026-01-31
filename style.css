@@ -62,21 +62,26 @@ p {
     line-height: 1.6;
 }
 
-/* ===== FÄRGER - UPPDATERAT TILL GULT ===== */
+/* ===== FÄRGER - GRÅTT MED GUL ACCENT ===== */
 :root {
-    --yellow-900: #B38900;
-    --yellow-800: #CC9A00;
+    /* Gult endast för accent */
     --yellow-700: #E6AC00;
     --yellow-600: #FFBD00;
     --yellow-500: #FFC107;
     --yellow-400: #FFCA2C;
-    --yellow-300: #FFD54F;
-    --yellow-200: #FFE082;
-    --yellow-100: #FFECB3;
-    --yellow-50: #FFFDE7;
+    
+    /* Grått för huvuddesign */
+    --gray-50: #fafafa;
+    --gray-100: #f5f5f5;
+    --gray-300: #e0e0e0;
+    --gray-700: #424242;
+    
+    /* Textfärger */
     --text-dark: #1a1a1a;
     --text-gray: #555;
     --text-light: #777;
+    
+    /* Neutrala */
     --light-gray: #f8f9fa;
     --border-color: #EDE7D9;
     --shadow: 0 5px 15px rgba(179, 137, 0, 0.05);
@@ -138,7 +143,7 @@ p {
 
 .nav-cta-button {
     background-color: var(--yellow-500);
-    color: var(--text-dark) !important;
+    color: white !important;
     padding: 0.75rem 1.5rem !important;
     border-radius: 8px;
     margin-left: 1rem;
@@ -148,7 +153,6 @@ p {
 
 .nav-cta-button:hover {
     background-color: var(--yellow-700);
-    color: white !important;
     transform: translateY(-1px);
 }
 
@@ -185,7 +189,7 @@ p {
     object-fit: cover;
 }
 
-/* ===== KNAPPAR - UPPDATERADE FÄRGER ===== */
+/* ===== KNAPPAR - VIT TEXT PÅ GUL BAKGRUND ===== */
 .button {
     display: inline-block;
     padding: 1rem 2rem;
@@ -201,13 +205,12 @@ p {
 
 .button-primary {
     background-color: var(--yellow-500);
-    color: var(--text-dark);
+    color: white;
     border: 2px solid var(--yellow-700);
 }
 
 .button-primary:hover {
     background-color: var(--yellow-700);
-    color: white;
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
 }
@@ -219,7 +222,7 @@ p {
 }
 
 .button-outline:hover {
-    background-color: var(--yellow-50);
+    background-color: var(--gray-50);
     transform: translateY(-2px);
 }
 
@@ -228,9 +231,9 @@ p {
     font-size: 1.1rem;
 }
 
-/* ===== SERVICES SECTION - UPPDATERAD DESIGN ===== */
+/* ===== SERVICES SECTION - GRÅ BAKGRUND + GUL LINJE ===== */
 .services {
-    padding: 5rem 0;
+    padding: 4rem 0;
     background-color: #ffffff;
 }
 
@@ -242,7 +245,7 @@ p {
 }
 
 .service-card {
-    background-color: var(--yellow-50);
+    background-color: var(--gray-50);
     padding: 2rem;
     border-left: 3px solid var(--yellow-500);
     margin-bottom: 0;
@@ -258,7 +261,7 @@ p {
 }
 
 .service-card:hover {
-    background-color: #fef9e7;
+    background-color: var(--gray-100);
     transform: none;
     box-shadow: none;
 }
@@ -267,7 +270,7 @@ p {
     margin-bottom: 1rem;
     color: var(--text-dark);
     font-size: 1.4rem;
-    border-bottom: 2px solid var(--yellow-100);
+    border-bottom: 2px solid var(--gray-300);
     padding-bottom: 0.75rem;
 }
 
@@ -280,7 +283,7 @@ p {
 
 /* ===== ABOUT SECTION - UPPDATERAD ===== */
 .about {
-    padding: 5rem 0;
+    padding: 4rem 0;
     background-color: #ffffff;
 }
 
@@ -299,7 +302,7 @@ p {
     margin: 2.5rem 0;
     padding: 2.5rem;
     border-left: 4px solid var(--yellow-600);
-    background-color: var(--yellow-100);
+    background-color: var(--gray-100);
     color: var(--text-gray);
     border-radius: 0 8px 8px 0;
     font-size: 1.1rem;
@@ -311,7 +314,7 @@ p {
     font-style: italic;
 }
 
-/* About Image Container - UPPDATERAD (PLATT) */
+/* About Image Container - PLATT */
 .image-container {
     background: transparent;
     padding: 0;
@@ -336,7 +339,7 @@ p {
 
 /* ===== CONTACT SECTION ===== */
 .contact {
-    padding: 5rem 0;
+    padding: 4rem 0;
     background: #ffffff;
     color: #333;
     text-align: center;
@@ -345,7 +348,7 @@ p {
 .contact-box {
     max-width: 700px;
     margin: 0 auto;
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 16px;
     background-color: #ffffff;
     border: 1px solid var(--border-color);
@@ -409,11 +412,16 @@ p {
     margin-top: 1rem;
 }
 
-/* ===== RESPONSIVITET ===== */
+/* ===== RESPONSIVITET - AVSTÅND ===== */
 @media (max-width: 1200px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+    }
+    
+    /* PADDA AVSTÅND */
+    .services, .about, .contact {
+        padding: 3.25rem 0;
     }
 }
 
@@ -437,6 +445,16 @@ p {
 }
 
 @media (max-width: 768px) {
+    /* MOBIL AVSTÅND */
+    .services, .about, .contact {
+        padding: 2.5rem 0;
+    }
+    
+    .contact {
+        padding: 3rem 0;
+    }
+    
+    /* Mobilmeny */
     .nav-menu {
         position: fixed;
         top: 80px;
@@ -535,13 +553,13 @@ p {
     .nav-cta-button {
         background-color: rgba(255, 193, 7, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.5);
-        color: var(--text-dark) !important;
+        color: white !important;
     }
     
     .navbar.scrolled .nav-cta-button {
         background-color: var(--yellow-500);
         border: 2px solid var(--yellow-700);
-        color: var(--text-dark) !important;
+        color: white !important;
     }
     
     .hero {
