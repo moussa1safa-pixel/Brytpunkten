@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bli medlem - Brytpunkten</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FAVICONER - SAMMA SOM HUVUDSIDAN -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+</head>
+<body>
+    <!-- SAMMA NAVBAR SOM HUVUDSIDAN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="index.html#services">Vårt arbete</a></li>
+                <li><a href="index.html#about">Om oss</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="medlem.html" class="nav-cta-button">Bli medlem</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Meny">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HUVUDINNEHÅLL - BLI MEDLEM -->
+    <main class="container" style="margin-top: 100px; padding: 2rem 1rem;">
+        <h1 class="section-title">Bli medlem i Brytpunkten</h1>
+        
+        <div class="member-intro" style="max-width: 800px; margin: 0 auto 3rem;">
+            <p style="font-size: 1.1rem; line-height: 1.7; text-align: center; color: var(--text-gray);">
+                Föreningens ändamål är att i Sverige arbeta brott- och drogförebyggande bland unga människor 
+                och deras anhöriga genom information, gemenskap, kontaktverksamhet och utbildning.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.7; text-align: center; color: var(--text-gray); margin-top: 1rem;">
+                <strong>Inga kostnader</strong>, vi ser bara fram emot ditt stöd.
+            </p>
+        </div>
+
+        <!-- MEDLEMSKAPSTYPER -->
+        <div class="membership-types" style="max-width: 900px; margin: 0 auto 3rem;">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Ordinarie medlemskap</h3>
+                    <p>Person 13–29 år, med bakgrund av drog, spel, alkoholmissbruk eller kriminalitet. 
+                    Medlem ska vara villig att verka för föreningens syfte och följa stadgarna, 
+                    samt avhålla sig från alla former av kriminalitet, droger, alkoholmissbruk och dopingpreparat.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Seniort medlemskap</h3>
+                    <p>Person över 29 år med personlig bakgrund av drog, spel, alkoholmissbruk eller kriminalitet. 
+                    Medlem ska vara villig att verka för föreningens syfte och följa stadgarna, 
+                    samt avhålla sig från alla former av kriminalitet, droger, alkoholmissbruk och dopingpreparat.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Anhörigmedlemskap</h3>
+                    <p>För dig som är anhörig eller närstående till någon med erfarenhet av missbruk, 
+                    kriminalitet eller annat utanförskap. Stöd och gemenskap för anhöriga.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Stödmedlemskap</h3>
+                    <p>Person som har förklarat sig villig att verka för föreningens syften. 
+                    För dig som vill stödja vårt arbete även om du inte har personlig erfarenhet 
+                    av de utmaningar vi arbetar med.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANSÖKNINGSFORMULÄR -->
+        <div class="member-form-container" style="max-width: 700px; margin: 4rem auto;">
+            <div class="contact-box">
+                <h2 class="section-title">Ansök om medlemskap</h2>
+                
+                <form id="memberForm" style="text-align: left;">
+                    <!-- Medlemskapstyp -->
+                    <div style="margin-bottom: 2rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                            Typ av medlemskap: *
+                        </label>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="membershipType" value="ordinarie" required> Ordinarie
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="membershipType" value="senior"> Senior
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="membershipType" value="anhorig"> Anhörig
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="membershipType" value="stod"> Stöd
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Personuppgifter -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                                Namn: *
+                            </label>
+                            <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                                Födelseår (fyra siffror): *
+                            </label>
+                            <input type="number" min="1900" max="2024" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                        </div>
+                    </div>
+
+                    <!-- Kön -->
+                    <div style="margin-bottom: 2rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                            Kön:
+                        </label>
+                        <div style="display: flex; gap: 2rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="gender" value="kvinna"> Kvinna
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="gender" value="man"> Man
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="radio" name="gender" value="vill_ej_uppge"> Vill ej uppge
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Adress -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                                Adress:
+                            </label>
+                            <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                                Postnummer:
+                            </label>
+                            <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                                Ort:
+                            </label>
+                            <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                        </div>
+                    </div>
+
+                    <!-- Kontaktuppgifter -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                                E-post: *
+                            </label>
+                            <input type="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">
+                                Telefonnummer:
+                            </label>
+                            <input type="tel" style="width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: 4px;">
+                        </div>
+                    </div>
+
+                    <!-- Submit-knapp -->
+                    <div style="text-align: center;">
+                        <button type="submit" class="button button-primary button-large" style="min-width: 200px;">
+                            Skicka ansökan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- SAMMA FOOTER SOM HUVUDSIDAN -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Brytpunkten logotyp" class="footer-logo-img">
+                </div>
+                <p class="footer-mission">En ideell förening med socialt och brottsförebyggande syfte. Partipolitiskt och religiöst obunden.</p>
+                <p class="footer-contact">Kontakta oss: <span class="footer-email">info@brytpunkten.se</span></p>
+                <p class="footer-copyright">&copy; <span id="currentYear"></span> Brytpunkten. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SAMMA JAVASCRIPT SOM HUVUDSIDAN -->
+    <script src="script.js"></script>
+    
+    <!-- EXTRA SCRIPT FÖR FORMULÄRET -->
+    <script>
+        // Uppdatera copyright år
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Formulärhantering
+        document.getElementById('memberForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Här skulle vi normalt skicka till server
+            // För nu: visa bekräftelse
+            alert('Tack för din ansökan! Vi återkommer inom kort.');
+            this.reset();
+        });
+        
+        // Mobile menu fungerar automatiskt från script.js
+    </script>
+</body>
+</html>
