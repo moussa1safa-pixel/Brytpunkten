@@ -62,14 +62,14 @@ p {
     line-height: 1.6;
 }
 
-/* ===== FÄRGER - GRÅTT MED GUL ACCENT ===== */
+/* ===== FÄRGER - GRÅTT MED DISKRET GUL ACCENT ===== */
 :root {
-    /* Gult endast för accent */
-    --yellow-700: #E6AC00;
-    --yellow-600: #FFBD00;
-    --yellow-500: #FFC107;
-    --yellow-400: #FFCA2C;
-    --yellow-100: #FFECB3; /* För "Kort sagt"-rutan */
+    /* NY GUL: #D9A300 - diskret, balanserad */
+    --yellow-700: #B38600;
+    --yellow-600: #CC9200;
+    --yellow-500: #D9A300;  /* HUVUDGUL - ÄNDRAD */
+    --yellow-400: #E6B300;
+    --yellow-100: #F5E6B3;  /* LJUSGUL för "Kort sagt" */
     
     /* Grått för huvuddesign */
     --gray-50: #fafafa;
@@ -85,8 +85,8 @@ p {
     /* Neutrala */
     --light-gray: #f8f9fa;
     --border-color: #EDE7D9;
-    --shadow: 0 5px 15px rgba(179, 137, 0, 0.05);
-    --shadow-hover: 0 10px 30px rgba(179, 137, 0, 0.1);
+    --shadow: 0 5px 15px rgba(217, 163, 0, 0.05);
+    --shadow-hover: 0 10px 30px rgba(217, 163, 0, 0.1);
 }
 
 /* ===== NAVBAR - UPPDATERAD ===== */
@@ -299,12 +299,12 @@ p {
     padding-right: 1rem;
 }
 
-/* "KORT SAGT"-RUTAN - GUL (för att sticka ut) */
+/* "KORT SAGT"-RUTAN - GUL */
 .about-quote {
     margin: 2.5rem 0;
     padding: 2.5rem;
     border-left: 4px solid var(--yellow-600);
-    background-color: var(--yellow-100); /* GUL BAKGRUND */
+    background-color: var(--yellow-100);
     color: var(--text-gray);
     border-radius: 0 8px 8px 0;
     font-size: 1.1rem;
@@ -339,7 +339,7 @@ p {
     display: none;
 }
 
-/* ===== CONTACT SECTION - SUBTIL LINJERUTA ===== */
+/* ===== CONTACT SECTION - SUBTIL LINJERUTA MED LÄTT SKUGGA ===== */
 .contact {
     padding: 4rem 0;
     background: #ffffff;
@@ -351,10 +351,10 @@ p {
     max-width: 700px;
     margin: 0 auto;
     padding: 3rem;
-    border-radius: 8px;           /* Mindre rundat */
+    border-radius: 10px;           /* ÄNDRAD: 8px → 10px */
     background-color: #ffffff;
-    border: 1px solid var(--gray-300); /* Subtil grå ram */
-    box-shadow: none;             /* Ingen skugga */
+    border: 1px solid var(--gray-300);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04); /* ÄNDRAD: ingen → lätt skugga */
 }
 
 .contact .section-title {
@@ -411,7 +411,7 @@ p {
 }
 
 .footer-email {
-    color: rgba(255, 255, 255, 0.85); /* Normal färg */
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .footer-copyright {
@@ -453,22 +453,21 @@ p {
 }
 
 @media (max-width: 768px) {
-    /* MOBIL AVSTÅND - ALLMÄNT */
+    /* MOBIL AVSTÅND - SPECIFIKA ÄNDRINGAR */
+    .about-quote {
+        margin-bottom: 1rem; /* ÄNDRAD: mindre luft under "Kort sagt" */
+    }
+    
+    .about {
+        padding-bottom: 0.5rem; /* ÄNDRAD: mindre luft under bilden */
+    }
+    
     .services, .about, .contact {
         padding: 2.5rem 0;
     }
     
     .contact {
         padding: 3rem 0;
-    }
-    
-    /* MOBILJUSTERING - "KORT SAGT" OCH BILD AVSTÅND */
-    .about-quote {
-        margin-bottom: 1rem; /* 40px → 16px under "Kort sagt" */
-    }
-    
-    .about {
-        padding-bottom: 1.5rem; /* 40px → 24px under about-sektionen */
     }
     
     /* Mobilmeny */
@@ -568,7 +567,7 @@ p {
     }
     
     .nav-cta-button {
-        background-color: rgba(255, 193, 7, 0.9);
+        background-color: rgba(217, 163, 0, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.5);
         color: white !important;
     }
