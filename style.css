@@ -577,6 +577,21 @@ p {
         min-height: 600px;
         margin-top: 0;
     }
+    
+    /* ===== DATOR - SPECIFIKA AVSTÅNDSJUSTERINGAR ===== */
+    /* 1. Mindre mellan 4-rutor och "Så skapar vi förändring"-rubrik */
+    .services {
+        padding-bottom: 3rem; /* 48px istället för 64px */
+    }
+    
+    .about .section-title {
+        margin-top: -0.5rem; /* Dra rubriken upp lite mot rutorna */
+    }
+    
+    /* 2. Mindre över "Vill du veta mer"-rutan */
+    .contact {
+        padding-top: 3rem; /* 48px istället för 64px */
+    }
 }
 
 @media (max-width: 480px) {
