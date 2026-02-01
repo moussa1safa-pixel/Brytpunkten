@@ -19,14 +19,13 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo-link">
+            <a href="index.html" class="logo-link">
                 <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
             </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#hero">Hem</a></li>
-                <li><a href="#services">Vårt arbete</a></li>
                 <li><a href="#about">Om oss</a></li>
-                <li><a href="medlem.html">Bli medlem</a></li>  <!-- NY LÄNK -->
+                <li><a href="medlem.html">Bli medlem</a></li>
                 <li><a href="#contact" class="nav-cta-button">Kontakta oss</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Meny">
@@ -41,7 +40,7 @@
         <picture>
             <source media="(max-width: 768px)" srcset="hero-mobile.jpg">
             <source media="(min-width: 769px)" srcset="hero-desktop.jpg">
-            <img src="hero-desktop.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image">
+            <img src="hero-desktop.jpg" alt="Brytpunkten - En väg framåt" class="hero-bg-image" loading="lazy">
         </picture>
     </section>
 
@@ -114,7 +113,7 @@
                 </div>
                 <div class="about-image">
                     <div class="image-container">
-                        <img src="about-image.jpg" alt="Brytpunkten i arbete" class="about-img">
+                        <img src="about-image.jpg" alt="Brytpunkten i arbete" class="about-img" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -137,7 +136,7 @@
                 
                 <div class="contact-buttons">
                     <a href="mailto:info@brytpunkten.se" class="button button-primary button-large">Kontakta oss via e-post</a>
-                    <a href="#services" class="button button-outline">Läs om vårt arbete</a>
+                    <a href="#about" class="button button-outline">Läs mer om oss</a>
                 </div>
             </div>
         </div>
