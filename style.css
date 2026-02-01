@@ -798,6 +798,27 @@ input:-webkit-autofill:focus {
     gap: 1.2rem;
 }
 
+/* ===== MOBILANPASSNING FÖR OM-OSS SIDAN ===== */
+.image-section {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: white;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.image-section p {
+    margin-top: 1rem;
+    color: var(--text-gray);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
 /* ===== RESPONSIVITET ===== */
 @media (max-width: 1200px) {
     .services-grid {
@@ -986,6 +1007,29 @@ input:-webkit-autofill:focus {
     input, select, textarea {
         font-size: 16px !important;
     }
+    
+    /* OM-OSS SIDAN MOBIL */
+    .image-section {
+        padding: 2rem 1rem;
+    }
+    
+    .image-section img {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    
+    .membership-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .membership-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .member-hero .section-title {
+        font-size: 2.5rem;
+    }
 }
 
 @media (min-width: 769px) {
@@ -1048,5 +1092,12 @@ input:-webkit-autofill:focus {
     }
     .image-container {
         padding: 0;
+    }
+    .member-hero .section-title {
+        font-size: 2rem;
+    }
+    .image-section p {
+        font-size: 0.8rem;
+        padding: 0 1rem;
     }
 }
