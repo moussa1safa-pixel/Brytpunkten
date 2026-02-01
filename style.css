@@ -470,7 +470,7 @@ p {
 
 /* HERO SECTION - VIT BAKGRUND, MOBILOPTIMERAD */
 .member-hero {
-    padding-top: 120px;
+    padding-top: 140px; /* ÄNDRING: Ökad från 120px till 140px för mer luft */
     padding-bottom: 2rem;
     background: white;
     text-align: center;
@@ -873,6 +873,14 @@ input:-webkit-autofill:focus {
         padding: 2rem 1.5rem;
     }
     
+    /* ÄNDRING: FIXA 4-KOLUMNER PÅ MOBIL */
+    .four-column-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
     /* Mobilmeny */
     .nav-menu {
         position: fixed;
@@ -943,7 +951,7 @@ input:-webkit-autofill:focus {
     
     /* MEDLEMSSIDA MOBIL */
     .member-hero {
-        padding-top: 100px;
+        padding-top: 120px; /* ÄNDRING: Ökad från 100px till 120px på mobil */
         padding-bottom: 1.5rem;
     }
     
