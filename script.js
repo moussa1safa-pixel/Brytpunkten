@@ -81,39 +81,94 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== FORMULÄR-HANTERING FÖR MEDLEMSSIDAN =====
+// ===== FORMULÄR-HANTERING FÖR MEDLEMSSIDAN (NY!) =====
 document.addEventListener('DOMContentLoaded', function() {
     const medlemForm = document.getElementById('medlemsansokan');
     
     if (medlemForm) {
-        // Återställ formulär-state vid sidladdning (fixar "Skickar..." bugg)
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
+        // FIXA BLÅ AUTOFILL-FÄRG
+        const inputs = medlemForm.querySelectorAll('input');
+        inputs.forEach(input => {
+            // Återställ vid fokus
+            input.addEventListener('focus', function() {
+                this.style.backgroundColor = 'white';
+                this.style.boxShadow = 'none';
+            });
+        });
         
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Skicka ansökan';
-        }
-        
-        if (formMessage) {
-            formMessage.style.display = 'none';
-        }
-        
-        // Kolla om vi kom tillbaka från Formspree med success
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('success')) {
-            // Visa tack-meddelande
-            if (formMessage) {
-                formMessage.textContent = 'Tack för din ansökan! Vi kommer att kontakta dig inom några arbetsdagar.';
-                formMessage.className = 'form-message success';
-                formMessage.style.display = 'block';
-                
-                // Scrolla till meddelandet
-                setTimeout(() => {
-                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 500);
+        // FORMULÄRSKICKNING MED FETCH (STANNAR PÅ SIDAN)
+        medlemForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            
+            if (!submitBtn || !formMessage) return;
+            
+            // Validering
+            const birthInput = this.querySelector('input[name="Födelsedatum"]');
+            if (birthInput && birthInput.value) {
+                const birthValue = birthInput.value.trim();
+                if (birthValue.length !== 6 || !/^\d{6}$/.test(birthValue)) {
+                    formMessage.textContent = 'Ange födelsedatum som 6 siffror: ÅÅMMDD';
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
+                    birthInput.focus();
+                    return false;
+                }
             }
-        }
+            
+            // Visa loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Skickar... <span style="font-size:0.9em">⏳</span>';
+            formMessage.textContent = 'Skickar din ansökan, vänligen vänta...';
+            formMessage.className = 'form-message loading';
+            formMessage.style.display = 'block';
+            
+            try {
+                // Skicka med fetch
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // SUCCESS - Visa tack-meddelande
+                    submitBtn.innerHTML = 'Skicka ansökan';
+                    submitBtn.disabled = false;
+                    
+                    formMessage.textContent = 'Tack för din ansökan! Vi kommer att kontakta dig inom några arbetsdagar.';
+                    formMessage.className = 'form-message success';
+                    formMessage.style.display = 'block';
+                    
+                    // Scrolla till meddelandet
+                    setTimeout(() => {
+                        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                    
+                    // Rensa formuläret (valfritt)
+                    // this.reset();
+                    
+                } else {
+                    // ERROR
+                    throw new Error('Formuläret kunde inte skickas');
+                }
+                
+            } catch (error) {
+                // ERROR - Visa felmeddelande
+                submitBtn.innerHTML = 'Skicka ansökan';
+                submitBtn.disabled = false;
+                
+                formMessage.textContent = 'Ett fel uppstod. Vänligen försök igen eller kontakta oss direkt.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                console.error('Formulär fel:', error);
+            }
+        });
     }
 });
 
