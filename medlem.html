@@ -69,7 +69,7 @@
             background-color: var(--yellow-700);
         }
         
-        /* HERO SECTION - SAMMA FÄRG SOM RESTEN */
+        /* HERO SECTION - GRÅ FÄRG */
         .member-hero {
             padding-top: 120px;
             padding-bottom: 3rem;
@@ -100,10 +100,15 @@
             margin-right: auto;
         }
         
-        /* MEDLEMSKAP SECTION - SAMMA FÄRG SOM HERO */
+        /* HELA SIDANS BAKGRUND - VIT */
+        body {
+            background-color: white;
+        }
+        
+        /* MEDLEMSKAP SECTION - VIT BAKGRUND, GRÅ RUTOR */
         .membership-section {
             padding: 3rem 1rem;
-            background: var(--gray-100);
+            background: white;
         }
         
         .membership-cards {
@@ -114,8 +119,9 @@
             margin: 0 auto;
         }
         
+        /* RUTOR - SAMMA GRÅ FÄRG SOM HERO */
         .membership-card {
-            background: white;
+            background: var(--gray-100);
             padding: 2.5rem;
             border-radius: 8px;
             border-left: 4px solid var(--yellow-500);
@@ -153,16 +159,16 @@
             margin-bottom: 1.5rem;
         }
         
-        /* FORMULÄR SECTION - SAMMA BAKGRUNDSFÄRG */
+        /* FORMULÄR SECTION - VIT BAKGRUND, GRÅ FORMULÄRBOX */
         .form-section-container {
             padding: 3rem 1rem;
-            background: var(--gray-100);
+            background: white;
         }
         
         .form-box {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: var(--gray-100); /* SAMMA GRÅ SOM HERO OCH RUTOR */
             padding: 3rem;
             border-radius: 8px;
             border: 1px solid var(--gray-200);
@@ -199,13 +205,22 @@
             transition: all 0.2s ease;
         }
         
+        /* FIXA BLÅ AUTOFILL-FÄRG */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+            -webkit-text-fill-color: var(--text-dark) !important;
+            background-color: white !important;
+        }
+        
         .form-input:focus {
             outline: none;
             border-color: var(--yellow-500);
             box-shadow: 0 0 0 3px rgba(196, 176, 0, 0.1);
         }
         
-        /* RADIO BUTTON GRUPP FÖR MEDLEMSKAP (ENDAST ETT VAL) */
+        /* RADIO BUTTON GRUPP FÖR MEDLEMSKAP - VIT BAKGRUND */
         .radio-group-vertical {
             display: grid;
             grid-template-columns: 1fr;
@@ -217,7 +232,7 @@
             align-items: flex-start;
             gap: 1rem;
             padding: 1.25rem;
-            background: var(--gray-50);
+            background: white; /* VIT ISTÄLLET FÖR BEIGE/GRÅ */
             border-radius: 8px;
             border: 1px solid var(--gray-200);
             transition: all 0.2s ease;
@@ -225,7 +240,7 @@
         }
         
         .radio-item-large:hover {
-            background: var(--gray-100);
+            background: var(--gray-50);
             border-color: var(--yellow-500);
         }
         
@@ -268,10 +283,10 @@
             accent-color: var(--yellow-500);
         }
         
-        /* SAMTYCKE BOX */
+        /* SAMTYCKE BOX - VIT BAKGRUND */
         .consent-box {
             padding: 2rem;
-            background: var(--gray-50);
+            background: white; /* VIT ISTÄLLET FÖR BEIGE/GRÅ */
             border-radius: 8px;
             margin-bottom: 2.5rem;
             border: 1px solid var(--gray-200);
@@ -459,7 +474,7 @@
     </nav>
 
     <main>
-        <!-- HERO SECTION -->
+        <!-- HERO SECTION - GRÅ -->
         <section class="member-hero">
             <div class="member-hero-content">
                 <h1 class="section-title">Bli medlem i Brytpunkten</h1>
@@ -472,7 +487,7 @@
             </div>
         </section>
 
-        <!-- MEDLEMSKAP-TYPER -->
+        <!-- MEDLEMSKAP-TYPER - VIT BAKGRUND, GRÅ RUTOR -->
         <section class="membership-section">
             <div class="container">
                 <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Våra medlemskapstyper</h2>
@@ -520,15 +535,12 @@
             </div>
         </section>
 
-        <!-- FORMULÄR SECTION -->
+        <!-- FORMULÄR SECTION - VIT BAKGRUND, GRÅ FORMULÄRBOX -->
         <section class="form-section-container">
             <div class="form-box">
                 <h2 class="section-title">Ansök om medlemskap</h2>
                 
                 <form action="https://formspree.io/f/mojlvbrn" method="POST" id="medlemsansokan">
-                    <!-- SKICKA TILLBAKA TILL DENNA SIDA MED SUCCESS-PARAMETER -->
-                    <input type="hidden" name="_next" value="https://brytpunkten.se/medlem.html?success=true">
-                    
                     <!-- ÄMNE FÖR E-POST -->
                     <input type="hidden" name="_subject" value="Ny medlemsansökan - Brytpunkten">
                     
@@ -680,56 +692,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // FORMULÄRSKICKNING - SPECIFIKT FÖR DENNA SIDA
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('medlemsansokan');
-            const submitBtn = document.getElementById('submitBtn');
-            const formMessage = document.getElementById('formMessage');
-            
-            if (form && submitBtn && formMessage) {
-                form.addEventListener('submit', function(e) {
-                    // Validera födelsedatum
-                    const birthInput = this.querySelector('input[name="Födelsedatum"]');
-                    if (birthInput && birthInput.value) {
-                        const birthValue = birthInput.value.trim();
-                        if (birthValue.length !== 6 || !/^\d{6}$/.test(birthValue)) {
-                            e.preventDefault();
-                            formMessage.textContent = 'Ange födelsedatum som 6 siffror: ÅÅMMDD';
-                            formMessage.className = 'form-message error';
-                            formMessage.style.display = 'block';
-                            birthInput.focus();
-                            return false;
-                        }
-                    }
-                    
-                    // Validera att ett medlemskap är valt
-                    const medlemskapVal = document.querySelector('input[name="Medlemskapstyp"]:checked');
-                    if (!medlemskapVal) {
-                        e.preventDefault();
-                        formMessage.textContent = 'Välj en medlemskapstyp';
-                        formMessage.className = 'form-message error';
-                        formMessage.style.display = 'block';
-                        return false;
-                    }
-                    
-                    // Visa loading-state
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = 'Skickar... <span style="font-size:0.9em">⏳</span>';
-                    formMessage.textContent = 'Skickar din ansökan, vänligen vänta...';
-                    formMessage.className = 'form-message loading';
-                    formMessage.style.display = 'block';
-                    
-                    return true;
-                });
-            }
-            
-            // Uppdatera copyright år
-            const yearElement = document.getElementById('currentYear');
-            if (yearElement) {
-                yearElement.textContent = new Date().getFullYear();
-            }
-        });
-    </script>
 </body>
 </html>
