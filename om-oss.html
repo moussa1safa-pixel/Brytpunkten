@@ -17,8 +17,8 @@
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar member-nav">
+    <!-- NAVBAR - SAMMA SOM INDEX.HTML (INGEN member-nav) -->
+    <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
                 <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
@@ -38,12 +38,12 @@
     </nav>
 
     <main>
-        <!-- HERO SECTION -->
+        <!-- HERO SECTION - PUNKT 1 FIXAD -->
         <section class="member-hero">
             <div class="member-hero-content">
-                <h1 class="section-title">Från brytpunkt till möjlighet</h1>
+                <h1 class="section-title">Om oss</h1>
                 <p class="section-subtitle">
-                    Brytpunkten är en partipolitiskt och religiöst obunden ideell förening med socialt och brottsförebyggande syfte. Vi skapar konkreta förändringar i människors liv.
+                    Från brytpunkt till möjlighet
                 </p>
             </div>
         </section>
@@ -59,47 +59,47 @@
             </div>
         </section>
 
-        <!-- VÅR STYRKA -->
-        <section class="membership-section" style="background-color: var(--gray-50);">
+        <!-- VÅR STYRKA + BILD SIDA VID SIDA - PUNKT 2, 3, 4, 5 FIXADE -->
+        <section class="about" style="padding: 4rem 0; background: white;">
             <div class="container">
-                <div class="membership-card" style="max-width: 800px; margin: 0 auto; background-color: white;">
-                    <h2>Vår unika kompetens</h2>
-                    <p>Brytpunkten grundades av personer med en unik kombination av professionell kompetens inom socialt arbete och praktisk insikt i de utmaningar som personer med kriminell bakgrund möter. Denna breda erfarenhet ger oss en heltäckande förståelse för att skapa verklig förändring.</p>
-                    <p>Vi vet vad som fungerar i praktiken – både utifrån evidensbaserad metodik och genom kunskap om de verkliga hinder som finns. Detta gör oss till en effektiv partner i samhällets brottsförebyggande arbete.</p>
+                <div class="about-grid" style="align-items: center;">
+                    <!-- BILDEN TILL VÄNSTER -->
+                    <div class="image-container" style="padding: 1rem;">
+                        <img src="blommor.jpg" alt="Brytpunkten - Symbol för förändring" class="about-img" loading="lazy" style="border-radius: 8px;">
+                    </div>
+                    
+                    <!-- TEXTEN TILL HÖGER -->
+                    <div class="about-content" style="padding-left: 2rem;">
+                        <h2>Vår unika kompetens</h2>
+                        <p>Brytpunkten grundades av personer med en unik kombination av professionell kompetens inom socialt arbete och praktisk insikt i de utmaningar som personer med kriminell bakgrund möter. Denna breda erfarenhet ger oss en heltäckande förståelse för att skapa verklig förändring.</p>
+                        <p>Vi vet vad som fungerar i praktiken – både utifrån evidensbaserad metodik och genom kunskap om de verkliga hinder som finns. Detta gör oss till en effektiv partner i samhällets brottsförebyggande arbete.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- BILDSEKTION - Blomsterbild -->
-        <section class="image-section">
+        <!-- VÅRA INSATSER - PUNKT 6 FIXAD (4 RUTOR PÅ SAMMA RAD) -->
+        <section class="services" style="background: white; padding: 4rem 0;">
             <div class="container">
-                <img src="blommor.jpg" alt="Symbol för växt, förändring och ny början" loading="lazy">
-                <p>Varje människa har potential till förändring och växt</p>
-            </div>
-        </section>
-
-        <!-- VÅRA INSATSER -->
-        <section class="membership-section">
-            <div class="container">
-                <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Våra konkreta insatser</h2>
+                <h2 class="section-title">Våra konkreta insatser</h2>
                 
-                <div class="membership-cards">
-                    <div class="membership-card">
+                <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="service-card">
                         <h3>Individuellt stöd & coaching</h3>
                         <p>Strukturerade samtal med fokus på motivation till förändring, ansvarstagande och positiva livsval. Vi erbjuder praktisk hjälp med vardagsfrågor som boende, ekonomi och kontakter med myndigheter.</p>
                     </div>
                     
-                    <div class="membership-card">
+                    <div class="service-card">
                         <h3>Kris- & återfallsförebyggande</h3>
                         <p>Akut stöd vid kriser, hjälp att kontakta relevanta myndigheter och planering av alternativa vägar framåt. Vi arbetar proaktivt för att förhindra återfall i kriminalitet.</p>
                     </div>
                     
-                    <div class="membership-card">
+                    <div class="service-card">
                         <h3>Arbetsliv & samhällsetablering</h3>
                         <p>Stöd med CV-skrivning, jobbsökning, praktikplatser och vägledning till utbildningar. Mentorer med relevant erfarenhet ger kontinuerligt stöd och motivation.</p>
                     </div>
                     
-                    <div class="membership-card">
+                    <div class="service-card">
                         <h3>Förebyggande arbete med unga</h3>
                         <p>Skolbesök, workshops och aktiviteter på fritidsgårdar. Vi informerar om konsekvenser av kriminalitet och motiverar till positiva val, utbildning och meningsfull fritid.</p>
                     </div>
@@ -107,46 +107,33 @@
             </div>
         </section>
 
-        <!-- CITATSEKTION -->
-        <section class="membership-section" style="background-color: var(--yellow-100);">
+        <!-- SAMVERKAN & KONTAKT - PUNKT 7, 8, 9 FIXADE -->
+        <section class="contact" style="background: white;">
             <div class="container">
-                <div class="membership-card" style="max-width: 700px; margin: 0 auto; background-color: transparent; border-left: 4px solid var(--yellow-500); box-shadow: none;">
-                    <p style="font-size: 1.2rem; font-style: italic; color: var(--text-gray); text-align: center;">
-                        "Brytpunkten gav mig verktygen att se en väg framåt när allt kändes hopplöst. Idag har jag ett jobb och en framtid att se fram emot."
-                    </p>
-                    <p style="text-align: center; margin-top: 1rem; font-weight: 600; color: var(--text-dark);">
-                        – Medlem, 28 år
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SAMVERKAN & KONTAKT -->
-        <section class="form-section-container">
-            <div class="form-box">
-                <h2 class="section-title">Samverkan & kontakt</h2>
-                
-                <div class="form-group">
-                    <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Vårt nätverk för förändring</h3>
-                    <p>Brytpunkten samarbetar aktivt med myndigheter, frivården, socialtjänsten, arbetsförmedlingen och lokala organisationer. Tillsammans skapar vi en sammanhållen insats för att stödja människor på väg ut ur kriminalitet.</p>
-                    <p>Vi har ett rådgivande nätverk med kompetens inom socialt arbete, juridik, psykologi och arbetsliv som säkerställer kvalitet och legitimitet i vårt arbete.</p>
-                </div>
-                
-                <div class="form-group">
-                    <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Kontakta oss</h3>
-                    <p>Vill du veta mer om vårt arbete, samarbeta med oss eller stödja vår verksamhet?</p>
+                <div class="contact-box">
+                    <!-- PUNKT 8: CENTRERAD RUBRIK -->
+                    <h2 class="section-title">Samverkan & kontakt</h2>
                     
-                    <div style="margin-top: 1.5rem; padding: 1.5rem; background: white; border-radius: 8px; border: 1px solid var(--gray-200);">
-                        <p style="margin-bottom: 0.5rem;"><strong>E-post:</strong> info@brytpunkten.se</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Telefon:</strong> [Ditt telefonnummer]</p>
-                        <p style="margin-bottom: 0;"><strong>Organisationsnummer:</strong> [Ditt org.nr]</p>
+                    <div class="form-group" style="text-align: center; max-width: 700px; margin: 0 auto;">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Vårt nätverk för förändring</h3>
+                        <p>Brytpunkten samarbetar aktivt med myndigheter, frivården, socialtjänsten, arbetsförmedlingen och lokala organisationer. Tillsammans skapar vi en sammanhållen insats för att stödja människor på väg ut ur kriminalitet.</p>
+                        <p>Vi har ett rådgivande nätverk med kompetens inom socialt arbete, juridik, psykologi och arbetsliv som säkerställer kvalitet och legitimitet i vårt arbete.</p>
                     </div>
-                </div>
-                
-                <div class="submit-section" style="border-top: none; padding-top: 0;">
-                    <a href="medlem.html" class="submit-button" style="display: inline-block; text-decoration: none;">
-                        Bli medlem och stöd vårt arbete
-                    </a>
+                    
+                    <div class="form-group" style="text-align: center; max-width: 700px; margin: 2rem auto 0;">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Kontakta oss</h3>
+                        <p>Vill du veta mer om vårt arbete, samarbeta med oss eller stödja vår verksamhet?</p>
+                        
+                        <!-- PUNKT 9: BARA E-POST -->
+                        <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--gray-50); border-radius: 8px; display: inline-block;">
+                            <p style="margin: 0; font-size: 1.1rem;"><strong>E-post:</strong> info@brytpunkten.se</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-buttons" style="margin-top: 2.5rem;">
+                        <a href="mailto:info@brytpunkten.se" class="button button-primary button-large">Kontakta oss via e-post</a>
+                        <a href="medlem.html" class="button button-outline">Bli medlem</a>
+                    </div>
                 </div>
             </div>
         </section>
