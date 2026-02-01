@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
 </head>
 <body>
-    <!-- NAVBAR - VIT HEADER -->
+    <!-- NAVBAR - VIT HEADER (INTE GENOMSKINLIG) -->
     <nav class="navbar solid-nav">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
@@ -38,8 +38,8 @@
     </nav>
 
     <main>
-        <!-- HERO SECTION -->
-        <section class="member-hero">
+        <!-- HERO SECTION - FIXAT MELLANRUM -->
+        <section class="member-hero om-oss-hero compact-section">
             <div class="member-hero-content">
                 <h1 class="section-title">Om oss</h1>
                 <p class="section-subtitle">
@@ -48,13 +48,24 @@
             </div>
         </section>
 
-        <!-- VÅR STYRKA + BILD (FLYTTAD HIT - PROBLEM #2) -->
-        <section class="about">
+        <!-- VÅRT UPPDRAG - MINSKAT MELLANRUM -->
+        <section class="membership-section compact-section">
             <div class="container">
-                <div class="about-grid" style="align-items: center;">
+                <div class="membership-card compact-card" style="max-width: 800px; margin: 0 auto;">
+                    <h2>Vårt uppdrag</h2>
+                    <p>Brytpunkten arbetar med att bryta kriminella livsmönster och förebygga att unga hamnar i kriminalitet. Vi riktar oss till vuxna som behöver stöd för att lämna kriminalitet bakom sig, samt unga i riskmiljöer som behöver motivation till positiva livsval.</p>
+                    <p>Vår verksamhet omfattar socialt stöd, brottsbrytande insatser, stöd i vardagsstruktur samt informations- och motivationsinsatser riktade till ungdomar. Vi bedriver inte vård, behandling eller myndighetsutövning, utan arbetar stödjande och motiverande i samverkan med ansvariga aktörer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VÅR STYRKA + BILD - MINSKAT MELLANRUM -->
+        <section class="compact-section" style="background: white;">
+            <div class="container">
+                <div class="about-grid compact-image-grid" style="align-items: center;">
                     <!-- BILD -->
                     <div class="image-container">
-                        <img src="blommor.jpg" alt="Brytpunkten - Symbol för förändring" class="about-img" loading="lazy" style="border-radius: 6px;">
+                        <img src="blommor.jpg" alt="Brytpunkten - Symbol för förändring" class="about-img" loading="lazy" style="border-radius: 8px;">
                     </div>
                     
                     <!-- TEXT -->
@@ -67,39 +78,28 @@
             </div>
         </section>
 
-        <!-- VÅRT UPPDRAG (FLYTTAD HIT - PROBLEM #2) -->
-        <section class="membership-section" style="padding-bottom: 1rem !important;"> <!-- PROBLEM #3: MINSKAT MELLANRUM -->
-            <div class="container">
-                <div class="membership-card" style="max-width: 800px; margin: 0 auto;">
-                    <h2>Vårt uppdrag</h2>
-                    <p>Brytpunkten arbetar med att bryta kriminella livsmönster och förebygga att unga hamnar i kriminalitet. Vi riktar oss till vuxna som behöver stöd för att lämna kriminalitet bakom sig, samt unga i riskmiljöer som behöver motivation till positiva livsval.</p>
-                    <p>Vår verksamhet omfattar socialt stöd, brottsbrytande insatser, stöd i vardagsstruktur samt informations- och motivationsinsatser riktade till ungdomar. Vi bedriver inte vård, behandling eller myndighetsutövning, utan arbetar stödjande och motiverande i samverkan med ansvariga aktörer.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- VÅRA INSATSER (MINDRE MELLANRUM OVANFÖR - PROBLEM #3) -->
-        <section class="services" style="padding-top: 1.5rem !important;"> <!-- PROBLEM #3: MINSKAT MELLANRUM -->
+        <!-- VÅRA INSATSER - MINSKAT MELLANRUM -->
+        <section class="services compact-section" style="background: white;">
             <div class="container">
                 <h2 class="section-title">Våra konkreta insatser</h2>
                 
-                <div class="services-grid">
-                    <div class="service-card">
+                <div class="services-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="service-card compact-card">
                         <h3>Individuellt stöd & coaching</h3>
                         <p>Strukturerade samtal med fokus på motivation till förändring, ansvarstagande och positiva livsval. Vi erbjuder praktisk hjälp med vardagsfrågor som boende, ekonomi och kontakter med myndigheter.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card compact-card">
                         <h3>Kris- & återfallsförebyggande</h3>
                         <p>Akut stöd vid kriser, hjälp att kontakta relevanta myndigheter och planering av alternativa vägar framåt. Vi arbetar proaktivt för att förhindra återfall i kriminalitet.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card compact-card">
                         <h3>Arbetsliv & samhällsetablering</h3>
                         <p>Stöd med CV-skrivning, jobbsökning, praktikplatser och vägledning till utbildningar. Mentorer med relevant erfarenhet ger kontinuerligt stöd och motivation.</p>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card compact-card">
                         <h3>Förebyggande arbete med unga</h3>
                         <p>Skolbesök, workshops och aktiviteter på fritidsgårdar. Vi informerar om konsekvenser av kriminalitet och motiverar till positiva val, utbildning och meningsfull fritid.</p>
                     </div>
@@ -107,8 +107,8 @@
             </div>
         </section>
 
-        <!-- SAMVERKAN & KONTAKT -->
-        <section class="contact">
+        <!-- SAMVERKAN & KONTAKT - MINSKAT MELLANRUM -->
+        <section class="contact compact-section" style="background: white;">
             <div class="container">
                 <div class="contact-box">
                     <h2 class="section-title">Samverkan & kontakt</h2>
@@ -124,7 +124,7 @@
                         <p>Vill du veta mer om vårt arbete, samarbeta med oss eller stödja vår verksamhet?</p>
                         
                         <div style="margin-top: 1.2rem; padding: 1.2rem; background: var(--gray-50); border-radius: 8px; display: inline-block;">
-                            <p style="margin: 0; font-size: 1.05rem;"><strong>E-post:</strong> info@brytpunkten.se</p>
+                            <p style="margin: 0; font-size: 1.1rem;"><strong>E-post:</strong> info@brytpunkten.se</p>
                         </div>
                     </div>
                     
