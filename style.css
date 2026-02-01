@@ -62,14 +62,14 @@ p {
     line-height: 1.6;
 }
 
-/* ===== FÄRGER - GRÅTT MED MYCKET DISKRET GUL ===== */
+/* ===== FÄRGER - GRÅTT MED LÄTTARE GUL ===== */
 :root {
-    /* NY GUL: #C4B000 - väldigt diskret */
-    --yellow-700: #A39300;
-    --yellow-600: #B6A300;
-    --yellow-500: #C4B000;  /* HUVUDGUL */
-    --yellow-400: #D2BE00;
-    --yellow-100: #F0E8B3;  /* LJUSGUL för "Kort sagt" */
+    /* NY LÄTTARE GUL: #D4C300 - mindre påtaglig */
+    --yellow-700: #B3A400;
+    --yellow-600: #C4B300;
+    --yellow-500: #D4C300;  /* LÄTTARE HUVUDGUL */
+    --yellow-400: #E4D300;
+    --yellow-100: #F5F0C8;  /* LJUSARE GUL */
     
     /* Grått för huvuddesign */
     --gray-50: #fafafa;
@@ -86,8 +86,8 @@ p {
     /* Neutrala */
     --light-gray: #f8f9fa;
     --border-color: #EDE7D9;
-    --shadow: 0 5px 15px rgba(196, 176, 0, 0.03);
-    --shadow-hover: 0 10px 30px rgba(196, 176, 0, 0.05);
+    --shadow: 0 5px 15px rgba(212, 195, 0, 0.03);
+    --shadow-hover: 0 10px 30px rgba(212, 195, 0, 0.05);
 }
 
 /* ===== NAVBAR ===== */
@@ -140,13 +140,18 @@ p {
 }
 
 .nav-menu a:hover {
-    color: var(--text-dark);
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    color: var(--text-dark); /* INGET UNDERSTRECK */
 }
 
+/* INGET GULT PÅ AKTIV LÄNK */
+.nav-menu a[href="medlem.html"] {
+    color: var(--text-dark); /* INGET GULT */
+    font-weight: 600;
+}
+
+/* CTA-KNAPP - LÄTTARE GUL */
 .nav-cta-button {
-    background-color: var(--yellow-500);
+    background-color: var(--yellow-500); /* LÄTTARE GUL */
     color: white !important;
     padding: 0.75rem 1.5rem !important;
     border-radius: 8px;
@@ -156,7 +161,7 @@ p {
 }
 
 .nav-cta-button:hover {
-    background-color: var(--yellow-700);
+    background-color: var(--yellow-600);
     transform: translateY(-1px);
 }
 
@@ -193,7 +198,7 @@ p {
     object-fit: cover;
 }
 
-/* ===== KNAPPAR ===== */
+/* ===== KNAPPAR - LÄTTARE GUL ===== */
 .button {
     display: inline-block;
     padding: 1rem 2rem;
@@ -208,13 +213,13 @@ p {
 }
 
 .button-primary {
-    background-color: var(--yellow-500);
+    background-color: var(--yellow-500); /* LÄTTARE GUL */
     color: white;
     border: 2px solid var(--yellow-700);
 }
 
 .button-primary:hover {
-    background-color: var(--yellow-700);
+    background-color: var(--yellow-600);
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
 }
@@ -563,7 +568,7 @@ p {
     }
     
     .nav-cta-button {
-        background-color: rgba(196, 176, 0, 0.9);
+        background-color: rgba(212, 195, 0, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.5);
         color: white !important;
     }
