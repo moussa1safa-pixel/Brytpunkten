@@ -36,42 +36,40 @@ h1, h2, h3, h4 {
     font-weight: 700;
     line-height: 1.2;
     color: #1a1a1a;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.5rem; }
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.4rem; }
 
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #555;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .section-subtitle {
     text-align: center;
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     color: #666;
     max-width: 700px;
-    margin: 0 auto 3rem;
-    line-height: 1.6;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
 }
 
-/* ===== FÄRGER - GRÅTT MED LÄTTARE GUL ===== */
+/* ===== FÄRGER ===== */
 :root {
-    /* NY LÄTTARE GUL: #D4C300 - mindre påtaglig */
     --yellow-700: #B3A400;
     --yellow-600: #C4B300;
-    --yellow-500: #D4C300;  /* LÄTTARE HUVUDGUL */
+    --yellow-500: #D4C300;
     --yellow-400: #E4D300;
-    --yellow-100: #F5F0C8;  /* LJUSARE GUL */
+    --yellow-100: #F5F0C8;
     
-    /* Grått för huvuddesign */
     --gray-50: #fafafa;
     --gray-100: #f5f5f5;
     --gray-200: #eeeeee;
@@ -79,12 +77,10 @@ p {
     --gray-700: #424242;
     --gray-800: #2d2d2d;
     
-    /* Textfärger */
     --text-dark: #1a1a1a;
     --text-gray: #555;
     --text-light: #777;
     
-    /* Neutrala */
     --light-gray: #f8f9fa;
     --border-color: #EDE7D9;
     --shadow: 0 5px 15px rgba(212, 195, 0, 0.03);
@@ -96,14 +92,66 @@ p {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.9rem 0;
     transition: all 0.3s ease;
 }
 
+/* INDEX HEADER: GENOMSKINLIG PÅ DESKTOP */
+.navbar:not(.solid-nav) {
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.navbar:not(.solid-nav) .nav-menu a {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.navbar:not(.solid-nav) .nav-cta-button {
+    background-color: rgba(212, 195, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white !important;
+}
+
+/* OM-OSS & MEDLEM HEADER: VIT OCH SOLID */
+.navbar.solid-nav {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.navbar.solid-nav .nav-menu a {
+    color: var(--text-gray);
+    text-shadow: none;
+}
+
+.navbar.solid-nav .nav-cta-button {
+    background-color: var(--yellow-500);
+    border: 2px solid var(--yellow-700);
+    color: white !important;
+}
+
+/* SCROLL-EFFEKT FÖR INDEX */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar.scrolled .nav-menu a {
+    color: var(--text-gray);
+    text-shadow: none;
+}
+
+.navbar.scrolled .nav-cta-button {
+    background-color: var(--yellow-500);
+    border: 2px solid var(--yellow-700);
+    color: white !important;
+}
+
+/* GEMENSAM NAV STYLING */
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -120,49 +168,40 @@ p {
 }
 
 .logo {
-    height: 45px;
+    height: 42px;
     width: auto;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.8rem;
     align-items: center;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--text-gray);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: color 0.2s ease;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
 }
 
 .nav-menu a:hover {
     color: var(--text-dark);
 }
 
-/* INGET SPECIELL STYLING FÖR MEDLEM-LÄNKEN LÄNGRE */
-/* .nav-menu a[href="medlem.html"] {
-    color: var(--text-dark);
-    font-weight: 600;
-} */
-
-/* CTA-KNAPP - LÄTTARE GUL */
 .nav-cta-button {
-    background-color: var(--yellow-500);
     color: white !important;
-    padding: 0.75rem 1.5rem !important;
+    padding: 0.7rem 1.4rem !important;
     border-radius: 8px;
     margin-left: 1rem;
     transition: all 0.2s ease;
-    border: 2px solid var(--yellow-700);
+    font-weight: 600;
 }
 
 .nav-cta-button:hover {
-    background-color: var(--yellow-600);
+    background-color: var(--yellow-600) !important;
     transform: translateY(-1px);
 }
 
@@ -170,8 +209,8 @@ p {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 28px;
+    height: 20px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -190,7 +229,9 @@ p {
 .hero {
     position: relative;
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 70px;
+    height: 85vh;
+    min-height: 500px;
 }
 
 .hero-bg-image {
@@ -199,14 +240,14 @@ p {
     object-fit: cover;
 }
 
-/* ===== KNAPPAR - LÄTTARE GUL ===== */
+/* ===== KNAPPAR ===== */
 .button {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 0.9rem 1.8rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -237,70 +278,58 @@ p {
 }
 
 .button-large {
-    padding: 1.25rem 2.5rem;
-    font-size: 1.1rem;
+    padding: 1rem 2.2rem;
+    font-size: 1rem;
 }
 
 /* ===== SERVICES SECTION ===== */
 .services {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background-color: #ffffff;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
 }
 
 .service-card {
     background-color: var(--gray-100);
-    padding: 2rem;
+    padding: 1.5rem;
     border-left: 3px solid var(--yellow-500);
-    margin-bottom: 0;
-    box-shadow: none;
-    border-radius: 0 8px 8px 0;
-    transition: background-color 0.2s ease;
+    border-radius: 0 6px 6px 0;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-}
-
-.service-card:hover {
-    background-color: var(--gray-100);
-    transform: none;
-    box-shadow: none;
 }
 
 .service-card h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: var(--text-dark);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     border-bottom: 2px solid var(--gray-300);
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
 }
 
 .service-card p {
     color: var(--text-gray);
-    font-size: 1rem;
+    font-size: 0.95rem;
     margin-bottom: 0;
     flex-grow: 1;
 }
 
 /* ===== ABOUT SECTION ===== */
 .about {
-    padding: 4rem 0;
+    padding: 3rem 0;
     background-color: #ffffff;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: start;
 }
 
@@ -309,14 +338,14 @@ p {
 }
 
 .about-quote {
-    margin: 2.5rem 0;
-    padding: 2.5rem;
+    margin: 2rem 0;
+    padding: 2rem;
     border-left: 4px solid var(--yellow-600);
     background-color: var(--yellow-100);
     color: var(--text-gray);
     border-radius: 0 8px 8px 0;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.5;
 }
 
 .about-quote p {
@@ -328,8 +357,6 @@ p {
     background: transparent;
     padding: 0;
     border-radius: 0;
-    box-shadow: none;
-    border: none;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -342,136 +369,10 @@ p {
     margin-bottom: 0;
 }
 
-.image-note {
-    display: none;
-}
-
-/* ===== CONTACT SECTION - GRÅ BOX ===== */
-.contact {
-    padding: 4rem 0;
-    background: #ffffff;
-    color: #333;
-    text-align: center;
-}
-
-.contact-box {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 3rem;
-    background-color: var(--gray-100);
-    border: 1px solid var(--gray-200);
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-}
-
-.contact .section-title {
-    color: var(--text-dark);
-    margin-bottom: 1.5rem;
-}
-
-.contact-text {
-    color: var(--text-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.contact-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin: 2rem 0;
-    flex-wrap: wrap;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-    padding: 3rem 0;
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.footer-logo-img {
-    height: 50px;
-    width: auto;
-    filter: brightness(0) invert(1);
-}
-
-.footer-mission {
-    max-width: 500px;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.footer-contact {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
-    margin: 0.5rem 0;
-}
-
-.footer-email {
-    color: rgba(255, 255, 255, 0.85);
-}
-
-.footer-copyright {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    margin-top: 1rem;
-}
-
-/* ===== MEDLEMSSIDA SPECIFIKA STILAR ===== */
-
-/* FIXED HEADER - VIT PÅ MEDLEMSSIDAN */
-.navbar.member-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-    z-index: 1000;
-    padding: 1rem 0;
-}
-
-/* HEADER-LÄNKNING - INGET UNDERSTRECK, INGET GULT */
-.navbar.member-nav .nav-menu a {
-    color: var(--text-gray);
-    font-weight: 500;
-}
-
-.navbar.member-nav .nav-menu a:hover {
-    color: var(--text-dark);
-}
-
-/* INGET GULT OCH INGET FETSTIL PÅ AKTIV LÄNK */
-.navbar.member-nav .nav-menu a[href="medlem.html"] {
-    color: var(--text-gray);
-    font-weight: 500;
-}
-
-/* CTA-KNAPPAR - LÄTTARE GUL */
-.navbar.member-nav .nav-cta-button {
-    background-color: var(--yellow-500);
-    border: 2px solid var(--yellow-700);
-    color: white;
-}
-
-.navbar.member-nav .nav-cta-button:hover {
-    background-color: var(--yellow-600);
-}
-
-/* HERO SECTION - VIT BAKGRUND, MOBILOPTIMERAD */
+/* ===== MEDLEMSSIDA STILAR ===== */
 .member-hero {
-    padding-top: 120px;
-    padding-bottom: 2rem;
+    padding-top: 100px;
+    padding-bottom: 1.5rem;
     background: white;
     text-align: center;
 }
@@ -484,31 +385,26 @@ p {
 
 .member-hero .section-title {
     color: var(--text-dark);
-    margin-bottom: 1.2rem;
-    font-size: 3rem;
-    line-height: 1.1;
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
 }
 
 .member-hero .section-subtitle {
     color: var(--text-gray);
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* "INGA KOSTNADER" TEXT */
 .member-cost-text {
     color: var(--text-gray);
     font-weight: 500;
     font-size: 0.9rem;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     opacity: 0.9;
 }
 
-/* MEDLEMSKAP SECTION - VIT BAKGRUND, GRÅ RUTOR */
 .membership-section {
     padding: 2rem 1rem;
     background: white;
@@ -516,57 +412,48 @@ p {
 
 .membership-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.membership-section .section-title {
-    margin-bottom: 2rem !important;
-}
-
-/* RUTOR - GRÅ FÄRG */
 .membership-card {
     background: var(--gray-100);
-    padding: 2rem;
+    padding: 1.8rem;
     border-radius: 8px;
     border-left: 4px solid var(--yellow-500);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.membership-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(212, 195, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .membership-card h3 {
     color: var(--text-dark);
-    margin-bottom: 1.2rem;
-    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
     border-bottom: 2px solid var(--gray-300);
     padding-bottom: 0.5rem;
 }
 
 .membership-card ul {
-    padding-left: 1.5rem;
-    margin-bottom: 1.2rem;
+    padding-left: 1.3rem;
+    margin-bottom: 1rem;
 }
 
 .membership-card li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     color: var(--text-gray);
-    line-height: 1.5;
+    line-height: 1.4;
+    font-size: 0.95rem;
 }
 
 .membership-card p {
     color: var(--text-gray);
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
-/* FORMULÄR SECTION - VIT BAKGRUND, GRÅ FORMULÄRBOX */
+/* ===== FORMULÄR ===== */
 .form-section-container {
     padding: 2rem 1rem;
     background: white;
@@ -576,49 +463,40 @@ p {
     max-width: 800px;
     margin: 0 auto;
     background: var(--gray-100);
-    padding: 2.5rem;
+    padding: 2.2rem;
     border-radius: 8px;
     border: 1px solid var(--gray-200);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 }
 
 .form-box .section-title {
     text-align: center;
     color: var(--text-dark);
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.9rem;
 }
 
 .form-group {
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
 }
 
 .form-label {
     display: block;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--text-dark);
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .form-input {
     width: 100%;
-    padding: 0.8rem 1rem;
+    padding: 0.75rem 1rem;
     border: 1px solid var(--gray-300);
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: 'Inter', sans-serif;
     background-color: white;
     transition: all 0.2s ease;
-}
-
-/* FIXA BLÅ AUTOFILL-FÄRG OCH SVART FOKUS */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: var(--text-dark) !important;
-    background-color: white !important;
 }
 
 .form-input:focus {
@@ -627,18 +505,18 @@ input:-webkit-autofill:focus {
     box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
-/* RADIO BUTTON GRUPP FÖR MEDLEMSKAP */
+/* RADIO & CHECKBOX */
 .radio-group-vertical {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.8rem;
+    gap: 0.7rem;
 }
 
 .radio-item-large {
     display: flex;
     align-items: flex-start;
-    gap: 0.8rem;
-    padding: 1rem;
+    gap: 0.7rem;
+    padding: 0.9rem;
     background: white;
     border-radius: 8px;
     border: 1px solid var(--gray-200);
@@ -652,29 +530,28 @@ input:-webkit-autofill:focus {
 }
 
 .radio-item-large input[type="radio"] {
-    margin-top: 0.25rem;
-    width: 1.2rem;
-    height: 1.2rem;
+    margin-top: 0.2rem;
+    width: 1.1rem;
+    height: 1.1rem;
     accent-color: var(--text-dark);
 }
 
 .radio-item-content h4 {
     color: var(--text-dark);
-    margin-bottom: 0.4rem;
-    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
 }
 
 .radio-item-content p {
     color: var(--text-gray);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.4;
     margin: 0;
 }
 
-/* KÖN RADIO BUTTONS */
 .radio-group-horizontal {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -685,68 +562,68 @@ input:-webkit-autofill:focus {
 }
 
 .radio-item-small input[type="radio"] {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.1rem;
+    height: 1.1rem;
     accent-color: var(--text-dark);
 }
 
-/* SAMTYCKE BOX */
 .consent-box {
-    padding: 1.5rem;
+    padding: 1.3rem;
     background: white;
     border-radius: 8px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
     border: 1px solid var(--gray-200);
 }
 
 .consent-box h4 {
     color: var(--text-dark);
-    margin-bottom: 1.2rem;
-    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .consent-box label {
     display: flex;
     align-items: flex-start;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
+    gap: 0.7rem;
+    margin-bottom: 0.9rem;
     color: var(--text-gray);
     cursor: pointer;
-    line-height: 1.5;
+    line-height: 1.4;
+    font-size: 0.9rem;
 }
 
 .consent-box input[type="checkbox"] {
-    margin-top: 0.25rem;
-    width: 1.2rem;
-    height: 1.2rem;
+    margin-top: 0.2rem;
+    width: 1.1rem;
+    height: 1.1rem;
     accent-color: var(--text-dark);
 }
 
 /* SKICKA-KNAPP */
 .submit-section {
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 1.3rem;
     border-top: 1px solid var(--gray-200);
 }
 
 .submit-button {
     background-color: var(--yellow-500);
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.9rem 1.8rem;
     border: none;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 200px;
+    min-width: 180px;
     border: 2px solid var(--yellow-700);
 }
 
 .submit-button:hover {
     background-color: var(--yellow-600);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 195, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(212, 195, 0, 0.12);
 }
 
 .submit-button:disabled {
@@ -759,12 +636,13 @@ input:-webkit-autofill:focus {
 
 /* FORM MEDDELANDEN */
 .form-message {
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 0.8rem;
+    padding: 0.9rem;
     border-radius: 6px;
     font-weight: 500;
     text-align: center;
     display: none;
+    font-size: 0.9rem;
 }
 
 .form-message.success {
@@ -785,106 +663,117 @@ input:-webkit-autofill:focus {
     border: 1px solid #FFECB3;
 }
 
-/* GRID LAYOUTS */
+/* ===== FOOTER ===== */
+.footer {
+    padding: 2.5rem 0;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.footer-logo-img {
+    height: 45px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.footer-mission {
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer-contact {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    margin: 0.4rem 0;
+}
+
+.footer-email {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+}
+
+/* ===== GRID LAYOUTS ===== */
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
+    gap: 1rem;
 }
 
 .grid-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.2rem;
-}
-
-/* ===== MOBILANPASSNING FÖR OM-OSS SIDAN ===== */
-.image-section {
-    padding: 3rem 1rem;
-    text-align: center;
-    background: white;
-}
-
-.image-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.image-section p {
-    margin-top: 1rem;
-    color: var(--text-gray);
-    font-style: italic;
-    font-size: 0.9rem;
+    gap: 1rem;
 }
 
 /* ===== RESPONSIVITET ===== */
 @media (max-width: 1200px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-    
-    .services, .about, .contact {
-        padding: 3.25rem 0;
-    }
-}
-
-@media (max-width: 992px) {
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2.2rem; }
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    .about-content {
-        padding-right: 0;
-    }
-    .contact-box {
-        padding: 2.5rem 2rem;
-    }
-    .image-container {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    .grid-2,
-    .grid-3 {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    /* MOBIL: MINIMALT AVSTÅND MELLAN BILD OCH KONTAKT */
-    .about {
-        padding-bottom: 0 !important;
-    }
-    
-    .contact {
-        padding-top: 0.5rem !important;
+        gap: 1.2rem;
     }
     
     .services, .about, .contact {
         padding: 2.5rem 0;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.3rem; }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .about-content {
+        padding-right: 0;
     }
     
     .contact-box {
         padding: 2rem 1.5rem;
     }
     
-    /* Mobilmeny */
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+    }
+    
+    .member-hero .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* MOBILMENY */
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 70px;
         right: -100%;
         flex-direction: column;
         background-color: white;
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem 0;
         gap: 0;
     }
     
@@ -893,7 +782,7 @@ input:-webkit-autofill:focus {
     }
     
     .nav-menu li {
-        margin: 1.5rem 0;
+        margin: 1.2rem 0;
     }
     
     .hamburger {
@@ -912,56 +801,48 @@ input:-webkit-autofill:focus {
         transform: rotate(45deg) translate(-5px, -6px);
     }
     
+    /* HERO & LAYOUT */
     .hero {
-        height: 85vh;
-        min-height: 500px;
-        margin-top: 70px;
-    }
-    
-    .hero-bg-image {
-        object-position: center 25%;
+        height: 75vh;
+        min-height: 450px;
+        margin-top: 60px;
     }
     
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
     
     .service-card {
-        padding: 2rem 1.5rem;
+        padding: 1.3rem;
     }
     
     .contact-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 0.8rem;
     }
     
     .contact-buttons .button {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
     }
     
     /* MEDLEMSSIDA MOBIL */
     .member-hero {
-        padding-top: 100px;
-        padding-bottom: 1.5rem;
+        padding-top: 90px;
+        padding-bottom: 1.2rem;
     }
     
     .member-hero .section-title {
         font-size: 2.2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .member-hero .section-subtitle {
-        font-size: 1.1rem;
-        line-height: 1.5;
-        padding: 0 1rem;
         margin-bottom: 0.8rem;
     }
     
-    .member-cost-text {
-        font-size: 0.8rem;
+    .member-hero .section-subtitle {
+        font-size: 1.05rem;
         padding: 0 1rem;
+        margin-bottom: 0.6rem;
     }
     
     .membership-section,
@@ -974,28 +855,32 @@ input:-webkit-autofill:focus {
     }
     
     .membership-card {
-        padding: 1.5rem;
+        padding: 1.3rem;
     }
     
     .radio-group-horizontal {
-        gap: 1.5rem;
+        gap: 1.2rem;
     }
     
     .radio-item-large {
-        padding: 1rem;
+        padding: 0.8rem;
     }
     
     .submit-button {
         width: 100%;
-        max-width: 300px;
-        padding: 0.9rem 1.5rem;
+        max-width: 280px;
+        padding: 0.8rem 1.5rem;
     }
     
-    .navbar.member-nav {
-        padding: 0.8rem 0;
+    .navbar {
+        padding: 0.7rem 0;
     }
     
-    /* Bättre touch targets på mobil */
+    .navbar.solid-nav {
+        padding: 0.7rem 0;
+    }
+    
+    /* BÄTTRE TOUCH TARGETS */
     .nav-menu a,
     .button {
         min-height: 44px;
@@ -1007,96 +892,35 @@ input:-webkit-autofill:focus {
     input, select, textarea {
         font-size: 16px !important;
     }
-    
-    /* OM-OSS SIDAN MOBIL */
-    .image-section {
-        padding: 2rem 1rem;
-    }
-    
-    .image-section img {
-        max-width: 95%;
-        margin: 0 auto;
-    }
-    
-    .membership-cards {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .membership-card h3 {
-        font-size: 1.3rem;
-    }
-    
-    .member-hero .section-title {
-        font-size: 2.5rem;
-    }
 }
 
 @media (min-width: 769px) {
-    .navbar {
-        background-color: transparent;
-        backdrop-filter: none;
-        box-shadow: none;
-    }
-    
-    .navbar.scrolled {
-        background-color: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-    
-    .nav-menu a {
-        color: white;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    }
-    
-    .navbar.scrolled .nav-menu a {
-        color: var(--text-gray);
-        text-shadow: none;
-    }
-    
-    .nav-cta-button {
-        background-color: rgba(212, 195, 0, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        color: white !important;
-    }
-    
-    .navbar.scrolled .nav-cta-button {
-        background-color: var(--yellow-500);
-        border: 2px solid var(--yellow-700);
-        color: white !important;
-    }
-    
     .hero {
         height: 100vh;
         min-height: 600px;
         margin-top: 0;
     }
-    
-    /* DATOR - SPECIFIKA AVSTÅNDSJUSTERINGAR */
-    .contact {
-        padding-top: 2rem;
-    }
 }
 
 @media (max-width: 480px) {
     h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.3rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.2rem; }
+    
     .hero {
         height: 65vh;
         min-height: 400px;
     }
+    
     .about-quote {
-        padding: 1.5rem;
+        padding: 1.3rem;
     }
-    .image-container {
-        padding: 0;
-    }
+    
     .member-hero .section-title {
         font-size: 2rem;
     }
-    .image-section p {
+    
+    .member-cost-text {
         font-size: 0.8rem;
         padding: 0 1rem;
     }
