@@ -140,7 +140,9 @@ p {
 }
 
 .nav-menu a:hover {
-    color: var(--yellow-700);
+    color: var(--text-dark);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .nav-cta-button {
@@ -247,7 +249,7 @@ p {
 }
 
 .service-card {
-    background-color: var(--gray-50);
+    background-color: var(--gray-100);
     padding: 2rem;
     border-left: 3px solid var(--yellow-500);
     margin-bottom: 0;
@@ -338,7 +340,7 @@ p {
     display: none;
 }
 
-/* ===== CONTACT SECTION - LJUSGRÅ BOX ===== */
+/* ===== CONTACT SECTION - GRÅ BOX ===== */
 .contact {
     padding: 4rem 0;
     background: #ffffff;
@@ -350,10 +352,10 @@ p {
     max-width: 700px;
     margin: 0 auto;
     padding: 3rem;
-    background-color: var(--gray-50);      /* Ljusgrå bakgrund */
-    border: 1px solid var(--gray-200);     /* Väldigt ljus grå ram */
-    border-radius: 6px;                    /* Litet rundade hörn */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); /* Mycket lätt skugga */
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
 .contact .section-title {
@@ -453,11 +455,11 @@ p {
 @media (max-width: 768px) {
     /* MOBIL: MINIMALT AVSTÅND MELLAN BILD OCH KONTAKT */
     .about {
-        padding-bottom: 0 !important;       /* Noll luft under bilden */
+        padding-bottom: 0 !important;
     }
     
     .contact {
-        padding-top: 0.5rem !important;     /* Minimalt, bara 8px */
+        padding-top: 0.5rem !important;
     }
     
     .services, .about, .contact {
@@ -579,9 +581,8 @@ p {
     }
     
     /* ===== DATOR - SPECIFIKA AVSTÅNDSJUSTERINGAR ===== */
-    /* BARA: Mindre över "Vill du veta mer"-rutan */
     .contact {
-        padding-top: 2rem; /* 32px istället för 64px */
+        padding-top: 2rem;
     }
 }
 
