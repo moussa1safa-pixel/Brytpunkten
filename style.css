@@ -369,6 +369,42 @@ p {
     margin-bottom: 0;
 }
 
+/* ===== KONTAKT-SEKTION (PROBLEM #1 FIXAT) ===== */
+.contact {
+    padding: 3rem 0;
+    background: white;
+    text-align: center;
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.contact .section-title {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.contact-text {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
 /* ===== MEDLEMSSIDA STILAR ===== */
 .member-hero {
     padding-top: 100px;
@@ -872,56 +908,4 @@ p {
         padding: 0.8rem 1.5rem;
     }
     
-    .navbar {
-        padding: 0.7rem 0;
-    }
-    
-    .navbar.solid-nav {
-        padding: 0.7rem 0;
-    }
-    
-    /* BÄTTRE TOUCH TARGETS */
-    .nav-menu a,
-    .button {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    input, select, textarea {
-        font-size: 16px !important;
-    }
-}
-
-@media (min-width: 769px) {
-    .hero {
-        height: 100vh;
-        min-height: 600px;
-        margin-top: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.7rem; }
-    h3 { font-size: 1.2rem; }
-    
-    .hero {
-        height: 65vh;
-        min-height: 400px;
-    }
-    
-    .about-quote {
-        padding: 1.3rem;
-    }
-    
-    .member-hero .section-title {
-        font-size: 2rem;
-    }
-    
-    .member-cost-text {
-        font-size: 0.8rem;
-        padding: 0 1rem;
-    }
-}
+    .navbar
