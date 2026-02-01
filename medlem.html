@@ -50,18 +50,18 @@
         }
         
         .navbar.member-nav .nav-menu a:hover {
-            color: var(--text-dark); /* INGET UNDERSTRECK */
+            color: var(--text-dark);
         }
         
-        /* INGET GULT PÅ AKTIV LÄNK */
+        /* INGET GULT OCH INGET FETSTIL PÅ AKTIV LÄNK */
         .navbar.member-nav .nav-menu a[href="medlem.html"] {
-            color: var(--text-dark); /* INGET GULT */
-            font-weight: 600;
+            color: var(--text-gray); /* SAMMA SOM ANDRA LÄNKNING */
+            font-weight: 500; /* INGET FETSTIL */
         }
         
         /* CTA-KNAPPAR - LÄTTARE GUL SOM I STYLE.CSS */
         .navbar.member-nav .nav-cta-button {
-            background-color: var(--yellow-500); /* LÄTTARE GUL */
+            background-color: var(--yellow-500);
             border: 2px solid var(--yellow-700);
             color: white;
         }
@@ -73,8 +73,8 @@
         /* HERO SECTION - VIT BAKGRUND, MOBILOPTIMERAD */
         .member-hero {
             padding-top: 120px;
-            padding-bottom: 3rem;
-            background: white; /* VIT ISTÄLLET FÖR GRÅ */
+            padding-bottom: 2rem; /* MINSKAT MED 30% */
+            background: white;
             text-align: center;
         }
         
@@ -86,7 +86,7 @@
         
         .member-hero .section-title {
             color: var(--text-dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem; /* MINSKAT */
             font-size: 3rem;
             line-height: 1.1;
         }
@@ -95,49 +95,42 @@
             color: var(--text-gray);
             font-size: 1.2rem;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem; /* MINSKAT */
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        /* "INGA KOSTNADER" TEXT - MINDRE, SPECIELLT PÅ MOBIL */
+        /* "INGA KOSTNADER" TEXT - 30% MINDRE PÅ ALLA ENHETER */
         .member-cost-text {
             color: var(--text-gray);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 1.5rem;
+            font-weight: 500; /* LÄTTARE */
+            font-size: 0.9rem; /* 30% MINDRE ÄN 1.3rem */
+            margin-top: 1rem;
+            opacity: 0.9;
         }
         
         /* HERO MOBILOPTIMERING */
         @media (max-width: 768px) {
             .member-hero {
                 padding-top: 100px;
-                padding-bottom: 2rem;
+                padding-bottom: 1.5rem; /* MINSKAT PÅ MOBIL */
             }
             
             .member-hero .section-title {
                 font-size: 2.2rem;
-                content: "Bli medlem";
-            }
-            
-            /* TAR BORT DUBBEL "BLI MEDLEM" */
-            .member-hero .section-title::after {
-                content: "" !important;
-            }
-            
-            .member-hero .section-title br {
-                display: none;
+                margin-bottom: 1rem;
             }
             
             .member-hero .section-subtitle {
                 font-size: 1.1rem;
                 line-height: 1.5;
                 padding: 0 1rem;
+                margin-bottom: 0.8rem;
             }
             
             .member-cost-text {
-                font-size: 1rem; /* MINDRE PÅ MOBIL */
+                font-size: 0.8rem; /* MINDRE PÅ MOBIL */
                 padding: 0 1rem;
             }
         }
@@ -147,24 +140,28 @@
             background-color: white;
         }
         
-        /* MEDLEMSKAP SECTION - VIT BAKGRUND, GRÅ RUTOR */
+        /* MEDLEMSKAP SECTION - VIT BAKGRUND, GRÅ RUTOR, MINDRE AVSTÅND */
         .membership-section {
-            padding: 3rem 1rem;
+            padding: 2rem 1rem; /* MINSKAT MED 30% */
             background: white;
         }
         
         .membership-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem; /* MINSKAT */
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        .membership-section .section-title {
+            margin-bottom: 2rem !important; /* MINSKAT MED 30% */
         }
         
         /* RUTOR - GRÅ FÄRG */
         .membership-card {
             background: var(--gray-100);
-            padding: 2.5rem;
+            padding: 2rem; /* MINSKAT */
             border-radius: 8px;
             border-left: 4px solid var(--yellow-500);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -178,19 +175,19 @@
         
         .membership-card h3 {
             color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 1.2rem; /* MINSKAT */
+            font-size: 1.4rem; /* MINSKAT */
             border-bottom: 2px solid var(--gray-300);
-            padding-bottom: 0.75rem;
+            padding-bottom: 0.5rem; /* MINSKAT */
         }
         
         .membership-card ul {
             padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem; /* MINSKAT */
         }
         
         .membership-card li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem; /* MINSKAT */
             color: var(--text-gray);
             line-height: 1.5;
         }
@@ -198,12 +195,12 @@
         .membership-card p {
             color: var(--text-gray);
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem; /* MINSKAT */
         }
         
         /* FORMULÄR SECTION - VIT BAKGRUND, GRÅ FORMULÄRBOX */
         .form-section-container {
-            padding: 3rem 1rem;
+            padding: 2rem 1rem; /* MINSKAT */
             background: white;
         }
         
@@ -211,7 +208,7 @@
             max-width: 800px;
             margin: 0 auto;
             background: var(--gray-100);
-            padding: 3rem;
+            padding: 2.5rem; /* MINSKAT */
             border-radius: 8px;
             border: 1px solid var(--gray-200);
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
@@ -220,25 +217,25 @@
         .form-box .section-title {
             text-align: center;
             color: var(--text-dark);
-            margin-bottom: 2.5rem;
-            font-size: 2.2rem;
+            margin-bottom: 2rem; /* MINSKAT */
+            font-size: 2rem; /* MINSKAT */
         }
         
         .form-group {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem; /* MINSKAT */
         }
         
         .form-label {
             display: block;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem; /* MINSKAT */
             font-weight: 600;
             color: var(--text-dark);
-            font-size: 1.05rem;
+            font-size: 1rem; /* MINSKAT */
         }
         
         .form-input {
             width: 100%;
-            padding: 0.9rem 1rem;
+            padding: 0.8rem 1rem; /* MINSKAT */
             border: 1px solid var(--gray-300);
             border-radius: 6px;
             font-size: 1rem;
@@ -262,18 +259,18 @@
             box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
         }
         
-        /* RADIO BUTTON GRUPP FÖR MEDLEMSKAP - VIT BAKGRUND, INGET BEIGE HOVER */
+        /* RADIO BUTTON GRUPP FÖR MEDLEMSKAP */
         .radio-group-vertical {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 0.8rem; /* MINSKAT */
         }
         
         .radio-item-large {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            padding: 1.25rem;
+            gap: 0.8rem; /* MINSKAT */
+            padding: 1rem; /* MINSKAT */
             background: white;
             border-radius: 8px;
             border: 1px solid var(--gray-200);
@@ -282,7 +279,7 @@
         }
         
         .radio-item-large:hover {
-            background: white; /* INGET BEIGE HOVER */
+            background: white;
             border-color: var(--gray-300);
         }
         
@@ -295,21 +292,21 @@
         
         .radio-item-content h4 {
             color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.4rem; /* MINSKAT */
+            font-size: 1rem; /* MINSKAT */
         }
         
         .radio-item-content p {
             color: var(--text-gray);
-            font-size: 0.95rem;
+            font-size: 0.9rem; /* MINSKAT */
             line-height: 1.5;
             margin: 0;
         }
         
-        /* KÖN RADIO BUTTONS - SVART */
+        /* KÖN RADIO BUTTONS */
         .radio-group-horizontal {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem; /* MINSKAT */
             flex-wrap: wrap;
         }
         
@@ -325,26 +322,26 @@
             accent-color: var(--text-dark);
         }
         
-        /* SAMTYCKE BOX - VIT BAKGRUND */
+        /* SAMTYCKE BOX */
         .consent-box {
-            padding: 2rem;
+            padding: 1.5rem; /* MINSKAT */
             background: white;
             border-radius: 8px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem; /* MINSKAT */
             border: 1px solid var(--gray-200);
         }
         
         .consent-box h4 {
             color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 1.2rem; /* MINSKAT */
+            font-size: 1.1rem; /* MINSKAT */
         }
         
         .consent-box label {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
+            gap: 0.8rem; /* MINSKAT */
+            margin-bottom: 1rem; /* MINSKAT */
             color: var(--text-gray);
             cursor: pointer;
             line-height: 1.5;
@@ -357,24 +354,24 @@
             accent-color: var(--text-dark);
         }
         
-        /* SKICKA-KNAPP - LÄTTARE GUL */
+        /* SKICKA-KNAPP */
         .submit-section {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem; /* MINSKAT */
             border-top: 1px solid var(--gray-200);
         }
         
         .submit-button {
-            background-color: var(--yellow-500); /* LÄTTARE GUL */
+            background-color: var(--yellow-500);
             color: white;
-            padding: 1.1rem 2.5rem;
+            padding: 1rem 2rem; /* MINSKAT */
             border: none;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem; /* MINSKAT */
             cursor: pointer;
             transition: all 0.3s ease;
-            min-width: 220px;
+            min-width: 200px; /* MINSKAT */
             border: 2px solid var(--yellow-700);
         }
         
@@ -424,7 +421,7 @@
         @media (max-width: 768px) {
             .member-hero {
                 padding-top: 100px;
-                padding-bottom: 2rem;
+                padding-bottom: 1.5rem;
             }
             
             .member-hero .section-title {
@@ -438,7 +435,7 @@
             
             .membership-section,
             .form-section-container {
-                padding: 2rem 1rem;
+                padding: 1.5rem 1rem; /* MINSKAT PÅ MOBIL */
             }
             
             .form-box {
@@ -466,6 +463,7 @@
             .submit-button {
                 width: 100%;
                 max-width: 300px;
+                padding: 0.9rem 1.5rem; /* MINSKAT PÅ MOBIL */
             }
             
             .navbar.member-nav {
@@ -477,19 +475,20 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 1.2rem; /* MINSKAT */
         }
         
         .grid-3 {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.5rem;
+            gap: 1.2rem; /* MINSKAT */
         }
         
         @media (max-width: 768px) {
             .grid-2,
             .grid-3 {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
         }
     </style>
@@ -503,7 +502,7 @@
             </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Hem</a></li>
-                <li><a href="index.html#services">Vårt arbete</a></li>
+                <!-- VÅRT ARBETE LÄNK TARTS BORT -->
                 <li><a href="index.html#about">Om oss</a></li>
                 <li><a href="medlem.html">Bli medlem</a></li>
                 <li><a href="index.html#contact" class="nav-cta-button">Kontakta oss</a></li>
@@ -533,7 +532,7 @@
         <!-- MEDLEMSKAP-TYPER - VIT BAKGRUND, GRÅ RUTOR -->
         <section class="membership-section">
             <div class="container">
-                <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Våra medlemskapstyper</h2>
+                <h2 class="section-title" style="text-align: center; margin-bottom: 2rem !important;">Våra medlemskapstyper</h2>
                 
                 <div class="membership-cards">
                     <!-- MEDLEM -->
@@ -578,7 +577,7 @@
             </div>
         </section>
 
-        <!-- FORMULÄR SECTION - VIT BAKGRUND, GRÅ FORMULÄRBOX -->
+        <!-- FORMULÄR SECTION -->
         <section class="form-section-container">
             <div class="form-box">
                 <h2 class="section-title">Ansök om medlemskap</h2>
@@ -593,7 +592,7 @@
                     <!-- SPAM-SKYDD -->
                     <input type="hidden" name="_gotcha" style="display:none">
                     
-                    <!-- 1. MEDLEMSKAPSTYP - RADIOBUTTONS (ENDAST ETT VAL) -->
+                    <!-- 1. MEDLEMSKAPSTYP -->
                     <div class="form-group">
                         <label class="form-label">Välj medlemskapstyp: *</label>
                         <div class="radio-group-vertical">
@@ -711,7 +710,6 @@
                             Skicka ansökan
                         </button>
                         <div id="formMessage" class="form-message"></div>
-                        <!-- TEXTEN "Vi kommer att kontakta dig..." HAR TAGITS BORT -->
                     </div>
                 </form>
             </div>
