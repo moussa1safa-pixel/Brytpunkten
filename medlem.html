@@ -20,8 +20,8 @@
     <style>
         /* ANVÄNDER SAMMA FÄRGER SOM I STYLE.CSS */
         :root {
-            --yellow-500: #C4B000;
-            --yellow-700: #A39300;
+            --yellow-500: #D4C300; /* LÄTTARE GUL */
+            --yellow-700: #B3A400;
             --gray-50: #fafafa;
             --gray-100: #f5f5f5;
             --gray-200: #eeeeee;
@@ -43,40 +43,38 @@
             padding: 1rem 0;
         }
         
-        /* HEADER-LÄNKNING - SVART UNDERSTRECK VID HOVER */
+        /* HEADER-LÄNKNING - INGET UNDERSTRECK, INGET GULT */
         .navbar.member-nav .nav-menu a {
             color: var(--text-gray);
             font-weight: 500;
         }
         
         .navbar.member-nav .nav-menu a:hover {
-            color: var(--text-dark);
-            text-decoration: underline;
-            text-underline-offset: 4px;
+            color: var(--text-dark); /* INGET UNDERSTRECK */
         }
         
-        /* AKTIV LÄNK (Bli medlem) - GUL */
+        /* INGET GULT PÅ AKTIV LÄNK */
         .navbar.member-nav .nav-menu a[href="medlem.html"] {
-            color: var(--yellow-700);
+            color: var(--text-dark); /* INGET GULT */
             font-weight: 600;
         }
         
-        /* CTA-KNAPPAR - GULA SOM PÅ INDEX */
+        /* CTA-KNAPPAR - LÄTTARE GUL SOM I STYLE.CSS */
         .navbar.member-nav .nav-cta-button {
-            background-color: var(--yellow-500);
+            background-color: var(--yellow-500); /* LÄTTARE GUL */
             border: 2px solid var(--yellow-700);
             color: white;
         }
         
         .navbar.member-nav .nav-cta-button:hover {
-            background-color: var(--yellow-700);
+            background-color: var(--yellow-600);
         }
         
-        /* HERO SECTION - GRÅ FÄRG, MOBILOPTIMERAD */
+        /* HERO SECTION - VIT BAKGRUND, MOBILOPTIMERAD */
         .member-hero {
             padding-top: 120px;
             padding-bottom: 3rem;
-            background: var(--gray-100);
+            background: white; /* VIT ISTÄLLET FÖR GRÅ */
             text-align: center;
         }
         
@@ -97,21 +95,35 @@
             color: var(--text-gray);
             font-size: 1.2rem;
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
         
+        /* "INGA KOSTNADER" TEXT - MINDRE, SPECIELLT PÅ MOBIL */
+        .member-cost-text {
+            color: var(--text-gray);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+        
         /* HERO MOBILOPTIMERING */
         @media (max-width: 768px) {
+            .member-hero {
+                padding-top: 100px;
+                padding-bottom: 2rem;
+            }
+            
             .member-hero .section-title {
                 font-size: 2.2rem;
                 content: "Bli medlem";
             }
             
+            /* TAR BORT DUBBEL "BLI MEDLEM" */
             .member-hero .section-title::after {
-                content: "Bli medlem";
+                content: "" !important;
             }
             
             .member-hero .section-title br {
@@ -121,6 +133,11 @@
             .member-hero .section-subtitle {
                 font-size: 1.1rem;
                 line-height: 1.5;
+                padding: 0 1rem;
+            }
+            
+            .member-cost-text {
+                font-size: 1rem; /* MINDRE PÅ MOBIL */
                 padding: 0 1rem;
             }
         }
@@ -144,7 +161,7 @@
             margin: 0 auto;
         }
         
-        /* RUTOR - SAMMA GRÅ FÄRG SOM HERO */
+        /* RUTOR - GRÅ FÄRG */
         .membership-card {
             background: var(--gray-100);
             padding: 2.5rem;
@@ -156,7 +173,7 @@
         
         .membership-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(196, 176, 0, 0.08);
+            box-shadow: 0 8px 30px rgba(212, 195, 0, 0.08);
         }
         
         .membership-card h3 {
@@ -230,7 +247,7 @@
             transition: all 0.2s ease;
         }
         
-        /* FIXA BLÅ AUTOFILL-FÄRG OCH ÄNDRA FOKUS TILL SVART */
+        /* FIXA BLÅ AUTOFILL-FÄRG OCH SVART FOKUS */
         input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus {
@@ -241,11 +258,11 @@
         
         .form-input:focus {
             outline: none;
-            border-color: var(--text-dark); /* SVART ISTÄLLET FÖR GULT */
-            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1); /* SVART SKUGGA */
+            border-color: var(--text-dark);
+            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
         }
         
-        /* RADIO BUTTON GRUPP FÖR MEDLEMSKAP - VIT BAKGRUND */
+        /* RADIO BUTTON GRUPP FÖR MEDLEMSKAP - VIT BAKGRUND, INGET BEIGE HOVER */
         .radio-group-vertical {
             display: grid;
             grid-template-columns: 1fr;
@@ -265,7 +282,7 @@
         }
         
         .radio-item-large:hover {
-            background: var(--gray-50);
+            background: white; /* INGET BEIGE HOVER */
             border-color: var(--gray-300);
         }
         
@@ -273,7 +290,7 @@
             margin-top: 0.25rem;
             width: 1.2rem;
             height: 1.2rem;
-            accent-color: var(--text-dark); /* SVART ISTÄLLET FÖR GULT */
+            accent-color: var(--text-dark);
         }
         
         .radio-item-content h4 {
@@ -305,7 +322,7 @@
         .radio-item-small input[type="radio"] {
             width: 1.2rem;
             height: 1.2rem;
-            accent-color: var(--text-dark); /* SVART ISTÄLLET FÖR GULT */
+            accent-color: var(--text-dark);
         }
         
         /* SAMTYCKE BOX - VIT BAKGRUND */
@@ -337,10 +354,10 @@
             margin-top: 0.25rem;
             width: 1.2rem;
             height: 1.2rem;
-            accent-color: var(--text-dark); /* SVART ISTÄLLET FÖR GULT */
+            accent-color: var(--text-dark);
         }
         
-        /* SKICKA-KNAPP - GUL SOM PÅ INDEX */
+        /* SKICKA-KNAPP - LÄTTARE GUL */
         .submit-section {
             text-align: center;
             padding-top: 2rem;
@@ -348,7 +365,7 @@
         }
         
         .submit-button {
-            background-color: var(--yellow-500);
+            background-color: var(--yellow-500); /* LÄTTARE GUL */
             color: white;
             padding: 1.1rem 2.5rem;
             border: none;
@@ -362,9 +379,9 @@
         }
         
         .submit-button:hover {
-            background-color: var(--yellow-700);
+            background-color: var(--yellow-600);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(196, 176, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(212, 195, 0, 0.15);
         }
         
         .submit-button:disabled {
@@ -500,14 +517,14 @@
     </nav>
 
     <main>
-        <!-- HERO SECTION - GRÅ -->
+        <!-- HERO SECTION - VIT -->
         <section class="member-hero">
             <div class="member-hero-content">
                 <h1 class="section-title">Bli medlem</h1>
                 <p class="section-subtitle">
                     Vi är här för och göra skillnad. Tillsammans kan vi skapa fler brytpunkter.
                 </p>
-                <p style="color: var(--text-gray); font-weight: 600; font-size: 1.1rem;">
+                <p class="member-cost-text">
                     Inga kostnader – vi ser bara fram emot ditt stöd och engagemang.
                 </p>
             </div>
@@ -519,9 +536,9 @@
                 <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Våra medlemskapstyper</h2>
                 
                 <div class="membership-cards">
-                    <!-- MEDLEM - BEHÖVER HJÄLP -->
+                    <!-- MEDLEM -->
                     <div class="membership-card">
-                        <h3>Medlem – behöver hjälp</h3>
+                        <h3>Medlem</h3>
                         <p>För dig som vill få stöd och hjälp med förändring.</p>
                         <ul>
                             <li>Socialt stöd och motivation</li>
@@ -532,9 +549,9 @@
                         <p><strong>Inga krav på ålder eller bakgrund</strong> – alla som vill förändra sitt liv är välkomna.</p>
                     </div>
                     
-                    <!-- ANHÖRIGMEDLEMSKAP -->
+                    <!-- ANHÖRIG -->
                     <div class="membership-card">
-                        <h3>Anhörigmedlemskap</h3>
+                        <h3>Anhörig</h3>
                         <p>För dig som är anhörig eller närstående till någon med erfarenhet av missbruk eller kriminalitet.</p>
                         <ul>
                             <li>Stöd och råd i utmanande situationer</li>
@@ -545,9 +562,9 @@
                         <p><em>Ibland behöver även de som stöttar andra, stöttas själva.</em></p>
                     </div>
                     
-                    <!-- RÅDGIVANDE RÅD -->
+                    <!-- RÅDGIVARE -->
                     <div class="membership-card">
-                        <h3>Rådgivande råd</h3>
+                        <h3>Rådgivare</h3>
                         <p>För dig med kunskap eller erfarenhet som vill bidra.</p>
                         <ul>
                             <li>Bidra med din kompetens</li>
@@ -581,25 +598,25 @@
                         <label class="form-label">Välj medlemskapstyp: *</label>
                         <div class="radio-group-vertical">
                             <label class="radio-item-large">
-                                <input type="radio" name="Medlemskapstyp" value="Medlem - behöver hjälp" required> 
+                                <input type="radio" name="Medlemskapstyp" value="Medlem" required> 
                                 <div class="radio-item-content">
-                                    <h4>Medlem – behöver hjälp</h4>
+                                    <h4>Medlem</h4>
                                     <p>Vill få stöd och hjälp med förändring i mitt liv.</p>
                                 </div>
                             </label>
                             
                             <label class="radio-item-large">
-                                <input type="radio" name="Medlemskapstyp" value="Anhörig - stöd till närstående"> 
+                                <input type="radio" name="Medlemskapstyp" value="Anhörig"> 
                                 <div class="radio-item-content">
-                                    <h4>Anhörig – stöd till närstående</h4>
+                                    <h4>Anhörig</h4>
                                     <p>Är anhörig eller närstående till någon med erfarenhet.</p>
                                 </div>
                             </label>
                             
                             <label class="radio-item-large">
-                                <input type="radio" name="Medlemskapstyp" value="Rådgivande råd - vill bidra med kunskap"> 
+                                <input type="radio" name="Medlemskapstyp" value="Rådgivare"> 
                                 <div class="radio-item-content">
-                                    <h4>Rådgivande råd – vill bidra med kunskap</h4>
+                                    <h4>Rådgivare</h4>
                                     <p>Har kunskap eller erfarenhet som kan bidra till verksamheten.</p>
                                 </div>
                             </label>
@@ -694,9 +711,7 @@
                             Skicka ansökan
                         </button>
                         <div id="formMessage" class="form-message"></div>
-                        <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.9rem;">
-                            Vi kommer att kontakta dig inom några arbetsdagar.
-                        </p>
+                        <!-- TEXTEN "Vi kommer att kontakta dig..." HAR TAGITS BORT -->
                     </div>
                 </form>
             </div>
@@ -718,5 +733,14 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // UPPDATERA COPYRIGHT ÅR
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
 </body>
 </html>
