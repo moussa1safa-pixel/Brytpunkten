@@ -15,102 +15,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-    
-    <!-- EXTRA STYLING SPECIFIKT FÖR DENNA SIDA -->
-    <style>
-        /* PROBLEM 1: FIXA HEADER - INGEN GENOMSKINLIGHET */
-        .om-oss-header {
-            background-color: rgba(255, 255, 255, 0.98) !important;
-            backdrop-filter: blur(10px) !important;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
-        }
-        
-        /* PROBLEM 2: MINSKA MELLANRUMMEN */
-        .compact-section {
-            padding: 2.5rem 0 !important;
-        }
-        
-        /* PROBLEM 3 & 4 & 5: MOBILANPASSNING OCH RUT-LAYOUT */
-        .insats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .insats-card {
-            background: var(--gray-100);
-            padding: 1.8rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--yellow-500);
-            height: 100%;
-        }
-        
-        /* BILD + TEXT LAYOUT - MINSKAT MELLANRUM */
-        .image-text-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            padding: 2.5rem 0;
-        }
-        
-        /* MOBILSTILAR */
-        @media (max-width: 768px) {
-            /* PROBLEM 2: ÄNNU MINDRE MELLANRUM PÅ MOBIL */
-            .compact-section {
-                padding: 1.8rem 0 !important;
-            }
-            
-            /* PROBLEM 4: 4 RUTOR UNDER VARANDRA PÅ MOBIL */
-            .insats-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.2rem;
-            }
-            
-            .insats-card {
-                padding: 1.5rem;
-            }
-            
-            /* PROBLEM 3: BILD + TEXT UNDER VARANDRA PÅ MOBIL */
-            .image-text-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 2rem 0;
-            }
-            
-            /* MINDRE RUBRIKER PÅ MOBIL */
-            .om-oss-hero h1 {
-                font-size: 2.5rem !important;
-                margin-bottom: 0.8rem !important;
-            }
-            
-            .om-oss-hero p {
-                font-size: 1.1rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-        }
-        
-        @media (min-width: 769px) and (max-width: 1100px) {
-            /* PROBLEM 5: 2+2 LAYOUT PÅ TABLET */
-            .insats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* PROBLEM 2: MINSKA MELLANRUM I CONTACT */
-        .compact-contact {
-            padding: 2.5rem 0 !important;
-        }
-        
-        .compact-contact .contact-box {
-            padding: 2.5rem !important;
-        }
-    </style>
 </head>
 <body>
-    <!-- NAVBAR - PROBLEM 1 FIXAT: VIT HEADER -->
-    <nav class="navbar om-oss-header">
+    <!-- NAVBAR - VIT HEADER PÅ OM-OSS -->
+    <nav class="navbar solid-nav">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
                 <img src="logo.png" alt="Brytpunkten logotyp" class="logo">
@@ -131,7 +39,7 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="member-hero om-oss-hero compact-section">
+        <section class="member-hero">
             <div class="member-hero-content">
                 <h1 class="section-title">Om oss</h1>
                 <p class="section-subtitle">
@@ -140,8 +48,8 @@
             </div>
         </section>
 
-        <!-- VÅRT UPPDRAG - PROBLEM 2 FIXAT: MINSKAT MELLANRUM -->
-        <section class="membership-section compact-section">
+        <!-- VÅRT UPPDRAG -->
+        <section class="membership-section">
             <div class="container">
                 <div class="membership-card" style="max-width: 800px; margin: 0 auto;">
                     <h2>Vårt uppdrag</h2>
@@ -151,18 +59,18 @@
             </div>
         </section>
 
-        <!-- VÅR STYRKA + BILD SIDA VID SIDA - PROBLEM 2 & 3 FIXAT -->
-        <section class="compact-section" style="background: white;">
+        <!-- VÅR STYRKA + BILD -->
+        <section class="about">
             <div class="container">
-                <div class="image-text-grid">
-                    <!-- BILDEN TILL VÄNSTER -->
-                    <div>
-                        <img src="blommor.jpg" alt="Brytpunkten - Symbol för förändring" loading="lazy" style="width: 100%; border-radius: 8px;">
+                <div class="about-grid" style="align-items: center;">
+                    <!-- BILD -->
+                    <div class="image-container">
+                        <img src="blommor.jpg" alt="Brytpunkten - Symbol för förändring" class="about-img" loading="lazy" style="border-radius: 6px;">
                     </div>
                     
-                    <!-- TEXTEN TILL HÖGER -->
-                    <div>
-                        <h2 style="margin-bottom: 1.2rem;">Vår unika kompetens</h2>
+                    <!-- TEXT -->
+                    <div class="about-content">
+                        <h2>Vår unika kompetens</h2>
                         <p>Brytpunkten grundades av personer med en unik kombination av professionell kompetens inom socialt arbete och praktisk insikt i de utmaningar som personer med kriminell bakgrund möter. Denna breda erfarenhet ger oss en heltäckande förståelse för att skapa verklig förändring.</p>
                         <p>Vi vet vad som fungerar i praktiken – både utifrån evidensbaserad metodik och genom kunskap om de verkliga hinder som finns. Detta gör oss till en effektiv partner i samhällets brottsförebyggande arbete.</p>
                     </div>
@@ -170,57 +78,57 @@
             </div>
         </section>
 
-        <!-- VÅRA INSATSER - PROBLEM 4 & 5 FIXAT -->
-        <section class="services compact-section" style="background: white;">
+        <!-- VÅRA INSATSER -->
+        <section class="services">
             <div class="container">
                 <h2 class="section-title">Våra konkreta insatser</h2>
                 
-                <div class="insats-grid">
-                    <div class="insats-card">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Individuellt stöd & coaching</h3>
-                        <p style="font-size: 0.95rem;">Strukturerade samtal med fokus på motivation till förändring, ansvarstagande och positiva livsval. Vi erbjuder praktisk hjälp med vardagsfrågor som boende, ekonomi och kontakter med myndigheter.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Individuellt stöd & coaching</h3>
+                        <p>Strukturerade samtal med fokus på motivation till förändring, ansvarstagande och positiva livsval. Vi erbjuder praktisk hjälp med vardagsfrågor som boende, ekonomi och kontakter med myndigheter.</p>
                     </div>
                     
-                    <div class="insats-card">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Kris- & återfallsförebyggande</h3>
-                        <p style="font-size: 0.95rem;">Akut stöd vid kriser, hjälp att kontakta relevanta myndigheter och planering av alternativa vägar framåt. Vi arbetar proaktivt för att förhindra återfall i kriminalitet.</p>
+                    <div class="service-card">
+                        <h3>Kris- & återfallsförebyggande</h3>
+                        <p>Akut stöd vid kriser, hjälp att kontakta relevanta myndigheter och planering av alternativa vägar framåt. Vi arbetar proaktivt för att förhindra återfall i kriminalitet.</p>
                     </div>
                     
-                    <div class="insats-card">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Arbetsliv & samhällsetablering</h3>
-                        <p style="font-size: 0.95rem;">Stöd med CV-skrivning, jobbsökning, praktikplatser och vägledning till utbildningar. Mentorer med relevant erfarenhet ger kontinuerligt stöd och motivation.</p>
+                    <div class="service-card">
+                        <h3>Arbetsliv & samhällsetablering</h3>
+                        <p>Stöd med CV-skrivning, jobbsökning, praktikplatser och vägledning till utbildningar. Mentorer med relevant erfarenhet ger kontinuerligt stöd och motivation.</p>
                     </div>
                     
-                    <div class="insats-card">
-                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Förebyggande arbete med unga</h3>
-                        <p style="font-size: 0.95rem;">Skolbesök, workshops och aktiviteter på fritidsgårdar. Vi informerar om konsekvenser av kriminalitet och motiverar till positiva val, utbildning och meningsfull fritid.</p>
+                    <div class="service-card">
+                        <h3>Förebyggande arbete med unga</h3>
+                        <p>Skolbesök, workshops och aktiviteter på fritidsgårdar. Vi informerar om konsekvenser av kriminalitet och motiverar till positiva val, utbildning och meningsfull fritid.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SAMVERKAN & KONTAKT - PROBLEM 2 FIXAT: MINSKAT MELLANRUM -->
-        <section class="contact compact-contact" style="background: white;">
+        <!-- SAMVERKAN & KONTAKT -->
+        <section class="contact">
             <div class="container">
                 <div class="contact-box">
                     <h2 class="section-title">Samverkan & kontakt</h2>
                     
                     <div class="form-group" style="text-align: center; max-width: 700px; margin: 0 auto;">
-                        <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Vårt nätverk för förändring</h3>
+                        <h3 style="margin-bottom: 0.8rem; color: var(--text-dark);">Vårt nätverk för förändring</h3>
                         <p>Brytpunkten samarbetar aktivt med myndigheter, frivården, socialtjänsten, arbetsförmedlingen och lokala organisationer. Tillsammans skapar vi en sammanhållen insats för att stödja människor på väg ut ur kriminalitet.</p>
                         <p>Vi har ett rådgivande nätverk med kompetens inom socialt arbete, juridik, psykologi och arbetsliv som säkerställer kvalitet och legitimitet i vårt arbete.</p>
                     </div>
                     
-                    <div class="form-group" style="text-align: center; max-width: 700px; margin: 2rem auto 0;">
-                        <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Kontakta oss</h3>
+                    <div class="form-group" style="text-align: center; max-width: 700px; margin: 1.5rem auto 0;">
+                        <h3 style="margin-bottom: 0.8rem; color: var(--text-dark);">Kontakta oss</h3>
                         <p>Vill du veta mer om vårt arbete, samarbeta med oss eller stödja vår verksamhet?</p>
                         
-                        <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--gray-50); border-radius: 8px; display: inline-block;">
-                            <p style="margin: 0; font-size: 1.1rem;"><strong>E-post:</strong> info@brytpunkten.se</p>
+                        <div style="margin-top: 1.2rem; padding: 1.2rem; background: var(--gray-50); border-radius: 8px; display: inline-block;">
+                            <p style="margin: 0; font-size: 1.05rem;"><strong>E-post:</strong> info@brytpunkten.se</p>
                         </div>
                     </div>
                     
-                    <div class="contact-buttons" style="margin-top: 2.5rem;">
+                    <div class="contact-buttons" style="margin-top: 2rem;">
                         <a href="mailto:info@brytpunkten.se" class="button button-primary button-large">Kontakta oss via e-post</a>
                         <a href="medlem.html" class="button button-outline">Bli medlem</a>
                     </div>
@@ -243,6 +151,4 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="
