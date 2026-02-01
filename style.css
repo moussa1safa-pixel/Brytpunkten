@@ -881,6 +881,12 @@ input:-webkit-autofill:focus {
         overflow-x: hidden !important;
     }
     
+    /* ÄNDRING: CENTRERA "VÅR UNIKA KOMPETENS"-TEXT PÅ MOBIL */
+    .compact-image-grid .about-content {
+        text-align: center !important;
+        padding: 0 1rem !important;
+    }
+    
     /* Mobilmeny */
     .nav-menu {
         position: fixed;
